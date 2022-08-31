@@ -1,0 +1,34 @@
+{
+  "name": "Crane-document",
+  "version": "1.0.0",
+  "description": "**鸣鹤（Crane）**是北京大学高性能计算校级公共平台自主研发的**智算分布式调度系统**，团队在总结高性能公共平台运行近六年的管理和维护经验之后，从高性能计算任务调度的资源管理、资源查看、作业提交、作业查询和资源隔离等作业调度系统最基本的需求出发，结合云计算的作业调度场景，采用C++、go等语言进行开发，完全自主研发的**融合高性能计算和云计算调度为一体**的**开源**智算分布式调度系统。",
+  "main": "index.js",
+  "dependencies": {
+    "gitbook-plugin-back-to-top-button": "^0.1.4",
+    "gitbook-plugin-chapter-fold": "^0.0.4",
+    "gitbook-plugin-code": "^0.1.0",
+    "gitbook-plugin-emphasize": "^1.1.0",
+    "gitbook-plugin-expandable-chapters": "^0.2.0",
+    "gitbook-plugin-pageview-count": "^1.0.1",
+    "gitbook-plugin-prism": "^2.4.0",
+    "gitbook-plugin-prism-themes": "^0.0.2",
+    "gitbook-plugin-search-pro": "^2.0.2",
+    "gitbook-plugin-splitter": "^0.0.8",
+    "gitbook-plugin-theme-comscore": "^0.0.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "build": "gitbook build .  ./docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PKUHPC/Crane-document.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PKUHPC/Crane-document/issues"
+  },
+  "homepage": "https://github.com/PKUHPC/Crane-document#readme"
+}
