@@ -2,8 +2,6 @@
 
 * [1 Crane简介](README.md)
 
-* [2 Crane架构及应用场景](architecture.md)
-
 * [2 Crane功能和特点](features.md)
 
 * [3 Crane安装配置](config/centos7_config.md)
