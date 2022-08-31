@@ -1,0 +1,25 @@
+{
+    "title" : "Crane Document", 
+    "author": "Yinping Ma", 
+    "root": ".", 
+    "description": "Crane Document", 
+    "plugins": [ 
+        "back-to-top-button",
+        "search-pro","-lunr", "-search",
+        "code","prism","prism-themes","-highlight",
+        "pageview-count",
+        "splitter",
+        "expandable-chapters","chapter-fold",
+        "theme-comscore",
+        "emphasize"],
+    "pluginsConfig": { 
+        "prism": {
+            "lang": {
+                "shell": "bash"
+                },
+            "css": [
+            "prismjs/themes/prism-okaidia.css"
+            ]
+        }
+    }
+}
