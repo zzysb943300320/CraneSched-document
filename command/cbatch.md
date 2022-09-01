@@ -54,7 +54,7 @@ cbatch crane_submit.sh
 
 ~~~bash
 #!/bin/bash
-#CBATCH -o crane_test.out
+#CBATCH -o crane_test%j.out
 #CBATCH -p CPU
 #CBATCH -J "crane_test"
 #CBATCH --node 3

@@ -95,15 +95,28 @@ cmake --version
 
 ## 3.安装C++库
 
-复制相关源码压缩包到一个目录，解压所有源码压缩包
+下载相关源码压缩包到一个目录，解压所有源码压缩包
 
 ```shell
+wget https://boostorg.jfrog.io/artifactory/main/release/1.78.0/source/boost_1_78_0.tar.gz
 tar xzf boost_1_78_0.tar.gz
+
+wget https://github.com/fmtlib/fmt/archive/refs/tags/8.0.1.tar.gz
 tar xzf fmt-8.0.1.tar.gz
-tar xzf libevent-2.1.12.tar.gz
+
+wget https://github.com/libevent/libevent/releases/download/release-2.1.12-stable/libevent-2.1.12-stable.tar.gz
+tar xzf libevent-2.1.12-stable.tar.gz
+
+wget https://github.com/jarro2783/cxxopts/archive/refs/tags/v2.2.1.tar.gz
 tar xzf cxxopts-2.2.1.tar.gz
-tar xzf googletest-1.10.0.tar.gz
+
+wget https://github.com/google/googletest/archive/refs/tags/release-1.11.0.tar.gz
+tar xzf googletest-release-1.11.0.tar.gz
+
+wget https://dist.libuv.org/dist/v1.42.0/libuv-v1.42.0.tar.gz
 tar xzf libuv-1.42.0.tar.gz
+
+wget https://github.com/gabime/spdlog/archive/refs/tags/v1.8.5.tar.gz
 tar xzf spdlog-1.8.5.tar.gz
 ```
 
@@ -204,7 +217,7 @@ exit;
 systemctl restart mariadb
 ```
 
-## 4.安装mongobd
+## 5.安装MongoDB
 
 ```shell
 # 下载并解压安装包
@@ -216,7 +229,7 @@ mv mongodb-linux-x86_64-rhel70-5.0.9  /opt/mongodb
 vim /etc/profile
 ```
 
-在配置文件中添加如下内容（路径应对应mongodb安装路径）
+在配置文件中添加如下内容（路径应对应MongoDB安装路径）
 ```shell
 export MONGODB_HOME=/opt/mongodb
 export PATH=$PATH:${MONGODB_HOME}/bin
@@ -276,7 +289,7 @@ db.createUser({
 db.shutdownServer() //重启前先关闭服务器
 ```
 
-重新启动mongodb数据库
+重新启动MongoDB数据库
 ```shell
 mongod --config /opt/mongodb/mongodb.conf
 ```
@@ -288,7 +301,7 @@ vi /etc/rc.local
 mongod --config /opt/mongodb/mongodb.conf
 ```
 
-## 5.安装mongodb C++驱动
+## 6.安装MongoDB C++驱动
 
 参考 http://mongocxx.org/mongocxx-v3/installation/linux/
 
@@ -313,7 +326,7 @@ make
 sudo make install
 ```
 
-## 6.编译程序
+## 7.编译程序
 
 首先进入到项目目录下
 ```shell
@@ -324,7 +337,7 @@ cmake -DCMAKE_CXX_STANDARD=17 -G Ninja ..
 cmake --build .
 ```
 
-## 7.Pam模块
+## 8.Pam模块
 
 首次编译完成后需要将pam模块动态链接库放入系统指定位置
 ```shell
@@ -335,7 +348,7 @@ cp Crane/build/src/Misc/Pam/pam_Crane.so /usr/lib64/security/
 
 Required pam_access.so
 
-## 8.配置前端go语言环境
+## 9.配置前端go语言环境
 
 安装go语言
 ```shell
@@ -397,7 +410,7 @@ ln -s /nfs/home/testCrane/Crane-FrontEnd/out/scontrol /usr/local/bin/scontrol
 ln -s /nfs/home/testCrane/Crane-FrontEnd/out/sacctmgr /usr/local/bin/sacctmgr
 ```
 
-### 9.部署文件同步
+## 10.部署文件同步
 
 在所有节点安装rsync
 ```shell

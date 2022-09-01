@@ -31,3 +31,15 @@
 - [**ccontrol**:查看分区和节点状态](command/ccontrol.md)
 - [**cacctmgr**： 查看和调整用户/账号信息](command/cacctmgr.md)
 
+### 常用术语 ###
+
+- **job**: 作业
+- **node**: 计算节点
+- **core**: CPU核
+- **tasks**： 任务数，一般一个任务使用一个CPU核，可理解为作业所需的CPU核数
+- **partition**: 分区
+- **user**: 用户名
+- **account**: 账户
+- **stdout**: 标准输出文件，程序运行正常时输出信息的文件，一般指输出到屏幕的信息
+- **stderr**: 标准错误文件，程序运行错误时输出信息的文件，一般指输出到屏幕的信息
+

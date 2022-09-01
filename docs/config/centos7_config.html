@@ -375,13 +375,26 @@ gmake <span class="token function">install</span>
 <span class="token comment">#CMake suite maintained and supported by Kitware (kitware.com/cmake).</span>
 </code></pre>
 <h2 id="3&#x5B89;&#x88C5;c&#x5E93;">3.&#x5B89;&#x88C5;C++&#x5E93;</h2>
-<p>&#x590D;&#x5236;&#x76F8;&#x5173;&#x6E90;&#x7801;&#x538B;&#x7F29;&#x5305;&#x5230;&#x4E00;&#x4E2A;&#x76EE;&#x5F55;&#xFF0C;&#x89E3;&#x538B;&#x6240;&#x6709;&#x6E90;&#x7801;&#x538B;&#x7F29;&#x5305;</p>
-<pre class="language-"><code class="lang-shell"><span class="token function">tar</span> xzf boost_1_78_0.tar.gz
+<p>&#x4E0B;&#x8F7D;&#x76F8;&#x5173;&#x6E90;&#x7801;&#x538B;&#x7F29;&#x5305;&#x5230;&#x4E00;&#x4E2A;&#x76EE;&#x5F55;&#xFF0C;&#x89E3;&#x538B;&#x6240;&#x6709;&#x6E90;&#x7801;&#x538B;&#x7F29;&#x5305;</p>
+<pre class="language-"><code class="lang-shell"><span class="token function">wget</span> https://boostorg.jfrog.io/artifactory/main/release/1.78.0/source/boost_1_78_0.tar.gz
+<span class="token function">tar</span> xzf boost_1_78_0.tar.gz
+
+<span class="token function">wget</span> https://github.com/fmtlib/fmt/archive/refs/tags/8.0.1.tar.gz
 <span class="token function">tar</span> xzf fmt-8.0.1.tar.gz
-<span class="token function">tar</span> xzf libevent-2.1.12.tar.gz
+
+<span class="token function">wget</span> https://github.com/libevent/libevent/releases/download/release-2.1.12-stable/libevent-2.1.12-stable.tar.gz
+<span class="token function">tar</span> xzf libevent-2.1.12-stable.tar.gz
+
+<span class="token function">wget</span> https://github.com/jarro2783/cxxopts/archive/refs/tags/v2.2.1.tar.gz
 <span class="token function">tar</span> xzf cxxopts-2.2.1.tar.gz
-<span class="token function">tar</span> xzf googletest-1.10.0.tar.gz
+
+<span class="token function">wget</span> https://github.com/google/googletest/archive/refs/tags/release-1.11.0.tar.gz
+<span class="token function">tar</span> xzf googletest-release-1.11.0.tar.gz
+
+<span class="token function">wget</span> https://dist.libuv.org/dist/v1.42.0/libuv-v1.42.0.tar.gz
 <span class="token function">tar</span> xzf libuv-1.42.0.tar.gz
+
+<span class="token function">wget</span> https://github.com/gabime/spdlog/archive/refs/tags/v1.8.5.tar.gz
 <span class="token function">tar</span> xzf spdlog-1.8.5.tar.gz
 </code></pre>
 <p>&#x5B89;&#x88C5;&#x7B2C;&#x4E09;&#x65B9;&#x5E93;</p>
@@ -460,7 +473,7 @@ Server version: <span class="token number">10.4</span>.8-MariaDB MariaDB Server
 <pre class="language-"><code class="lang-shell"><span class="token builtin class-name">exit</span><span class="token punctuation">;</span>
 systemctl restart mariadb
 </code></pre>
-<h2 id="4&#x5B89;&#x88C5;mongobd">4.&#x5B89;&#x88C5;mongobd</h2>
+<h2 id="5&#x5B89;&#x88C5;mongodb">5.&#x5B89;&#x88C5;MongoDB</h2>
 <pre class="language-"><code class="lang-shell"><span class="token comment"># &#x4E0B;&#x8F7D;&#x5E76;&#x89E3;&#x538B;&#x5B89;&#x88C5;&#x5305;</span>
 <span class="token function">wget</span> https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-rhel70-5.0.9.tgz
 <span class="token function">tar</span> <span class="token parameter variable">-zxvf</span> mongodb-linux-x86_64-rhel70-5.0.9.tgz
@@ -469,7 +482,7 @@ systemctl restart mariadb
 <span class="token comment"># &#x6DFB;&#x52A0;&#x73AF;&#x5883;&#x53D8;&#x91CF;  </span>
 <span class="token function">vim</span> /etc/profile
 </code></pre>
-<p>&#x5728;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;&#x6DFB;&#x52A0;&#x5982;&#x4E0B;&#x5185;&#x5BB9;&#xFF08;&#x8DEF;&#x5F84;&#x5E94;&#x5BF9;&#x5E94;mongodb&#x5B89;&#x88C5;&#x8DEF;&#x5F84;&#xFF09;</p>
+<p>&#x5728;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;&#x6DFB;&#x52A0;&#x5982;&#x4E0B;&#x5185;&#x5BB9;&#xFF08;&#x8DEF;&#x5F84;&#x5E94;&#x5BF9;&#x5E94;MongoDB&#x5B89;&#x88C5;&#x8DEF;&#x5F84;&#xFF09;</p>
 <pre class="language-"><code class="lang-shell"><span class="token builtin class-name">export</span> <span class="token assign-left variable">MONGODB_HOME</span><span class="token operator">=</span>/opt/mongodb
 <span class="token builtin class-name">export</span> <span class="token assign-left variable"><span class="token environment constant">PATH</span></span><span class="token operator">=</span><span class="token environment constant">$PATH</span><span class="token builtin class-name">:</span><span class="token variable">${MONGODB_HOME}</span>/bin
 </code></pre>
@@ -519,7 +532,7 @@ db.createUser<span class="token punctuation">(</span><span class="token punctuat
 
 db.shutdownServer<span class="token punctuation">(</span><span class="token punctuation">)</span> //&#x91CD;&#x542F;&#x524D;&#x5148;&#x5173;&#x95ED;&#x670D;&#x52A1;&#x5668;
 </code></pre>
-<p>&#x91CD;&#x65B0;&#x542F;&#x52A8;mongodb&#x6570;&#x636E;&#x5E93;</p>
+<p>&#x91CD;&#x65B0;&#x542F;&#x52A8;MongoDB&#x6570;&#x636E;&#x5E93;</p>
 <pre class="language-"><code class="lang-shell">mongod <span class="token parameter variable">--config</span> /opt/mongodb/mongodb.conf
 </code></pre>
 <p>&#x7F16;&#x8F91;&#x5F00;&#x673A;&#x542F;&#x52A8;</p>
@@ -527,7 +540,7 @@ db.shutdownServer<span class="token punctuation">(</span><span class="token punc
 <span class="token comment"># &#x52A0;&#x5165;&#x5982;&#x4E0B;&#x8BED;&#x53E5;&#xFF0C;&#x4EE5;&#x4FBF;&#x542F;&#x52A8;&#x65F6;&#x6267;&#x884C;&#xFF1A;</span>
 mongod <span class="token parameter variable">--config</span> /opt/mongodb/mongodb.conf
 </code></pre>
-<h2 id="5&#x5B89;&#x88C5;mongodb-c&#x9A71;&#x52A8;">5.&#x5B89;&#x88C5;mongodb C++&#x9A71;&#x52A8;</h2>
+<h2 id="6&#x5B89;&#x88C5;mongodb-c&#x9A71;&#x52A8;">6.&#x5B89;&#x88C5;MongoDB C++&#x9A71;&#x52A8;</h2>
 <p>&#x53C2;&#x8003; <a href="http://mongocxx.org/mongocxx-v3/installation/linux/" target="_blank">http://mongocxx.org/mongocxx-v3/installation/linux/</a></p>
 <p>&#x5B89;&#x88C5;mongo-c-driver</p>
 <pre class="language-"><code class="lang-shell"><span class="token function">wget</span> https://github.com/mongodb/mongo-c-driver/releases/download/1.21.1/mongo-c-driver-1.21.1.tar.gz
@@ -546,7 +559,7 @@ cmake <span class="token parameter variable">-DCMAKE_BUILD_TYPE</span><span clas
 <span class="token function">make</span>
 <span class="token function">sudo</span> <span class="token function">make</span> <span class="token function">install</span>
 </code></pre>
-<h2 id="6&#x7F16;&#x8BD1;&#x7A0B;&#x5E8F;">6.&#x7F16;&#x8BD1;&#x7A0B;&#x5E8F;</h2>
+<h2 id="7&#x7F16;&#x8BD1;&#x7A0B;&#x5E8F;">7.&#x7F16;&#x8BD1;&#x7A0B;&#x5E8F;</h2>
 <p>&#x9996;&#x5148;&#x8FDB;&#x5165;&#x5230;&#x9879;&#x76EE;&#x76EE;&#x5F55;&#x4E0B;</p>
 <pre class="language-"><code class="lang-shell"><span class="token function">mkdir</span> build
 <span class="token builtin class-name">cd</span> build/
@@ -554,13 +567,13 @@ cmake <span class="token parameter variable">-DCMAKE_BUILD_TYPE</span><span clas
 cmake <span class="token parameter variable">-DCMAKE_CXX_STANDARD</span><span class="token operator">=</span><span class="token number">17</span> <span class="token parameter variable">-G</span> Ninja <span class="token punctuation">..</span>
 cmake <span class="token parameter variable">--build</span> <span class="token builtin class-name">.</span>
 </code></pre>
-<h2 id="7pam&#x6A21;&#x5757;">7.Pam&#x6A21;&#x5757;</h2>
+<h2 id="8pam&#x6A21;&#x5757;">8.Pam&#x6A21;&#x5757;</h2>
 <p>&#x9996;&#x6B21;&#x7F16;&#x8BD1;&#x5B8C;&#x6210;&#x540E;&#x9700;&#x8981;&#x5C06;pam&#x6A21;&#x5757;&#x52A8;&#x6001;&#x94FE;&#x63A5;&#x5E93;&#x653E;&#x5165;&#x7CFB;&#x7EDF;&#x6307;&#x5B9A;&#x4F4D;&#x7F6E;</p>
 <pre class="language-"><code class="lang-shell"><span class="token function">cp</span> Crane/build/src/Misc/Pam/pam_Crane.so /usr/lib64/security/
 </code></pre>
 <p>&#x540C;&#x65F6;&#x8BA1;&#x7B97;&#x8282;&#x70B9;&#x201C;/etc/security/access.conf&#x201D;&#x6587;&#x4EF6;&#x7981;&#x6B62;&#x975E;root&#x7528;&#x6237;&#x767B;&#x5F55;</p>
 <p>Required pam_access.so</p>
-<h2 id="8&#x914D;&#x7F6E;&#x524D;&#x7AEF;go&#x8BED;&#x8A00;&#x73AF;&#x5883;">8.&#x914D;&#x7F6E;&#x524D;&#x7AEF;go&#x8BED;&#x8A00;&#x73AF;&#x5883;</h2>
+<h2 id="9&#x914D;&#x7F6E;&#x524D;&#x7AEF;go&#x8BED;&#x8A00;&#x73AF;&#x5883;">9.&#x914D;&#x7F6E;&#x524D;&#x7AEF;go&#x8BED;&#x8A00;&#x73AF;&#x5883;</h2>
 <p>&#x5B89;&#x88C5;go&#x8BED;&#x8A00;</p>
 <pre class="language-"><code class="lang-shell"><span class="token builtin class-name">cd</span> download/
 <span class="token function">wget</span> https://golang.google.cn/dl/go1.17.3.linux-amd64.tar.gz
@@ -610,7 +623,7 @@ go build Crane-FrontEnd/cmd/sbatchx/sbatchx.go
 <span class="token function">ln</span> <span class="token parameter variable">-s</span> /nfs/home/testCrane/Crane-FrontEnd/out/scontrol /usr/local/bin/scontrol
 <span class="token function">ln</span> <span class="token parameter variable">-s</span> /nfs/home/testCrane/Crane-FrontEnd/out/sacctmgr /usr/local/bin/sacctmgr
 </code></pre>
-<h3 id="9&#x90E8;&#x7F72;&#x6587;&#x4EF6;&#x540C;&#x6B65;">9.&#x90E8;&#x7F72;&#x6587;&#x4EF6;&#x540C;&#x6B65;</h3>
+<h2 id="10&#x90E8;&#x7F72;&#x6587;&#x4EF6;&#x540C;&#x6B65;">10.&#x90E8;&#x7F72;&#x6587;&#x4EF6;&#x540C;&#x6B65;</h2>
 <p>&#x5728;&#x6240;&#x6709;&#x8282;&#x70B9;&#x5B89;&#x88C5;rsync</p>
 <pre class="language-"><code class="lang-shell">yum <span class="token parameter variable">-y</span> <span class="token function">install</span> <span class="token function">rsync</span>
 
@@ -682,7 +695,7 @@ inotifywait <span class="token parameter variable">-mrq</span> <span class="toke
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"3 Crane安装配置","level":"1.3","depth":1,"next":{"title":"4 Crane使用教程","level":"1.4","depth":1,"path":"command/README.md","ref":"command/README.md","articles":[{"title":"4.1 cinfo 查看节点与分区状态","level":"1.4.1","depth":2,"path":"command/cinfo.md","ref":"command/cinfo.md","articles":[]},{"title":"4.2 cbatch 提交批处理作业","level":"1.4.2","depth":2,"path":"command/cbatch.md","ref":"command/cbatch.md","articles":[]},{"title":"4.3 cqueue 查看作业队列","level":"1.4.3","depth":2,"path":"command/cqueue.md","ref":"command/cqueue.md","articles":[]},{"title":"4.4 ccancel 取消运行或提交的作业","level":"1.4.4","depth":2,"path":"command/ccancel.md","ref":"command/ccancel.md","articles":[]},{"title":"4.5 ccontrol 查看分区和节点状态","level":"1.4.5","depth":2,"path":"command/ccontrol.md","ref":"command/ccontrol.md","articles":[]},{"title":"4.6 cacctmgr 管理用户/账户信息","level":"1.4.6","depth":2,"path":"command/cacctmgr.md","ref":"command/cacctmgr.md","articles":[]}]},"previous":{"title":"2 Crane功能和特点","level":"1.2","depth":1,"path":"features.md","ref":"features.md","articles":[]},"dir":"ltr"},"config":{"plugins":["back-to-top-button","search-pro","-lunr","-search","code","prism","prism-themes","-highlight","pageview-count","splitter","expandable-chapters","chapter-fold","theme-comscore","emphasize"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"prism":{"lang":{"shell":"bash"},"css":["prismjs/themes/prism-okaidia.css"]},"emphasize":{},"splitter":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-comscore":{},"back-to-top-button":{},"pageview-count":{},"prism-themes":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Yinping Ma","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Crane Document","gitbook":"*","description":"Crane Document"},"file":{"path":"config/centos7_config.md","mtime":"2022-08-31T09:10:39.598Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-08-31T13:28:13.242Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3 Crane安装配置","level":"1.3","depth":1,"next":{"title":"4 Crane使用教程","level":"1.4","depth":1,"path":"command/README.md","ref":"command/README.md","articles":[{"title":"4.1 cinfo 查看节点与分区状态","level":"1.4.1","depth":2,"path":"command/cinfo.md","ref":"command/cinfo.md","articles":[]},{"title":"4.2 cbatch 提交批处理作业","level":"1.4.2","depth":2,"path":"command/cbatch.md","ref":"command/cbatch.md","articles":[]},{"title":"4.3 cqueue 查看作业队列","level":"1.4.3","depth":2,"path":"command/cqueue.md","ref":"command/cqueue.md","articles":[]},{"title":"4.4 ccancel 取消运行或提交的作业","level":"1.4.4","depth":2,"path":"command/ccancel.md","ref":"command/ccancel.md","articles":[]},{"title":"4.5 ccontrol 查看分区和节点状态","level":"1.4.5","depth":2,"path":"command/ccontrol.md","ref":"command/ccontrol.md","articles":[]},{"title":"4.6 cacctmgr 管理用户/账户信息","level":"1.4.6","depth":2,"path":"command/cacctmgr.md","ref":"command/cacctmgr.md","articles":[]}]},"previous":{"title":"2 Crane功能和特点","level":"1.2","depth":1,"path":"features.md","ref":"features.md","articles":[]},"dir":"ltr"},"config":{"plugins":["back-to-top-button","search-pro","-lunr","-search","code","prism","prism-themes","-highlight","pageview-count","splitter","expandable-chapters","chapter-fold","theme-comscore","emphasize"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"prism":{"lang":{"shell":"bash"},"css":["prismjs/themes/prism-okaidia.css"]},"emphasize":{},"splitter":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-comscore":{},"back-to-top-button":{},"pageview-count":{},"prism-themes":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Yinping Ma","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Crane Document","gitbook":"*","description":"Crane Document"},"file":{"path":"config/centos7_config.md","mtime":"2022-09-01T08:57:11.160Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-09-01T08:57:28.567Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
