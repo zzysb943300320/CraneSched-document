@@ -1,4 +1,4 @@
-# centos7 Crane环境配置
+# Centos7 Crane环境配置
 
 ## 1.环境准备
 
