@@ -4,7 +4,7 @@
 
 * [2 Crane功能和特点](features.md)
 
-* [3 Crane安装配置](config/centos7_config.md)
+* [3 Crane安装配置](config/Centos7Configuration.md)
 
 * [4 Crane使用教程](command/README.md)
     * [4.1 cinfo 查看节点与分区状态](command/cinfo.md)
