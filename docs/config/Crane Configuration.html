@@ -1,0 +1,632 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>3.1 Crane 后端环境配置 · Crane Document</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Yinping Ma">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-okaidia.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-emphasize/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="Crane-FrontEnd Configuration.html" />
+    
+    
+    <link rel="prev" href="Centos7Configuration.md" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    1 Crane简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../features.html">
+            
+                <a href="../features.html">
+            
+                    
+                    2 Crane功能和特点
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="Centos7Configuration.md">
+            
+                <span>
+            
+                    
+                    3 Crane安装配置
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.3.1" data-path="Crane Configuration.html">
+            
+                <a href="Crane Configuration.html">
+            
+                    
+                    3.1 Crane 后端环境配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="Crane-FrontEnd Configuration.html">
+            
+                <a href="Crane-FrontEnd Configuration.html">
+            
+                    
+                    3.2 Crane 前端环境配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../command/README.md">
+            
+                <span>
+            
+                    
+                    4 Crane使用教程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../command/cinfo.html">
+            
+                <a href="../command/cinfo.html">
+            
+                    
+                    4.1 cinfo 查看节点与分区状态
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../command/cbatch.html">
+            
+                <a href="../command/cbatch.html">
+            
+                    
+                    4.2 cbatch 提交批处理作业
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../command/cqueue.html">
+            
+                <a href="../command/cqueue.html">
+            
+                    
+                    4.3 cqueue 查看作业队列
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../command/ccancel.html">
+            
+                <a href="../command/ccancel.html">
+            
+                    
+                    4.4 ccancel 取消运行或提交的作业
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../command/ccontrol.html">
+            
+                <a href="../command/ccontrol.html">
+            
+                    
+                    4.5 ccontrol 查看分区和节点状态
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../command/cacctmgr.html">
+            
+                <a href="../command/cacctmgr.html">
+            
+                    
+                    4.6 cacctmgr 管理用户/账户信息
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >3.1 Crane 后端环境配置</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="crane-&#x9879;&#x76EE;&#x73AF;&#x5883;&#x914D;&#x7F6E;">Crane &#x9879;&#x76EE;&#x73AF;&#x5883;&#x914D;&#x7F6E;</h1>
+<p><strong><em>&#x4EE5;&#x4E0B;&#x5185;&#x5BB9;&#x4E3A;&#x914D;&#x7F6E;&#x4EE3;&#x7801;&#x7F16;&#x8BD1;&#x73AF;&#x5883;&#xFF0C;&#x5728;&#x7F16;&#x8BD1;&#x9879;&#x76EE;&#x7684;&#x8282;&#x70B9;&#x6267;&#x884C;</em></strong></p>
+<h2 id="1&#x73AF;&#x5883;&#x51C6;&#x5907;">1.&#x73AF;&#x5883;&#x51C6;&#x5907;</h2>
+<p>&#x5B89;&#x88C5;ntp ntpdate&#x540C;&#x6B65;&#x65F6;&#x949F;</p>
+<pre class="language-"><code class="lang-shell">yum <span class="token parameter variable">-y</span> <span class="token function">install</span> ntp ntpdate <span class="token parameter variable">-y</span>
+systemctl start ntpd
+systemctl <span class="token builtin class-name">enable</span> ntpd
+
+timedatectl set-timezone Asia/Shanghai
+</code></pre>
+<p>&#x5173;&#x95ED;&#x9632;&#x706B;&#x5899;&#xFF0C;&#x4E0D;&#x5141;&#x8BB8;&#x5173;&#x95ED;&#x9632;&#x706B;&#x5899;&#x5219;&#x8003;&#x8651;&#x5F00;&#x653E;10011&#x3001;10010&#x3001;873&#x7AEF;&#x53E3;</p>
+<pre class="language-"><code class="lang-shell">systemctl stop firewalld
+systemctl disable firewalld
+
+<span class="token comment"># &#x6216;&#x8005;&#x5F00;&#x653E;&#x7AEF;&#x53E3;</span>
+firewall-cmd --add-port<span class="token operator">=</span><span class="token number">10011</span>/tcp <span class="token parameter variable">--permanent</span> <span class="token parameter variable">--zone</span><span class="token operator">=</span>public
+firewall-cmd --add-port<span class="token operator">=</span><span class="token number">10010</span>/tcp <span class="token parameter variable">--permanent</span> <span class="token parameter variable">--zone</span><span class="token operator">=</span>public
+firewall-cmd --add-port<span class="token operator">=</span><span class="token number">873</span>/tcp <span class="token parameter variable">--permanent</span> <span class="token parameter variable">--zone</span><span class="token operator">=</span>public
+<span class="token comment"># &#x91CD;&#x542F;&#x9632;&#x706B;&#x5899;(&#x4FEE;&#x6539;&#x914D;&#x7F6E;&#x540E;&#x8981;&#x91CD;&#x542F;&#x9632;&#x706B;&#x5899;)</span>
+firewall-cmd <span class="token parameter variable">--reload</span>
+</code></pre>
+<h2 id="2&#x5B89;&#x88C5;&#x4F9D;&#x8D56;&#x5305;">2.&#x5B89;&#x88C5;&#x4F9D;&#x8D56;&#x5305;</h2>
+<pre class="language-"><code class="lang-shell">yum <span class="token function">install</span> <span class="token parameter variable">-y</span> epel-release <span class="token function">pv</span> openssl-devel libcgroup-devel curl-devel boost169-devel boost169-static
+</code></pre>
+<h2 id="3&#x5B89;&#x88C5;&#x5DE5;&#x5177;&#x94FE;">3.&#x5B89;&#x88C5;&#x5DE5;&#x5177;&#x94FE;</h2>
+<p>&#x5B89;&#x88C5;C++11</p>
+<pre class="language-"><code class="lang-shell"><span class="token comment"># Install CentOS SCLo RH repository:</span>
+yum <span class="token function">install</span> <span class="token parameter variable">-y</span> centos-release-scl-rh
+<span class="token comment"># Install devtoolset-11 rpm package:</span>
+yum <span class="token function">install</span> <span class="token parameter variable">-y</span> devtoolset-11
+<span class="token comment"># &#x7B2C;&#x4E09;&#x6B65;&#x5C31;&#x662F;&#x4F7F;&#x65B0;&#x7684;&#x5DE5;&#x5177;&#x96C6;&#x751F;&#x6548;</span>
+scl <span class="token builtin class-name">enable</span> devtoolset-11 <span class="token function">bash</span>
+</code></pre>
+<p>&#x8FD9;&#x65F6;&#x7528;gcc --version&#x67E5;&#x8BE2;&#xFF0C;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x7248;&#x672C;&#x5DF2;&#x7ECF;&#x662F;11.2&#x7CFB;&#x5217;&#x4E86;</p>
+<pre class="language-"><code class="lang-shell">$ gcc <span class="token parameter variable">--version</span>
+gcc <span class="token punctuation">(</span>GCC<span class="token punctuation">)</span> <span class="token number">11.2</span>.1 <span class="token number">20220127</span> <span class="token punctuation">(</span>Red Hat <span class="token number">11.2</span>.1-9<span class="token punctuation">)</span>
+Copyright <span class="token punctuation">(</span>C<span class="token punctuation">)</span> <span class="token number">2021</span> Free Software Foundation, Inc.
+This is <span class="token function">free</span> software<span class="token punctuation">;</span> see the <span class="token builtin class-name">source</span> <span class="token keyword">for</span> copying conditions.  There is NO
+warranty<span class="token punctuation">;</span> not even <span class="token keyword">for</span> MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+</code></pre>
+<p>&#x4E3A;&#x4E86;&#x907F;&#x514D;&#x6BCF;&#x6B21;&#x624B;&#x52A8;&#x751F;&#x6548;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;.bashrc&#x4E2D;&#x8BBE;&#x7F6E;&#xFF0C;&#x6B64;&#x6587;&#x4EF6;&#x4E2D;&#x4FEE;&#x6539;&#x5BF9;&#x5F53;&#x524D;&#x7528;&#x6237;&#x6C38;&#x4E45;&#x751F;&#x6548;</p>
+<pre class="language-"><code class="lang-shell"><span class="token function">vim</span> ~/.bashrc
+
+<span class="token comment"># &#x5728;&#x6700;&#x540E;&#x4E00;&#x884C;&#x52A0;&#x4E0A;</span>
+<span class="token builtin class-name">source</span> /opt/rh/devtoolset-11/enable
+or
+<span class="token builtin class-name">source</span> scl_source <span class="token builtin class-name">enable</span> devtoolset-11
+
+<span class="token comment"># &#x4F7F;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x751F;&#x6548;</span>
+<span class="token builtin class-name">source</span> ~/.bashrc
+</code></pre>
+<p>&#x5B89;&#x88C5;cmake&#x548C;ninja</p>
+<p>&#x9009;&#x62E9;&#x4E00;&#x4E2A;&#x5408;&#x9002;&#x7684;&#x6E90;&#x7801;&#x5B58;&#x653E;&#x4F4D;&#x7F6E;&#xFF0C;&#x4ECE;github&#x4E0B;&#x8F7D;&#x6E90;&#x7801;</p>
+<pre class="language-"><code class="lang-shell"><span class="token function">wget</span> https://github.com/ninja-build/ninja/releases/download/v1.10.2/ninja-linux.zip
+<span class="token function">wget</span> https://github.com/Kitware/CMake/releases/download/v3.21.3/cmake-3.21.3.tar.gz
+</code></pre>
+<p>&#x89E3;&#x538B;&#x7F16;&#x8BD1;&#x5B89;&#x88C5;&#xFF0C;&#x9996;&#x6B21;&#x7F16;&#x8BD1;&#x65F6;&#x95F4;&#x8F83;&#x957F;&#xFF0C;&#x8BF7;&#x8010;&#x5FC3;&#x7B49;&#x5F85;</p>
+<pre class="language-"><code class="lang-shell"><span class="token function">unzip</span> ninja-linux.zip
+<span class="token function">cp</span> ninja /usr/local/bin/
+
+<span class="token function">tar</span> <span class="token parameter variable">-zxvf</span> cmake-3.21.3.tar.gz
+<span class="token builtin class-name">cd</span> cmake-3.21.3
+./bootstrap
+gmake
+gmake <span class="token function">install</span>
+</code></pre>
+<p>&#x68C0;&#x67E5;&#x5B89;&#x88C5;&#x662F;&#x5426;&#x6210;&#x529F;</p>
+<pre class="language-"><code class="lang-shell">cmake <span class="token parameter variable">--version</span>
+<span class="token comment">#cmake version 3.21.3</span>
+<span class="token comment">#</span>
+<span class="token comment">#CMake suite maintained and supported by Kitware (kitware.com/cmake).</span>
+</code></pre>
+<p>&#x62A5;&#x9519;</p>
+<pre class="language-"><code class="lang-shell">CMake Error: Could not <span class="token function">find</span> CMAKE_ROOT <span class="token operator">!</span><span class="token operator">!</span><span class="token operator">!</span>
+CMake has <span class="token function">most</span> likely not been installed correctly.
+Modules directory not found <span class="token keyword">in</span>
+/usr/local/bin
+Segmentation fault
+</code></pre>
+<p>&#x51FA;&#x73B0;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E00;&#x822C;&#x60C5;&#x51B5;&#x4E0B;&#x662F;&#x56E0;&#x4E3A;&#x6211;&#x4EEC;&#x5728;&#x5B89;&#x88C5;cmake&#x4E4B;&#x524D;&#x6267;&#x884C;&#x8FC7;cmake&#x547D;&#x4EE4;&#xFF0C;&#x7EC8;&#x7AEF;&#x7684;&#x54C8;&#x5E0C;&#x8868;&#x4F1A;&#x8BB0;&#x5F55;&#x4E0B;&#x6267;&#x884C;&#x8FC7;&#x7684;&#x547D;&#x4EE4;&#x7684;&#x8DEF;&#x5F84;&#xFF0C;&#x76F8;&#x5F53;&#x4E8E;&#x7F13;&#x5B58;&#x3002;&#x7B2C;&#x4E00;&#x6B21;&#x6267;&#x884C;&#x547D;&#x4EE4;shell&#x89E3;&#x91CA;&#x5668;&#x9ED8;&#x8BA4;&#x7684;&#x4F1A;&#x4ECE;PATH&#x8DEF;&#x5F84;&#x4E0B;&#x5BFB;&#x627E;&#x8BE5;&#x547D;&#x4EE4;&#x7684;&#x8DEF;&#x5F84;&#xFF0C;&#x5F53;&#x6211;&#x4EEC;&#x7B2C;&#x4E8C;&#x6B21;&#x4F7F;&#x7528;&#x8BE5;&#x547D;&#x4EE4;&#x65F6;&#xFF0C;shell&#x89E3;&#x91CA;&#x5668;&#x9996;&#x5148;&#x4F1A;&#x67E5;&#x770B;&#x54C8;&#x5E0C;&#x8868;&#xFF0C;&#x6CA1;&#x6709;&#x8BE5;&#x547D;&#x4EE4;&#x624D;&#x4F1A;&#x53BB;PATH&#x8DEF;&#x5F84;&#x4E0B;&#x5BFB;&#x627E;&#x3002;</p>
+<p>&#x6240;&#x4EE5;&#x54C8;&#x5E0C;&#x8868;&#x53EF;&#x4EE5;&#x5927;&#x5927;&#x63D0;&#x9AD8;&#x547D;&#x4EE4;&#x7684;&#x8C03;&#x7528;&#x901F;&#x7387;&#xFF0C;&#x4F46;&#x662F;CMake Error: Could not find
+CMAKE_ROOT&#x9519;&#x8BEF;&#x7684;&#x539F;&#x56E0;&#x4E5F;&#x51FA;&#x5728;&#x8FD9;&#x91CC;&#xFF0C;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x4E4B;&#x524D;&#x5728;&#x8FD9;&#x4E2A;&#x7EC8;&#x7AEF;&#x6267;&#x884C;&#x8FC7;cmake&#x547D;&#x4EE4;&#xFF0C;&#x90A3;&#x4E48;&#x54C8;&#x5E0C;&#x8868;&#x5C31;&#x4F1A;&#x81EA;&#x52A8;&#x8BB0;&#x5F55;&#x4E0B;&#x4E4B;&#x524D;&#x7248;&#x672C;cmake&#x7684;&#x8DEF;&#x5F84;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8F93;&#x5165;hash -l&#x67E5;&#x770B;&#xFF0C;&#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF1A;</p>
+<pre class="language-"><code class="lang-shell"><span class="token punctuation">[</span>root@cn17 cmake-3.21.3<span class="token punctuation">]</span><span class="token comment"># hash -l</span>
+<span class="token builtin class-name">builtin</span> <span class="token builtin class-name">hash</span> <span class="token parameter variable">-p</span> /usr/bin/wget <span class="token function">wget</span>
+<span class="token builtin class-name">builtin</span> <span class="token builtin class-name">hash</span> <span class="token parameter variable">-p</span> /usr/bin/cmake cmake
+</code></pre>
+<p>&#x6240;&#x4EE5;&#x5F53;&#x6211;&#x4EEC;&#x66F4;&#x65B0;&#x4E86;cmake&#x4EE5;&#x540E;&#xFF0C;&#x5F53;&#x6211;&#x4EEC;&#x8F93;&#x5165;cmake&#x76F8;&#x5173;&#x547D;&#x4EE4;&#x65F6;&#xFF0C;shell&#x89E3;&#x91CA;&#x5668;&#x4FBF;&#x4F1A;&#x53BB;&#x54C8;&#x5E0C;&#x8868;&#x91CC;&#x9762;&#x67E5;&#x627E;&#x4E4B;&#x524D;&#x7248;&#x672C;cmake&#x7684;&#x8DEF;&#x5F84;&#xFF0C;&#x7136;&#x540E;&#x4FBF;&#x4EA7;&#x751F;&#x4E86;&#x9519;&#x8BEF;&#x3002;</p>
+<p>&#x6B64;&#x65F6;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x91CD;&#x65B0;&#x5F00;&#x4E00;&#x4E2A;&#x7EC8;&#x7AEF;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x5728;&#x8BE5;&#x7EC8;&#x7AEF;&#x6267;&#x884C;hash -r&#x547D;&#x4EE4;&#x6765;&#x6E05;&#x9664;&#x54C8;&#x5E0C;&#x8868;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x7136;&#x540E;&#x518D;&#x6267;&#x884C;cmake --version&#x547D;&#x4EE4;&#x3002;</p>
+<h2 id="4&#x5B89;&#x88C5;mongodb">4.&#x5B89;&#x88C5;mongodb</h2>
+<p><strong><em>&#x5B89;&#x88C5;&#x6570;&#x636E;&#x5E93;&#x4EC5;&#x5728;&#x9700;&#x8981;&#x5B58;&#x50A8;&#x6570;&#x636E;&#x7684;&#x8282;&#x70B9;&#x5B89;&#x88C5;</em></strong></p>
+<pre class="language-"><code class="lang-shell"><span class="token comment"># &#x4E0B;&#x8F7D;&#x5E76;&#x89E3;&#x538B;&#x5B89;&#x88C5;&#x5305;</span>
+<span class="token function">wget</span> https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-rhel70-5.0.9.tgz
+<span class="token function">tar</span> <span class="token parameter variable">-zxvf</span> mongodb-linux-x86_64-rhel70-5.0.9.tgz
+<span class="token comment"># &#x91CD;&#x547D;&#x540D;</span>
+<span class="token function">mv</span> mongodb-linux-x86_64-rhel70-5.0.9  /opt/mongodb
+<span class="token comment"># &#x6DFB;&#x52A0;&#x73AF;&#x5883;&#x53D8;&#x91CF;  </span>
+<span class="token function">vim</span> /etc/profile
+</code></pre>
+<p>&#x5728;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;&#x6DFB;&#x52A0;&#x5982;&#x4E0B;&#x5185;&#x5BB9;&#xFF08;&#x8DEF;&#x5F84;&#x5E94;&#x5BF9;&#x5E94;mongodb&#x5B89;&#x88C5;&#x8DEF;&#x5F84;&#xFF09;</p>
+<pre class="language-"><code class="lang-shell"><span class="token builtin class-name">export</span> <span class="token assign-left variable">MONGODB_HOME</span><span class="token operator">=</span>/opt/mongodb
+<span class="token builtin class-name">export</span> <span class="token assign-left variable"><span class="token environment constant">PATH</span></span><span class="token operator">=</span><span class="token environment constant">$PATH</span><span class="token builtin class-name">:</span><span class="token variable">${MONGODB_HOME}</span>/bin
+</code></pre>
+<pre class="language-"><code class="lang-shell"><span class="token comment"># &#x4F7F;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x751F;&#x6548;</span>
+<span class="token builtin class-name">source</span> /etc/profile 
+<span class="token comment"># &#x521B;&#x5EFA;db&#x76EE;&#x5F55;&#x548C;log&#x76EE;&#x5F55;</span>
+<span class="token builtin class-name">cd</span> /opt/mongodb
+<span class="token function">mkdir</span> <span class="token parameter variable">-p</span> ./data/db
+<span class="token function">mkdir</span> <span class="token parameter variable">-p</span> ./logs
+<span class="token function">touch</span> ./logs/mongodb.log
+</code></pre>
+<p>&#x521B;&#x5EFA;mongodb.conf&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x5185;&#x5BB9;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre class="language-"><code class="lang-shell"><span class="token function">vim</span> mongodb.conf
+
+<span class="token comment">#&#x7AEF;&#x53E3;&#x53F7;</span>
+<span class="token assign-left variable">port</span><span class="token operator">=</span><span class="token number">27017</span>
+<span class="token comment">#db&#x76EE;&#x5F55;</span>
+<span class="token assign-left variable">dbpath</span><span class="token operator">=</span>/opt/mongodb/data/db
+<span class="token comment">#&#x65E5;&#x5FD7;&#x76EE;&#x5F55;</span>
+<span class="token assign-left variable">logpath</span><span class="token operator">=</span>/opt/mongodb/logs/mongodb.log
+<span class="token comment">#&#x540E;&#x53F0;</span>
+<span class="token assign-left variable">fork</span><span class="token operator">=</span>true
+<span class="token comment">#&#x65E5;&#x5FD7;&#x8F93;&#x51FA;</span>
+<span class="token assign-left variable">logappend</span><span class="token operator">=</span>true
+<span class="token comment">#&#x5141;&#x8BB8;&#x8FDC;&#x7A0B;IP&#x8FDE;&#x63A5;</span>
+<span class="token assign-left variable">bind_ip</span><span class="token operator">=</span><span class="token number">0.0</span>.0.0
+<span class="token comment">#&#x5F00;&#x542F;&#x6743;&#x9650;&#x9A8C;&#x8BC1;</span>
+<span class="token comment">#auth=true</span>
+</code></pre>
+<p>&#x542F;&#x52A8;&#x6D4B;&#x8BD5;</p>
+<pre class="language-"><code class="lang-shell">mongod <span class="token parameter variable">--config</span> /opt/mongodb/mongodb.conf
+mongo
+</code></pre>
+<p>&#x521B;&#x5EFA;&#x7528;&#x6237;</p>
+<pre class="language-"><code class="lang-shell">use admin
+db.createUser<span class="token punctuation">(</span><span class="token punctuation">{</span>
+  user:<span class="token string">&apos;admin&apos;</span>,  <span class="token comment"># &#x7528;&#x6237;&#x540D;</span>
+  pwd:<span class="token string">&apos;123456&apos;</span>,  <span class="token comment"># &#x5BC6;&#x7801;</span>
+  roles:<span class="token punctuation">[</span><span class="token punctuation">{</span> role:<span class="token string">&apos;root&apos;</span>,db:<span class="token string">&apos;admin&apos;</span><span class="token punctuation">}</span><span class="token punctuation">]</span>   <span class="token comment">#root &#x4EE3;&#x8868;&#x8D85;&#x7D1A;&#x7BA1;&#x7406;&#x5458;&#x6743;&#x9650; admin&#x4EE3;&#x8868;&#x7ED9;admin&#x6570;&#x636E;&#x5E93;&#x52A0;&#x7684;&#x8D85;&#x7EA7;&#x7BA1;&#x7406;&#x5458;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+db.shutdownServer<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># &#x91CD;&#x542F;&#x524D;&#x5148;&#x5173;&#x95ED;&#x670D;&#x52A1;&#x5668;</span>
+</code></pre>
+<p>&#x4FEE;&#x6539;/opt/mongodb/mongodb.conf&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x5C06;&#x6743;&#x9650;&#x9A8C;&#x8BC1;&#x7684;&#x6CE8;&#x91CA;&#x653E;&#x5F00;</p>
+<pre class="language-"><code class="lang-shell"><span class="token function">vim</span> /opt/mongodb/mongodb.conf
+
+<span class="token punctuation">..</span><span class="token punctuation">..</span><span class="token punctuation">..</span>
+<span class="token comment">#&#x5F00;&#x542F;&#x6743;&#x9650;&#x9A8C;&#x8BC1;</span>
+<span class="token assign-left variable">auth</span><span class="token operator">=</span>true
+</code></pre>
+<p>&#x91CD;&#x65B0;&#x542F;&#x52A8;mongodb&#x6570;&#x636E;&#x5E93;</p>
+<pre class="language-"><code class="lang-shell">mongod <span class="token parameter variable">--config</span> /opt/mongodb/mongodb.conf
+</code></pre>
+<p>&#x7F16;&#x8F91;&#x5F00;&#x673A;&#x542F;&#x52A8;</p>
+<pre class="language-"><code class="lang-shell"><span class="token function">vi</span> /etc/rc.local
+<span class="token comment"># &#x52A0;&#x5165;&#x5982;&#x4E0B;&#x8BED;&#x53E5;&#xFF0C;&#x4EE5;&#x4FBF;&#x542F;&#x52A8;&#x65F6;&#x6267;&#x884C;&#xFF1A;</span>
+mongod <span class="token parameter variable">--config</span> /opt/mongodb/mongodb.conf
+</code></pre>
+<h2 id="5&#x7F16;&#x8BD1;crane&#x7A0B;&#x5E8F;">5.&#x7F16;&#x8BD1;Crane&#x7A0B;&#x5E8F;</h2>
+<pre class="language-"><code class="lang-shell"><span class="token comment"># &#x7531;&#x4E8E;&#x4FBF;&#x4E8E;&#x9879;&#x76EE;&#x514B;&#x9686;git&#x4ED3;&#x5E93;&#xFF0C;&#x53EF;&#x4EE5;&#x5148;&#x8BBE;&#x7F6E;&#x597D;git&#x4EE3;&#x7406;</span>
+<span class="token function">git</span> config <span class="token parameter variable">--global</span> http.proxy http://<span class="token operator">&lt;</span>ip<span class="token operator">&gt;</span>:<span class="token operator">&lt;</span>port<span class="token operator">&gt;</span>
+<span class="token function">git</span> config <span class="token parameter variable">--global</span> http.proxy http://<span class="token operator">&lt;</span>ip<span class="token operator">&gt;</span>:<span class="token operator">&lt;</span>port<span class="token operator">&gt;</span>
+
+<span class="token comment"># &#x9009;&#x62E9;&#x4E00;&#x4E2A;&#x5408;&#x9002;&#x7684;&#x4F4D;&#x7F6E;&#x514B;&#x9686;&#x9879;&#x76EE;</span>
+<span class="token function">git</span> clone https://github.com/PKUHPC/Crane.git
+
+<span class="token builtin class-name">cd</span> Crane
+<span class="token function">mkdir</span> build
+<span class="token builtin class-name">cd</span> build/
+
+<span class="token comment"># &#x9996;&#x6B21;&#x7F16;&#x8BD1;&#x9700;&#x8981;&#x4E0B;&#x8F7D;&#x7B2C;&#x4E09;&#x65B9;&#x5E93;&#xFF0C;&#x8017;&#x65F6;&#x8F83;&#x957F;</span>
+cmake <span class="token parameter variable">-G</span> Ninja <span class="token parameter variable">-DCMAKE_C_COMPILER</span><span class="token operator">=</span>/opt/rh/devtoolset-11/root/usr/bin/gcc <span class="token parameter variable">-DCMAKE_CXX_COMPILER</span><span class="token operator">=</span>/opt/rh/devtoolset-11/root/usr/bin/g++ <span class="token parameter variable">-DBOOST_INCLUDE_DIR</span><span class="token operator">=</span>/usr/lib64/ <span class="token parameter variable">-DBOOST_LIBRARY_DIR</span><span class="token operator">=</span>/usr/include <span class="token punctuation">..</span>
+ninja <span class="token function">install</span>
+</code></pre>
+<h2 id="6pam&#x6A21;&#x5757;&#x5F85;&#x5B8C;&#x5584;">6.Pam&#x6A21;&#x5757;(&#x5F85;&#x5B8C;&#x5584;)</h2>
+<p>&#x9996;&#x6B21;&#x7F16;&#x8BD1;&#x5B8C;&#x6210;&#x540E;&#x9700;&#x8981;&#x5C06;pam&#x6A21;&#x5757;&#x52A8;&#x6001;&#x94FE;&#x63A5;&#x5E93;&#x653E;&#x5165;&#x7CFB;&#x7EDF;&#x6307;&#x5B9A;&#x4F4D;&#x7F6E;</p>
+<pre class="language-"><code class="lang-shell"><span class="token function">cp</span> Crane/build/src/Misc/Pam/pam_Crane.so /usr/lib64/security/
+</code></pre>
+<p>&#x540C;&#x65F6;&#x8BA1;&#x7B97;&#x8282;&#x70B9;&#x201C;/etc/security/access.conf&#x201D;&#x6587;&#x4EF6;&#x7981;&#x6B62;&#x975E;root&#x7528;&#x6237;&#x767B;&#x5F55;</p>
+<p>Required pam_access.so</p>
+<h2 id="7&#x8FD0;&#x884C;&#x9879;&#x76EE;">7.&#x8FD0;&#x884C;&#x9879;&#x76EE;</h2>
+<p>&#x9996;&#x5148;&#x6839;&#x636E;&#x81EA;&#x8EAB;&#x7684;&#x96C6;&#x7FA4;&#x60C5;&#x51B5;&#x5728;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x5F53;&#x4E2D;&#x8FDB;&#x884C;&#x76F8;&#x5E94;&#x914D;&#x7F6E;&#xFF0C;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x6837;&#x4F8B;&#x4FDD;&#x5B58;&#x5728;/etc/crane/config.yaml.example</p>
+<pre class="language-"><code class="lang-shell"><span class="token function">cp</span> /etc/crane/config.yaml.example /etc/crane/config.yaml
+<span class="token function">vim</span> /etc/crane/config.yaml
+</code></pre>
+<p>&#x542F;&#x52A8;&#x670D;&#x52A1;</p>
+<pre class="language-"><code class="lang-shell">systemctl start cranectld       <span class="token comment"># &#x63A7;&#x5236;&#x8282;&#x70B9;&#x5B88;&#x62A4;&#x7A0B;&#x5E8F;&#x670D;&#x52A1;</span>
+systemctl start cranectld       <span class="token comment"># &#x8BA1;&#x7B97;&#x8282;&#x70B9;&#x5B88;&#x62A4;&#x7A0B;&#x5E8F;&#x670D;&#x52A1;</span>
+</code></pre>
+<h2 id="&#x5176;&#x4ED6;&#x8282;&#x70B9;&#x73AF;&#x5883;&#x90E8;&#x7F72;">*&#x5176;&#x4ED6;&#x8282;&#x70B9;&#x73AF;&#x5883;&#x90E8;&#x7F72;</h2>
+<p>&#x5176;&#x4ED6;&#x8282;&#x70B9;&#x90E8;&#x7F72;&#x9879;&#x76EE;&#xFF0C;&#x65E0;&#x9700;&#x7F16;&#x8BD1;&#x9879;&#x76EE;&#xFF0C;&#x4EC5;&#x9700;&#x590D;&#x5236;&#x76F8;&#x5E94;&#x7684;&#x6267;&#x884C;&#x6587;&#x4EF6;&#x548C;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x5373;&#x53EF;</p>
+<pre class="language-"><code class="lang-shell">pscp /usr/local/bin/cranectld all:/usr/local/bin/
+pscp /usr/local/bin/craned all:/usr/local/bin/
+pscp /etc/systemd/system/cranectld.service all:/etc/systemd/system/
+pscp /etc/systemd/system/craned.service all:/etc/systemd/system/
+pscp /etc/crane/config.yaml all:/etc/crane/
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="Centos7Configuration.md" class="navigation navigation-prev " aria-label="Previous page: 3 Crane安装配置">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="Crane-FrontEnd Configuration.html" class="navigation navigation-next " aria-label="Next page: 3.2 Crane 前端环境配置">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"3.1 Crane 后端环境配置","level":"1.3.1","depth":2,"next":{"title":"3.2 Crane 前端环境配置","level":"1.3.2","depth":2,"path":"config/Crane-FrontEnd Configuration.md","ref":"config/Crane-FrontEnd Configuration.md","articles":[]},"previous":{"title":"3 Crane安装配置","level":"1.3","depth":1,"path":"config/Centos7Configuration.md","ref":"config/Centos7Configuration.md","articles":[{"title":"3.1 Crane 后端环境配置","level":"1.3.1","depth":2,"path":"config/Crane Configuration.md","ref":"config/Crane Configuration.md","articles":[]},{"title":"3.2 Crane 前端环境配置","level":"1.3.2","depth":2,"path":"config/Crane-FrontEnd Configuration.md","ref":"config/Crane-FrontEnd Configuration.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["back-to-top-button","search-pro","-lunr","-search","code","prism","prism-themes","-highlight","pageview-count","splitter","expandable-chapters","chapter-fold","theme-comscore","emphasize"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"prism":{"lang":{"shell":"bash"},"css":["prismjs/themes/prism-okaidia.css"]},"emphasize":{},"splitter":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-comscore":{},"back-to-top-button":{},"pageview-count":{},"prism-themes":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Yinping Ma","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Crane Document","gitbook":"*","description":"Crane Document"},"file":{"path":"config/Crane Configuration.md","mtime":"2022-10-12T09:30:17.051Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-10-12T09:37:47.749Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        
+    
+
+    </body>
+</html>
+
