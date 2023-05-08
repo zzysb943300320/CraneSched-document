@@ -1,6 +1,11 @@
 # Crane 项目环境配置
 
 ***以下内容为配置代码编译环境，在编译项目的节点执行***
+环境准备：
+关闭seLinux
+安装节点：crane01, crane02, crane03
+cranectld节点：crane01
+craned节点：crane02， crane03
 
 ## 1.环境准备
 
@@ -22,7 +27,7 @@ systemctl disable firewalld
 # 或者开放端口
 firewall-cmd --add-port=10011/tcp --permanent --zone=public
 firewall-cmd --add-port=10010/tcp --permanent --zone=public
-firewall-cmd --add-port=873/tcp --permanent --zone=public
+firewall-cmd --add-port=873/tcp --permanent --zone=public  
 # 重启防火墙(修改配置后要重启防火墙)
 firewall-cmd --reload
 ```
