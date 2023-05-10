@@ -3,12 +3,13 @@
 **鸣鹤（Crane）**是北京大学高性能计算校级公共平台自主研发的**分布式智算调度系统**，团队在总结高性能公共平台运行近六年的管理和维护经验之后，从高性能计算任务调度的资源管理、资源查看、作业提交、作业查询和资源隔离等作业调度系统最基本的需求出发，结合云计算的作业调度场景，采用C++、go等语言进行开发，完全自主研发的**融合高性能计算和云计算调度为一体**的**开源**分布式智算调度系统。
 
 Crane分为前端和后端，前端主要是用Go开发，后端主要是用C++开发，欢迎开发者一起加入。
+
 **Crane前端开源地址**：[Crane-FrontEnd](https://github.com/PKUHPC/Crane-FrontEnd)
-**Crane后端开源地址**：[Crane-BackEnd](https://github.com/PKUHPC/Crane)
+**Crane后端开源地址**：[Crane](https://github.com/PKUHPC/Crane)
 **Crane文档地址**：[Crane-Document](https://pkuhpc.github.io/Crane-document)
 
 # Crane 设计理念 #
-- **功能强大**：支持高性能计算 + 云计算
+- **功能强大**：支持高性能计算 + 智能计算
 - **高度可伸缩**：支持百万核心集群规模 + 可同时处理10万条作业
 - **易使用**：用户友好 + 管理员易使用
 - **安全**：通信加密 + 故障率低不丢作业
@@ -24,7 +25,7 @@ Crane分为前端和后端，前端主要是用Go开发，后端主要是用C++�
 
 ![architecture](./images/architecture.png)
 
-在设计Craned的时候，综合考量高性能计算和云计算服务的特点与不同，在资源分配的时候，设计了Resouces Manager这个对象，当
+在设计Craned的时候，综合考量高性能计算和智能计算服务的特点与不同，在资源分配的时候，设计了Resouces Manager这个对象，当
 - **用户提交高性能计算作业时**，调用Cgroup Manager这个组件，用来为高性能计算服务分配资源，并用Cgroup来隔离作业资源。
 - **用户提交云计算作业时**，调用Container Manager这个组件，基于K8S为云计算作业分配资源并打包APP 容器，并对容器生命周期进行管理。
 

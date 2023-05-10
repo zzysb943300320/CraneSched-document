@@ -7,7 +7,13 @@
 cranectld节点：crane01
 craned节点：crane02， crane03
 
+
 ## 1.环境准备
+
+安装ca-certificates
+```shell
+yum -y install ca-certificates
+```
 
 安装ntp ntpdate同步时钟
 
@@ -35,245 +41,259 @@ firewall-cmd --reload
 ## 2.安装依赖包
 
 ```shell
-yum install -y epel-release pv openssl-devel libcgroup-devel curl-devel boost169-devel boost169-static
+yum install -y openssl-devel libcgroup-devel \
+    curl-devel boost169-devel boost169-static pam-devel \
+    zlib-devel zlib-static
 ```
 
 ## 3.安装工具链
 
-安装C++11
+工具链版本：
+* `cmake`版本 >= `3.24`
+* `libstdc++`版本 >= `11`
+* 如果安装`clang`，版本 >= `15`
+* 如果安装`g++`，版本 >= `11`
 
-```shell
-# Install CentOS SCLo RH repository:
-yum install -y centos-release-scl-rh
-# Install devtoolset-11 rpm package:
-yum install -y devtoolset-11
-# 第三步就是使新的工具集生效
-scl enable devtoolset-11 bash
+### 3.1.所有系统都适用
+
+安装cmake，选择一个合适的源码存放位置，从github下载源码
+
 ```
-这时用gcc --version查询，可以看到版本已经是11.2系列了
+wget https://github.com/Kitware/CMake/releases/download/v3.24.2/cmake-3.24.2-linux-x86_64.sh
+```
 
-```shell
-$ gcc --version
+执行cmake安装脚本
+```
+bash cmake-3.24.2-linux-x86_64.sh --prefix=/usr/local --skip-license
+```
+
+检查cmake安装是否成功
+```
+cmake --version
+#cmake version 3.24.2
+```
+
+### 3.2. CentOS7
+
+安装其他工具链包
+```
+yum install -y ninja-build patch devtoolset-11 rh-git218
+```
+
+为了避免每次手动生效，可以在`~/.bash_profile`中设置
+```
+vim ~/.bash_profile
+```
+```
+source scl_source enable devtoolset-11
+source scl_source enable rh-git218
+```
+
+然后重启终端，这时用gcc --version命令查询，可以看到版本已经是11.2系列了
+```
 gcc (GCC) 11.2.1 20220127 (Red Hat 11.2.1-9)
 Copyright (C) 2021 Free Software Foundation, Inc.
 This is free software; see the source for copying conditions.  There is NO
 warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 ```
 
-为了避免每次手动生效，可以在.bashrc中设置，此文件中修改对当前用户永久生效
+### 3.3. Ubuntu 20.04或包管理无`libstdc++-11`的系统
 
-```shell
-vim ~/.bashrc
+#### 3.3.1. 编译安装`gcc`
 
-# 在最后一行加上
-source /opt/rh/devtoolset-11/enable
-or
-source scl_source enable devtoolset-11
+由于Ubuntu 20.04官方仓库中`libstdc++`最大为`10`，通过手动编译安装`g++-11`来安装`libstdc++-11`
+```
+wget http://ftp.gnu.org/gnu/gcc/gcc-11.3.0/gcc-11.3.0.tar.gz
+tar -zxvf gcc-11.3.0.tar.gz
 
-# 使环境变量生效
-source ~/.bashrc 
+sudo apt-get install bzip2
+cd gcc-11.3.0
+./contrib/download_prerequisites
+
+mkdir build
+cd build/
+../configure -enable-checking=release -enable-languages=c,c++ -disable-multilib
+
+make -j 12
+sudo make install
 ```
 
-安装cmake和ninja
+#### 3.3.2. 指定`clang`选择手动安装的`libstdc++`
 
-选择一个合适的源码存放位置，从github下载源码
+由于没有指定`--prefix`，默认安装到`/usr/local`。如果希望`clang`和`clang++`能选择安装到这个目录的`gcc-toolchain`，需要通过`clang`和`clang++`的`--gcc-toolchain`的参数指定目录。
+
+在`cmake`的命令行参数指定`-DCMAKE_C_FLAGS_INIT="--gcc-toolchain=/usr/local" -DCMAKE_CXX_FLAGS_INIT="--gcc-toolchain=/usr/local"`
+
+## 4. 编译`Crane`程序
 ```shell
-wget https://github.com/ninja-build/ninja/releases/download/v1.10.2/ninja-linux.zip
-wget https://github.com/Kitware/CMake/releases/download/v3.21.3/cmake-3.21.3.tar.gz
-```
-
-解压编译安装，首次编译时间较长，请耐心等待
-```shell
-unzip ninja-linux.zip
-cp ninja /usr/local/bin/
-
-tar -zxvf cmake-3.21.3.tar.gz
-cd cmake-3.21.3
-./bootstrap
-gmake
-gmake install
-```
-
-检查安装是否成功
-```shell
-cmake --version
-#cmake version 3.21.3
-#
-#CMake suite maintained and supported by Kitware (kitware.com/cmake).
-```
-
-报错
-
-```shell
-CMake Error: Could not find CMAKE_ROOT !!!
-CMake has most likely not been installed correctly.
-Modules directory not found in
-/usr/local/bin
-Segmentation fault
-```
-
-出现这种情况一般情况下是因为我们在安装cmake之前执行过cmake命令，终端的哈希表会记录下执行过的命令的路径，相当于缓存。第一次执行命令shell解释器默认的会从PATH路径下寻找该命令的路径，当我们第二次使用该命令时，shell解释器首先会查看哈希表，没有该命令才会去PATH路径下寻找。
-
-所以哈希表可以大大提高命令的调用速率，但是CMake Error: Could not find
-CMAKE_ROOT错误的原因也出在这里，如果我们之前在这个终端执行过cmake命令，那么哈希表就会自动记录下之前版本cmake的路径，我们可以通过输入hash -l查看，如下所示：
-
-```shell
-[root@cn17 cmake-3.21.3]# hash -l
-builtin hash -p /usr/bin/wget wget
-builtin hash -p /usr/bin/cmake cmake
-```
-
-所以当我们更新了cmake以后，当我们输入cmake相关命令时，shell解释器便会去哈希表里面查找之前版本cmake的路径，然后便产生了错误。
-
-此时我们可以重新开一个终端，也可以在该终端执行hash -r命令来清除哈希表的内容，然后再执行cmake --version命令。
-
-## 4.安装mongodb
-
-***安装数据库仅在需要存储数据的节点安装***
-
-```shell
-# 下载并解压安装包
-wget https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-rhel70-5.0.9.tgz
-tar -zxvf mongodb-linux-x86_64-rhel70-5.0.9.tgz
-# 重命名
-mv mongodb-linux-x86_64-rhel70-5.0.9  /opt/mongodb
-# 添加环境变量  
-vim /etc/profile
-```
-
-在配置文件中添加如下内容（路径应对应mongodb安装路径）
-```shell
-export MONGODB_HOME=/opt/mongodb
-export PATH=$PATH:${MONGODB_HOME}/bin
-```
-
-```shell
-# 使环境变量生效
-source /etc/profile 
-# 创建db目录和log目录
-cd /opt/mongodb
-mkdir -p ./data/db
-mkdir -p ./logs
-touch ./logs/mongodb.log
-```
-
-创建mongodb.conf配置文件，内容如下：
-
-```shell
-vim mongodb.conf
-
-#端口号
-port=27017
-#db目录
-dbpath=/opt/mongodb/data/db
-#日志目录
-logpath=/opt/mongodb/logs/mongodb.log
-#后台
-fork=true
-#日志输出
-logappend=true
-#允许远程IP连接
-bind_ip=0.0.0.0
-#开启权限验证
-#auth=true
-```
-
-启动测试
-```shell
-mongod --config /opt/mongodb/mongodb.conf
-mongo
-```
-
-创建用户
-
-```shell
-use admin
-db.createUser({
-  user:'admin',  # 用户名
-  pwd:'123456',  # 密码
-  roles:[{ role:'root',db:'admin'}]   #root 代表超級管理员权限 admin代表给admin数据库加的超级管理员
-})
-
-db.shutdownServer() # 重启前先关闭服务器
-```
-
-修改/opt/mongodb/mongodb.conf配置文件，将权限验证的注释放开
-
-```shell
-vim /opt/mongodb/mongodb.conf
-
-......
-#开启权限验证
-auth=true
-```
-
-重新启动mongodb数据库
-
-```shell
-mongod --config /opt/mongodb/mongodb.conf
-```
-
-编辑开机启动
-
-```shell
-vi /etc/rc.local
-# 加入如下语句，以便启动时执行：
-mongod --config /opt/mongodb/mongodb.conf
-```
-
-## 5.编译Crane程序
-
-```shell
-# 由于便于项目克隆git仓库，可以先设置好git代理
-git config --global http.proxy http://<ip>:<port>
-git config --global http.proxy http://<ip>:<port>
+git config --global http.proxy http://crane:hf2lH9UUC3E0@192.168.1.1:7890
+git config --global https.proxy http://crane:hf2lH9UUC3E0@192.168.1.1:7890
 
 # 选择一个合适的位置克隆项目
 git clone https://github.com/PKUHPC/Crane.git
 
 cd Crane
 mkdir build
-cd build/
+cd build
 
 # 首次编译需要下载第三方库，耗时较长
-cmake -G Ninja -DCMAKE_C_COMPILER=/opt/rh/devtoolset-11/root/usr/bin/gcc -DCMAKE_CXX_COMPILER=/opt/rh/devtoolset-11/root/usr/bin/g++ -DBOOST_INCLUDE_DIR=/usr/lib64/ -DBOOST_LIBRARY_DIR=/usr/include ..
+cmake -G Ninja -DCMAKE_C_COMPILER=/opt/rh/devtoolset-11/root/usr/bin/gcc -DCMAKE_CXX_COMPILER=/opt/rh/devtoolset-11/root/usr/bin/g++ -DBoost_INCLUDE_DIR=/usr/include/boost169/ -DBoost_LIBRARY_DIR=/usr/lib64/boost169/ ..
+ninja cranectld craned pam_crane
+
+# 仅安装到本机，craned节点需手动scp
 ninja install
 ```
 
-## 6.Pam模块(待完善)
+## 5. Pam模块
+不同系统不一样
 
+### 5.1. CentOS 7
 首次编译完成后需要将pam模块动态链接库放入系统指定位置
-
-```shell
+```
 cp Crane/build/src/Misc/Pam/pam_Crane.so /usr/lib64/security/
 ```
+在 /etc/pam.d/sshd 中添加红色行：
+```
+#%PAM-1.0
+auth       required     pam_sepermit.so
+auth       substack     password-auth
+auth       include      postlogin
+# Used with polkit to reauthorize users in remote sessions
+-auth      optional     pam_reauthorize.so prepare
+account    required     pam_crane.so
+account    required     pam_nologin.so
+account    include      password-auth
+password   include      password-auth
+# pam_selinux.so close should be the first session rule
+session    required     pam_selinux.so close
+session    required     pam_loginuid.so
+# pam_selinux.so open should only be followed by sessions to be executed in the user context
+session    required     pam_selinux.so open env_params
+session    required     pam_namespace.so
+session    optional     pam_keyinit.so force revoke
+session    include      password-auth
+session    optional     pam_crane.so
+session    include      postlogin
+# Used with polkit to reauthorize users in remote sessions
+-session   optional     pam_reauthorize.so prepare
+```
 
-同时计算节点“/etc/security/access.conf”文件禁止非root用户登录
+注意：`session optional pam_crane.so`必须位于 `session include password-auth`之后！因为`password-auth`中有`pam_systemd.so`这个模块，会导致sshd session被移入`systemd:/user.slice`这个cgroups中！
 
-Required pam_access.so
+目前不清楚systemd是否会定期轮询相应的进程是否被steal，待测试。
 
+## 6.安装mongodb
+
+***安装数据库仅在需要存储数据的节点安装***
+
+修改mongodb的yum源:
+```shell
+cat >> /etc/yum.repos.d/mongodb-6.0.2.repo << 'EOF'
+[mongodb-org-6.0.2]
+name=MongoDB 6.0.2 Repository
+baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/6.0/x86_64/
+gpgcheck=0
+enabled=1
+EOF
+
+yum makecache
+```
+安装并添加mongodb开机启动
+```
+yum install mongodb-org -y
+# 添加开机启动
+systemctl enable mongod
+systemctl start mongod
+```
+安装完`mongod`用户的home目录为`/var/lib/mongo`
+
+利用openssl在`/var/lib/mongo`生成密钥文件
+```shell
+openssl rand -base64 756 | sudo -u mongod tee /var/lib/mongo/mongo.key
+sudo -u mongod chmod 400 /var/lib/mongo/mongo.key
+```
+创建用户
+```shell
+# 从mongodb6.0开始，mongo命令被mongosh命令取代
+mongosh
+
+# 进入mongodb之后进行下列操作
+use admin
+# user: 用户名 pwd：密码 roles：root 代表超級管理员权限 admin代表给admin数据库加的超级管理员
+db.createUser({
+  user:'admin', pwd:'123456', roles:[{ role:'root',db:'admin'}]   
+})
+
+# 重启前先关闭服务器
+db.shutdownServer() 
+quit
+```
+修改/etc/mongod.conf配置文件，开启权限验证，并配置副本集配置
+```shell
+vim /etc/mongod.conf
+
+......
+#开启权限验证
+security:
+  authorization: enabled
+  keyFile: /var/lib/mongo/mongo.key
+replication:
+  #副本集名称,crane的配置文件要与此一致
+  replSetName: crane_rs 
+```
+重新启动mongodb数据库
+```shell
+systemctl restart mongod
+```
+进入mongosh，初始化副本集
+```shell
+mongosh
+db.auth（"admin","123456"）
+rs.initiate()
+```
 
 ## 7.运行项目
 
-首先根据自身的集群情况在配置文件当中进行相应配置，配置文件样例保存在/etc/crane/config.yaml.example
+首先根据自身的集群情况在配置文件当中进行相应配置，配置文件样例保存在/`etc/crane/config.yaml.example`
 ```shell
-cp /etc/crane/config.yaml.example /etc/crane/config.yaml
+mkdir -p /etc/crane
+cp etc/config.yaml.example /etc/crane/config.yaml
 vim /etc/crane/config.yaml
 ```
+直接执行可执行文件启动 此时目录应该在项目根目录
+```shell
+cd build/src
 
-启动服务
+# Cranectld启动命令
+CraneCtld/cranectld
+
+# Craned启动命令
+Craned/craned
+```
+Systemctl 启动服务 (现在这个用不了！)
 ```shell
 systemctl start cranectld       # 控制节点守护程序服务
-systemctl start cranectld       # 计算节点守护程序服务
+systemctl start craned       # 计算节点守护程序服务
 ```
 
-## *其他节点环境部署
-
+## 8. 其他节点环境部署
 其他节点部署项目，无需编译项目，仅需复制相应的执行文件和配置文件即可
 ```shell
-pscp /usr/local/bin/cranectld all:/usr/local/bin/
-pscp /usr/local/bin/craned all:/usr/local/bin/
-pscp /etc/systemd/system/cranectld.service all:/etc/systemd/system/
-pscp /etc/systemd/system/craned.service all:/etc/systemd/system/
-pscp /etc/crane/config.yaml all:/etc/crane/
+# 比如配置计算节点crane02
+ssh crane02 "mkdir -p /etc/crane"
+scp /usr/local/bin/craned crane02:/usr/local/bin/
+scp /etc/systemd/system/craned.service crane02:/etc/systemd/system/
+scp /etc/crane/config.yaml crane02:/etc/crane/
 ```
+
+## 9. 其他配置
+1. Fish shell
+    ```shell
+    cd /etc/yum.repos.d/
+    wget https://download.opensuse.org/repositories/shells:/fish:/release:/3/CentOS_7/shells:fish:release:3.repo
+    yum makecache
+    yum install -y fish
+    ```
+2. Nix
+   
+    见 https://mirrors.tuna.tsinghua.edu.cn/help/nix/
