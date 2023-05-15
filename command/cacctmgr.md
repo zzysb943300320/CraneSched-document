@@ -19,6 +19,15 @@ cacctmgr add account -name=China -describe=motherland  -partition=[CPU,GPU,UU] -
 - **name**： 账户名
 - **parent**： 父账户
 - **partition**： 可使用的分区名
+  - 例
+    ```shell
+    cacctmgr add account -N=China -D=motherland  -p=CPU,GPU -q=normal
+    ```
+    ![cacctmgr_add_account](../images/cacctmgr_add_account.png)
+    ```shell
+    cacctmgr add account --name=China --description=motherland  --partition=CPU,GPU --qos_list=normal
+    ```
+    ![cacctmgr_add_account_2](../images/cacctmgr_add_account_2.png)
 
 ## 2. 添加用户 ##
 
@@ -27,7 +36,7 @@ cacctmgr add account -name=China -describe=motherland  -partition=[CPU,GPU,UU] -
 
 
 ```bash
-cacctmgr add user –name=xiaoming -account=China -level=admin
+cacctmgr add user --name=pokemon --account=China --level=admin
 ```
 
 ### 主要参数 ###
@@ -38,6 +47,12 @@ cacctmgr add user –name=xiaoming -account=China -level=admin
   - **None**： 普通用户
 - **name**： 用户名
 - **partition**： 可使用的分区名
+  - 例
+    ```shell
+    useradd pokemon
+    cacctmgr add user --name=pokemon --account=China --level=admin
+    ```
+    ![cacctmgr_add_user](../images/cacctmgr_add_user.png)
 
 ## 3. 删除用户 ##
 
@@ -45,8 +60,10 @@ cacctmgr add user –name=xiaoming -account=China -level=admin
 账户管理员可以删除同一账户下的新用户。
 
 ```bash
-cacctmgr delete user xiaohong
+cacctmgr delete user pokemon
+#等同于cacctmgr remove user pokemon
 ```
+![cacctmgr_delete_user](../images/cacctmgr_delete_user.png)
 
 
 ## 4. 删除账户 ##
@@ -56,20 +73,23 @@ cacctmgr delete user xiaohong
 ```bash
 cacctmgr delete account TEST
 ```
+![cacctmgr_delete_account](../images/cacctmgr_delete_Account.png)
 
 ## 5. 查找用户 ##
 
 所有用户均可以使用查询功能
 
 ```bash
-cacctmgr find user xiaohong
+cacctmgr find user pokemon
 ```
+![cacctmgr_find_user](../images/cacctmgr_find_user.png)
 
 ## 6. 查找账户 ##
 
 ```bash
-cacctmgr cacctmgr find account TEST
+cacctmgr cacctmgr find account China
 ```
+![cacctmgr_find_account](../images/cacctmgr_find_account.png)
 
 
 ## 7. 修改账户 ##
@@ -79,7 +99,7 @@ cacctmgr cacctmgr find account TEST
 
 
 ```bash
-cacctmgr add account -name=China -describe=motherland 
+cacctmgr modify account -name=China -describe=Splendid
 ```
 ### 主要参数 ###
 - **Qos**： 服务质量
@@ -91,6 +111,7 @@ cacctmgr add account -name=China -describe=motherland
   - **add**： 默认是添加操作
   - **delete**: 删除
   - **overwrite**： 覆盖
+![cacctmgr_modify_account](../images/cacctmgr_modify_account.png)
 
 ## 8. 修改用户##
 
@@ -99,7 +120,7 @@ cacctmgr add account -name=China -describe=motherland
 
 
 ```bash
-cacctmgr set user -name=xiaoming -L=admin
+cacctmgr modify user --name=pokemon -L=none
 ```
 
 ### 主要参数 ###
@@ -110,6 +131,7 @@ cacctmgr set user -name=xiaoming -L=admin
   - **None**： 普通用户
 - **name**： 用户名
 - **partition**： 可使用的分区名
+![cacctmgr_modify_user](../images/cacctmgr_modify_user.png)
 
 ## 9. 显示账户树 ##
 
@@ -120,6 +142,7 @@ cacctmgr set user -name=xiaoming -L=admin
 ```bash
 cacctmgr show accounts
 ```
+![cacctmgr_show_account](../images/cacctmgr_show_account.png)
 
 
 ## 10. 显示用户 ##
@@ -130,3 +153,4 @@ cacctmgr show accounts
 ```bash
 cacctmgr show users
 ```
+![cacctmgr_show_user](../images/cacctmgr_show_user.png)
