@@ -35,24 +35,28 @@ cd protobuf-3.19.4
 ./configure -prefix=/usr/local/
 make && make install
 protoc --version
-# libprotoc 3.11.2
+# libprotoc 3.19.4
 ```
 
 ## 3.拉取项目
 
 ```shell
-git clone https://github.com/RileyWen/Crane-FrontEnd.git # 克隆项目代码
+git clone https://github.com/PKUHPC/Crane-FrontEnd.git # 克隆项目代码
 
-mkdir Crane-FrontEnd/out
-mkdir Crane-FrontEnd/generated/protos
+mkdir -p Crane-FrontEnd/out
+mkdir -p Crane-FrontEnd/generated/protos
 ```
 
 ## 4.编译项目
-
+生成proto文件
 ```shell
 # 在Crane-FrontEnd/protos目录下
 protoc --go_out=../generated --go-grpc_out=../generated ./*
-
+```
+编译二进制文件
+注意工作目录为`Crane-FrontEnd/out`,在这个目录下编译所有命令
+Bash
+```shell
 # 在Crane-FrontEnd/out目录下编译所有命令
 go build ../cmd/cacctmgr/cacctmgr.go
 go build ../cmd/cbatch/cbatch.go 
@@ -60,6 +64,10 @@ go build ../cmd/ccancel/ccancel.go
 go build ../cmd/ccontrol/ccontrol.go 
 go build ../cmd/cinfo/cinfo.go 
 go build ../cmd/cqueue/cqueue.go 
+```
+Fish shell
+```shell
+for bin in ../cmd/**/c*.go ; go build $bin ; end
 ```
 
 ## 5.部署前端命令
