@@ -15,4 +15,5 @@
     * [4.4 ccancel 取消运行或提交的作业](command/ccancel.md)
     * [4.5 ccontrol 查看分区和节点状态](command/ccontrol.md)
     * [4.6 cacctmgr 管理用户/账户信息](command/cacctmgr.md)
+    * [4.7 cacct 查看作业信息](command/cacct.md)
 
