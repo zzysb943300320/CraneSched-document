@@ -30,6 +30,7 @@
 - [**ccancel**： 取消作业](command/ccancel.md)
 - [**ccontrol**:查看分区和节点状态](command/ccontrol.md)
 - [**cacctmgr**： 查看和调整用户/账号信息](command/cacctmgr.md)
+- [**cacct**： 查看作业信息](command/cacct.md)
 
 ### 常用术语 ###
 
