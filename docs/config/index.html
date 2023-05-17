@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>3.2 Crane 前端环境配置 · Crane Document</title>
+        <title>3 Crane安装配置 · Crane Document</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -89,10 +89,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../command/README.md" />
+    <link rel="next" href="CraneConfiguration.html" />
     
     
-    <link rel="prev" href="Crane Configuration.html" />
+    <link rel="prev" href="../features.html" />
     
 
     </head>
@@ -147,9 +147,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3" data-path="Centos7Configuration.md">
+        <li class="chapter active" data-level="1.3" data-path="./">
             
-                <span>
+                <a href="./">
             
                     
                     3 Crane安装配置
@@ -161,9 +161,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.1" data-path="Crane Configuration.html">
+        <li class="chapter " data-level="1.3.1" data-path="CraneConfiguration.html">
             
-                <a href="Crane Configuration.html">
+                <a href="CraneConfiguration.html">
             
                     
                     3.1 Crane 后端环境配置
@@ -174,9 +174,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.3.2" data-path="Crane-FrontEnd Configuration.html">
+        <li class="chapter " data-level="1.3.2" data-path="Crane-FrontEndConfiguration.html">
             
-                <a href="Crane-FrontEnd Configuration.html">
+                <a href="Crane-FrontEndConfiguration.html">
             
                     
                     3.2 Crane 前端环境配置
@@ -192,9 +192,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4" data-path="../command/README.md">
+        <li class="chapter " data-level="1.4" data-path="../command/">
             
-                <span>
+                <a href="../command/">
             
                     
                     4 Crane使用教程
@@ -284,6 +284,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.4.7" data-path="../command/cacct.html">
+            
+                <a href="../command/cacct.html">
+            
+                    
+                    4.7 cacct 查看作业信息
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -319,7 +332,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >3.2 Crane 前端环境配置</a>
+        <a href=".." >3 Crane安装配置</a>
     </h1>
 </div>
 
@@ -334,60 +347,12 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="crane-frontend-&#x9879;&#x76EE;&#x73AF;&#x5883;&#x914D;&#x7F6E;">Crane-FrontEnd &#x9879;&#x76EE;&#x73AF;&#x5883;&#x914D;&#x7F6E;</h1>
-<h2 id="1&#x5B89;&#x88C5;go&#x8BED;&#x8A00;">1.&#x5B89;&#x88C5;go&#x8BED;&#x8A00;</h2>
-<pre class="language-"><code class="lang-shell"><span class="token builtin class-name">cd</span> download/
-<span class="token function">wget</span> https://golang.google.cn/dl/go1.17.3.linux-amd64.tar.gz
-<span class="token function">tar</span> <span class="token parameter variable">-C</span> /usr/local <span class="token parameter variable">-xzf</span> go1.17.3.linux-amd64.tar.gz
-
-<span class="token comment"># &#x5728; /etc/profile&#x4E2D;&#x8BBE;&#x7F6E;&#x73AF;&#x5883;&#x53D8;&#x91CF;</span>
-<span class="token builtin class-name">export</span> <span class="token assign-left variable">GOROOT</span><span class="token operator">=</span>/usr/local/go
-<span class="token builtin class-name">export</span> <span class="token assign-left variable">GOPATH</span><span class="token operator">=</span>/usr/local/gopath
-<span class="token builtin class-name">export</span> <span class="token assign-left variable"><span class="token environment constant">PATH</span></span><span class="token operator">=</span><span class="token environment constant">$PATH</span>:/<span class="token variable">$GOROOT</span>/bin:<span class="token variable">$GOPATH</span>/bin
-
-<span class="token builtin class-name">source</span> /etc/profile     <span class="token comment"># &#x52A0;&#x8F7D;&#x73AF;&#x5883;&#x53D8;&#x91CF;</span>
-
-go version
-
-<span class="token comment">#&#x8BBE;&#x7F6E;&#x4EE3;&#x7406;</span>
-go <span class="token function">env</span> <span class="token parameter variable">-w</span> <span class="token assign-left variable">GOPROXY</span><span class="token operator">=</span>https://goproxy.cn,direct
-<span class="token comment">#&#x5F00;&#x542F;go mod&#x7BA1;&#x7406;</span>
-go <span class="token function">env</span> <span class="token parameter variable">-w</span> <span class="token assign-left variable">GO111MODULE</span><span class="token operator">=</span>on
-
-<span class="token comment"># &#x5B89;&#x88C5;&#x63D2;&#x4EF6;</span>
-go <span class="token function">install</span> google.golang.org/protobuf/cmd/protoc-gen-go@latest
-go <span class="token function">install</span> google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
-</code></pre>
-<h2 id="2&#x5B89;&#x88C5;protoc">2.&#x5B89;&#x88C5;protoc</h2>
-<pre class="language-"><code class="lang-shell"><span class="token function">wget</span> https://github.com/protocolbuffers/protobuf/releases/download/v3.19.4/protobuf-all-3.19.4.tar.gz
-<span class="token function">tar</span> <span class="token parameter variable">-xzf</span> protobuf-all-3.19.4.tar.gz
-<span class="token builtin class-name">cd</span> protobuf-3.19.4
-./configure <span class="token parameter variable">-prefix</span><span class="token operator">=</span>/usr/local/
-<span class="token function">make</span> <span class="token operator">&amp;&amp;</span> <span class="token function">make</span> <span class="token function">install</span>
-protoc <span class="token parameter variable">--version</span>
-<span class="token comment"># libprotoc 3.11.2</span>
-</code></pre>
-<h2 id="3&#x62C9;&#x53D6;&#x9879;&#x76EE;">3.&#x62C9;&#x53D6;&#x9879;&#x76EE;</h2>
-<pre class="language-"><code class="lang-shell"><span class="token function">git</span> clone https://github.com/RileyWen/Crane-FrontEnd.git <span class="token comment"># &#x514B;&#x9686;&#x9879;&#x76EE;&#x4EE3;&#x7801;</span>
-
-<span class="token function">mkdir</span> Crane-FrontEnd/out
-<span class="token function">mkdir</span> Crane-FrontEnd/generated/protos
-</code></pre>
-<h2 id="4&#x7F16;&#x8BD1;&#x9879;&#x76EE;">4.&#x7F16;&#x8BD1;&#x9879;&#x76EE;</h2>
-<pre class="language-"><code class="lang-shell"><span class="token comment"># &#x5728;Crane-FrontEnd/protos&#x76EE;&#x5F55;&#x4E0B;</span>
-protoc <span class="token parameter variable">--go_out</span><span class="token operator">=</span><span class="token punctuation">..</span>/generated --go-grpc_out<span class="token operator">=</span><span class="token punctuation">..</span>/generated ./*
-
-<span class="token comment"># &#x5728;Crane-FrontEnd/out&#x76EE;&#x5F55;&#x4E0B;&#x7F16;&#x8BD1;&#x6240;&#x6709;&#x547D;&#x4EE4;</span>
-go build <span class="token punctuation">..</span>/cmd/cacctmgr/cacctmgr.go
-go build <span class="token punctuation">..</span>/cmd/cbatch/cbatch.go 
-go build <span class="token punctuation">..</span>/cmd/ccancel/ccancel.go 
-go build <span class="token punctuation">..</span>/cmd/ccontrol/ccontrol.go 
-go build <span class="token punctuation">..</span>/cmd/cinfo/cinfo.go 
-go build <span class="token punctuation">..</span>/cmd/cqueue/cqueue.go
-</code></pre>
-<h2 id="5&#x90E8;&#x7F72;&#x524D;&#x7AEF;&#x547D;&#x4EE4;">5.&#x90E8;&#x7F72;&#x524D;&#x7AEF;&#x547D;&#x4EE4;</h2>
-<pre class="language-"><code class="lang-shell"><span class="token function">cp</span> ./* /usr/local/bin/
-</code></pre>
+                                <h1 id="crane&#x5B89;&#x88C5;&#x6559;&#x7A0B;">Crane&#x5B89;&#x88C5;&#x6559;&#x7A0B;</h1>
+<p>Crane&#x5206;&#x4E3A;&#x524D;&#x7AEF;&#x548C;&#x540E;&#x7AEF;&#xFF0C;&#x524D;&#x7AEF;&#x4E3B;&#x8981;&#x662F;&#x7528;Go&#x8BED;&#x8A00;&#x5F00;&#x53D1;&#xFF0C;&#x540E;&#x7AEF;&#x4E3B;&#x8981;&#x7528;C++&#x8BED;&#x8A00;&#x5F00;&#x53D1;&#xFF0C;&#x90E8;&#x7F72;Crane&#x9879;&#x76EE;&#x9700;&#x8981;&#x5206;&#x4E3A;&#x524D;&#x7AEF;&#x548C;&#x540E;&#x7AEF;&#x4E24;&#x90E8;&#x5206;&#x5206;&#x522B;&#x90E8;&#x7F72;&#x6784;&#x5EFA;&#x3002;</p>
+<ul>
+<li><a href="config/CraneConfiguration.md"><strong>Crane&#x540E;&#x7AEF;&#x73AF;&#x5883;&#x914D;&#x7F6E;</strong></a></li>
+<li><a href="config/Crane-FrontEndConfiguration.md"><strong>Crane&#x524D;&#x7AEF;&#x73AF;&#x5883;&#x914D;&#x7F6E;</strong></a></li>
+</ul>
 
                                 
                                 </section>
@@ -415,12 +380,12 @@ go build <span class="token punctuation">..</span>/cmd/cqueue/cqueue.go
 
             
                 
-                <a href="Crane Configuration.html" class="navigation navigation-prev " aria-label="Previous page: 3.1 Crane 后端环境配置">
+                <a href="../features.html" class="navigation navigation-prev " aria-label="Previous page: 2 Crane功能和特点">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="../command/README.md" class="navigation navigation-next " aria-label="Next page: 4 Crane使用教程">
+                <a href="CraneConfiguration.html" class="navigation navigation-next " aria-label="Next page: 3.1 Crane 后端环境配置">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -431,7 +396,7 @@ go build <span class="token punctuation">..</span>/cmd/cqueue/cqueue.go
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"3.2 Crane 前端环境配置","level":"1.3.2","depth":2,"next":{"title":"4 Crane使用教程","level":"1.4","depth":1,"path":"command/README.md","ref":"command/README.md","articles":[{"title":"4.1 cinfo 查看节点与分区状态","level":"1.4.1","depth":2,"path":"command/cinfo.md","ref":"command/cinfo.md","articles":[]},{"title":"4.2 cbatch 提交批处理作业","level":"1.4.2","depth":2,"path":"command/cbatch.md","ref":"command/cbatch.md","articles":[]},{"title":"4.3 cqueue 查看作业队列","level":"1.4.3","depth":2,"path":"command/cqueue.md","ref":"command/cqueue.md","articles":[]},{"title":"4.4 ccancel 取消运行或提交的作业","level":"1.4.4","depth":2,"path":"command/ccancel.md","ref":"command/ccancel.md","articles":[]},{"title":"4.5 ccontrol 查看分区和节点状态","level":"1.4.5","depth":2,"path":"command/ccontrol.md","ref":"command/ccontrol.md","articles":[]},{"title":"4.6 cacctmgr 管理用户/账户信息","level":"1.4.6","depth":2,"path":"command/cacctmgr.md","ref":"command/cacctmgr.md","articles":[]}]},"previous":{"title":"3.1 Crane 后端环境配置","level":"1.3.1","depth":2,"path":"config/Crane Configuration.md","ref":"config/Crane Configuration.md","articles":[]},"dir":"ltr"},"config":{"plugins":["back-to-top-button","search-pro","-lunr","-search","code","prism","prism-themes","-highlight","pageview-count","splitter","expandable-chapters","chapter-fold","theme-comscore","emphasize"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"prism":{"lang":{"shell":"bash"},"css":["prismjs/themes/prism-okaidia.css"]},"emphasize":{},"splitter":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-comscore":{},"back-to-top-button":{},"pageview-count":{},"prism-themes":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Yinping Ma","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Crane Document","gitbook":"*","description":"Crane Document"},"file":{"path":"config/Crane-FrontEnd Configuration.md","mtime":"2022-10-12T09:30:17.054Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-05-08T09:45:32.999Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3 Crane安装配置","level":"1.3","depth":1,"next":{"title":"3.1 Crane 后端环境配置","level":"1.3.1","depth":2,"path":"config/CraneConfiguration.md","ref":"config/CraneConfiguration.md","articles":[]},"previous":{"title":"2 Crane功能和特点","level":"1.2","depth":1,"path":"features.md","ref":"features.md","articles":[]},"dir":"ltr"},"config":{"plugins":["back-to-top-button","search-pro","-lunr","-search","code","prism","prism-themes","-highlight","pageview-count","splitter","expandable-chapters","chapter-fold","theme-comscore","emphasize"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"prism":{"lang":{"shell":"bash"},"css":["prismjs/themes/prism-okaidia.css"]},"emphasize":{},"splitter":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-comscore":{},"back-to-top-button":{},"pageview-count":{},"prism-themes":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Yinping Ma","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Crane Document","gitbook":"*","description":"Crane Document"},"file":{"path":"config/README.md","mtime":"2023-05-17T07:01:45.906Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-05-17T16:31:17.156Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -477,7 +442,7 @@ go build <span class="token punctuation">..</span>/cmd/cqueue/cqueue.go
         
     
         
-        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        <script src="../gitbook/gitbook-plugin-fontsettings/buttons.js"></script>
         
     
         

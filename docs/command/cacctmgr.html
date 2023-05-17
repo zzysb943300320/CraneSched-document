@@ -89,6 +89,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
+    <link rel="next" href="cacct.html" />
+    
     
     <link rel="prev" href="ccontrol.html" />
     
@@ -145,9 +147,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3" data-path="../config/Centos7Configuration.md">
+        <li class="chapter " data-level="1.3" data-path="../config/">
             
-                <span>
+                <a href="../config/">
             
                     
                     3 Crane安装配置
@@ -159,9 +161,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.1" data-path="../config/Crane Configuration.html">
+        <li class="chapter " data-level="1.3.1" data-path="../config/CraneConfiguration.html">
             
-                <a href="../config/Crane Configuration.html">
+                <a href="../config/CraneConfiguration.html">
             
                     
                     3.1 Crane 后端环境配置
@@ -172,9 +174,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.2" data-path="../config/Crane-FrontEnd Configuration.html">
+        <li class="chapter " data-level="1.3.2" data-path="../config/Crane-FrontEndConfiguration.html">
             
-                <a href="../config/Crane-FrontEnd Configuration.html">
+                <a href="../config/Crane-FrontEndConfiguration.html">
             
                     
                     3.2 Crane 前端环境配置
@@ -190,9 +192,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4" data-path="README.md">
+        <li class="chapter " data-level="1.4" data-path="./">
             
-                <span>
+                <a href="./">
             
                     
                     4 Crane使用教程
@@ -282,6 +284,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.4.7" data-path="cacct.html">
+            
+                <a href="cacct.html">
+            
+                    
+                    4.7 cacct 查看作业信息
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -349,12 +364,19 @@
 <li><strong>describe</strong>&#xFF1A; &#x8D26;&#x6237;&#x63CF;&#x8FF0;&#x4FE1;&#x606F;</li>
 <li><strong>name</strong>&#xFF1A; &#x8D26;&#x6237;&#x540D;</li>
 <li><strong>parent</strong>&#xFF1A; &#x7236;&#x8D26;&#x6237;</li>
-<li><strong>partition</strong>&#xFF1A; &#x53EF;&#x4F7F;&#x7528;&#x7684;&#x5206;&#x533A;&#x540D;</li>
+<li><strong>partition</strong>&#xFF1A; &#x53EF;&#x4F7F;&#x7528;&#x7684;&#x5206;&#x533A;&#x540D;<ul>
+<li>&#x4F8B;<pre class="language-"><code class="lang-shell">cacctmgr <span class="token function">add</span> account <span class="token parameter variable">-N</span><span class="token operator">=</span>China <span class="token parameter variable">-D</span><span class="token operator">=</span>motherland  <span class="token parameter variable">-p</span><span class="token operator">=</span>CPU,GPU <span class="token parameter variable">-q</span><span class="token operator">=</span>normal
+</code></pre>
+<img src="../images/cacctmgr_add_account.png" alt="cacctmgr_add_account"><pre class="language-"><code class="lang-shell">cacctmgr <span class="token function">add</span> account <span class="token parameter variable">--name</span><span class="token operator">=</span>China <span class="token parameter variable">--description</span><span class="token operator">=</span>motherland  <span class="token parameter variable">--partition</span><span class="token operator">=</span>CPU,GPU <span class="token parameter variable">--qos_list</span><span class="token operator">=</span>normal
+</code></pre>
+<img src="../images/cacctmgr_add_account_2.png" alt="cacctmgr_add_account_2"></li>
+</ul>
+</li>
 </ul>
 <h2 id="2-&#x6DFB;&#x52A0;&#x7528;&#x6237;">2. &#x6DFB;&#x52A0;&#x7528;&#x6237;</h2>
 <p>&#x7CFB;&#x7EDF;&#x7BA1;&#x7406;&#x5458;&#x53EF;&#x4EE5;&#x6DFB;&#x52A0;&#x4EFB;&#x610F;&#x8D26;&#x6237;&#x7684;&#x7528;&#x6237;&#xFF0C;
 &#x8D26;&#x53F7;&#x7BA1;&#x7406;&#x5458;&#x53EF;&#x4EE5;&#x6DFB;&#x52A0;&#x540C;&#x4E00;&#x8D26;&#x53F7;&#x4E0B;&#x7684;&#x65B0;&#x7528;&#x6237;&#x3002;</p>
-<pre class="language-"><code class="lang-bash">cacctmgr <span class="token function">add</span> user &#x2013;name<span class="token operator">=</span>xiaoming <span class="token parameter variable">-account</span><span class="token operator">=</span>China <span class="token parameter variable">-level</span><span class="token operator">=</span>admin
+<pre class="language-"><code class="lang-bash">cacctmgr <span class="token function">add</span> user <span class="token parameter variable">--name</span><span class="token operator">=</span>pokemon <span class="token parameter variable">--account</span><span class="token operator">=</span>China <span class="token parameter variable">--level</span><span class="token operator">=</span>admin
 </code></pre>
 <h3 id="&#x4E3B;&#x8981;&#x53C2;&#x6570;">&#x4E3B;&#x8981;&#x53C2;&#x6570;</h3>
 <ul>
@@ -366,28 +388,39 @@
 </ul>
 </li>
 <li><strong>name</strong>&#xFF1A; &#x7528;&#x6237;&#x540D;</li>
-<li><strong>partition</strong>&#xFF1A; &#x53EF;&#x4F7F;&#x7528;&#x7684;&#x5206;&#x533A;&#x540D;</li>
+<li><strong>partition</strong>&#xFF1A; &#x53EF;&#x4F7F;&#x7528;&#x7684;&#x5206;&#x533A;&#x540D;<ul>
+<li>&#x4F8B;<pre class="language-"><code class="lang-shell"><span class="token function">useradd</span> pokemon
+cacctmgr <span class="token function">add</span> user <span class="token parameter variable">--name</span><span class="token operator">=</span>pokemon <span class="token parameter variable">--account</span><span class="token operator">=</span>China <span class="token parameter variable">--level</span><span class="token operator">=</span>admin
+</code></pre>
+<img src="../images/cacctmgr_add_user.png" alt="cacctmgr_add_user"></li>
+</ul>
+</li>
 </ul>
 <h2 id="3-&#x5220;&#x9664;&#x7528;&#x6237;">3. &#x5220;&#x9664;&#x7528;&#x6237;</h2>
 <p>&#x7CFB;&#x7EDF;&#x7BA1;&#x7406;&#x5458;&#x53EF;&#x4EE5;&#x5220;&#x9664;&#x4EFB;&#x610F;&#x8D26;&#x6237;&#x4E0B;&#x7684;&#x7528;&#x6237;&#xFF0C;
 &#x8D26;&#x6237;&#x7BA1;&#x7406;&#x5458;&#x53EF;&#x4EE5;&#x5220;&#x9664;&#x540C;&#x4E00;&#x8D26;&#x6237;&#x4E0B;&#x7684;&#x65B0;&#x7528;&#x6237;&#x3002;</p>
-<pre class="language-"><code class="lang-bash">cacctmgr delete user xiaohong
+<pre class="language-"><code class="lang-bash">cacctmgr delete user pokemon
+<span class="token comment">#&#x7B49;&#x540C;&#x4E8E;cacctmgr remove user pokemon</span>
 </code></pre>
+<p><img src="../images/cacctmgr_delete_user.png" alt="cacctmgr_delete_user"></p>
 <h2 id="4-&#x5220;&#x9664;&#x8D26;&#x6237;">4. &#x5220;&#x9664;&#x8D26;&#x6237;</h2>
 <p>&#x4EC5;&#x7CFB;&#x7EDF;&#x7BA1;&#x7406;&#x5458;&#x53EF;&#x4EE5;&#x5220;&#x9664;&#x8D26;&#x6237;</p>
 <pre class="language-"><code class="lang-bash">cacctmgr delete account TEST
 </code></pre>
+<p><img src="../images/cacctmgr_delete_Account.png" alt="cacctmgr_delete_account"></p>
 <h2 id="5-&#x67E5;&#x627E;&#x7528;&#x6237;">5. &#x67E5;&#x627E;&#x7528;&#x6237;</h2>
 <p>&#x6240;&#x6709;&#x7528;&#x6237;&#x5747;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x67E5;&#x8BE2;&#x529F;&#x80FD;</p>
-<pre class="language-"><code class="lang-bash">cacctmgr <span class="token function">find</span> user xiaohong
+<pre class="language-"><code class="lang-bash">cacctmgr <span class="token function">find</span> user pokemon
 </code></pre>
+<p><img src="../images/cacctmgr_find_user.png" alt="cacctmgr_find_user"></p>
 <h2 id="6-&#x67E5;&#x627E;&#x8D26;&#x6237;">6. &#x67E5;&#x627E;&#x8D26;&#x6237;</h2>
-<pre class="language-"><code class="lang-bash">cacctmgr cacctmgr <span class="token function">find</span> account TEST
+<pre class="language-"><code class="lang-bash">cacctmgr cacctmgr <span class="token function">find</span> account China
 </code></pre>
+<p><img src="../images/cacctmgr_find_account.png" alt="cacctmgr_find_account"></p>
 <h2 id="7-&#x4FEE;&#x6539;&#x8D26;&#x6237;">7. &#x4FEE;&#x6539;&#x8D26;&#x6237;</h2>
 <p>&#x7CFB;&#x7EDF;&#x7BA1;&#x7406;&#x5458;&#x53EF;&#x4EE5;&#x4FEE;&#x6539;&#x4EFB;&#x610F;&#x4FE1;&#x606F;&#xFF0C;
 &#x8D26;&#x6237;&#x7BA1;&#x7406;&#x5458;&#x53EF;&#x4EE5;&#x4FEE;&#x6539;&#x672C;&#x8EAB;&#x8D26;&#x6237;&#x7684;&#x4FE1;&#x606F;&#xFF0C;&#x4F46;&#x4E0D;&#x80FD;&#x66F4;&#x6539;&#x8D26;&#x6237;&#x7684;&#x7236;&#x8D26;&#x6237;&#x3002;</p>
-<pre class="language-"><code class="lang-bash">cacctmgr <span class="token function">add</span> account <span class="token parameter variable">-name</span><span class="token operator">=</span>China <span class="token parameter variable">-describe</span><span class="token operator">=</span>motherland
+<pre class="language-"><code class="lang-bash">cacctmgr modify account <span class="token parameter variable">-name</span><span class="token operator">=</span>China <span class="token parameter variable">-describe</span><span class="token operator">=</span>Splendid
 </code></pre>
 <h3 id="&#x4E3B;&#x8981;&#x53C2;&#x6570;">&#x4E3B;&#x8981;&#x53C2;&#x6570;</h3>
 <ul>
@@ -399,14 +432,15 @@
 <li><strong>type</strong>&#xFF1A; &#x5BF9;&#x8D26;&#x6237;&#x8FD0;&#x884C;&#x7684;&#x5206;&#x533A;&#x64CD;&#x4F5C;<ul>
 <li><strong>add</strong>&#xFF1A; &#x9ED8;&#x8BA4;&#x662F;&#x6DFB;&#x52A0;&#x64CD;&#x4F5C;</li>
 <li><strong>delete</strong>: &#x5220;&#x9664;</li>
-<li><strong>overwrite</strong>&#xFF1A; &#x8986;&#x76D6;</li>
+<li><strong>overwrite</strong>&#xFF1A; &#x8986;&#x76D6;
+<img src="../images/cacctmgr_modify_account.png" alt="cacctmgr_modify_account"></li>
 </ul>
 </li>
 </ul>
 <h2 id="8-&#x4FEE;&#x6539;&#x7528;&#x6237;">8. &#x4FEE;&#x6539;&#x7528;&#x6237;</h2>
 <p>&#x7CFB;&#x7EDF;&#x7BA1;&#x7406;&#x5458;&#x53EF;&#x4EE5;&#x4FEE;&#x6539;&#x4EFB;&#x610F;&#x4FE1;&#x606F;&#xFF0C;
 &#x8D26;&#x6237;&#x7BA1;&#x7406;&#x5458;&#x53EF;&#x4EE5;&#x4FEE;&#x6539;&#x540C;&#x8D26;&#x6237;&#x4E0B;&#x7528;&#x6237;&#x7684;&#x4FE1;&#x606F;&#xFF0C;&#x4F46;&#x4E0D;&#x80FD;&#x66F4;&#x6539;&#x7528;&#x6237;&#x7684;&#x8D26;&#x6237;&#x3002;</p>
-<pre class="language-"><code class="lang-bash">cacctmgr <span class="token builtin class-name">set</span> user <span class="token parameter variable">-name</span><span class="token operator">=</span>xiaoming <span class="token parameter variable">-L</span><span class="token operator">=</span>admin
+<pre class="language-"><code class="lang-bash">cacctmgr modify user <span class="token parameter variable">--name</span><span class="token operator">=</span>pokemon <span class="token parameter variable">-L</span><span class="token operator">=</span>none
 </code></pre>
 <h3 id="&#x4E3B;&#x8981;&#x53C2;&#x6570;">&#x4E3B;&#x8981;&#x53C2;&#x6570;</h3>
 <ul>
@@ -418,18 +452,21 @@
 </ul>
 </li>
 <li><strong>name</strong>&#xFF1A; &#x7528;&#x6237;&#x540D;</li>
-<li><strong>partition</strong>&#xFF1A; &#x53EF;&#x4F7F;&#x7528;&#x7684;&#x5206;&#x533A;&#x540D;</li>
+<li><strong>partition</strong>&#xFF1A; &#x53EF;&#x4F7F;&#x7528;&#x7684;&#x5206;&#x533A;&#x540D;
+<img src="../images/cacctmgr_modify_user.png" alt="cacctmgr_modify_user"></li>
 </ul>
 <h2 id="9-&#x663E;&#x793A;&#x8D26;&#x6237;&#x6811;">9. &#x663E;&#x793A;&#x8D26;&#x6237;&#x6811;</h2>
 <p>&#x7CFB;&#x7EDF;&#x7BA1;&#x7406;&#x5458;&#x4F1A;&#x663E;&#x793A;&#x6570;&#x636E;&#x5E93;&#x6240;&#x6709;&#x6839;&#x8D26;&#x6237;&#x7684;&#x8D26;&#x6237;&#x6811;&#xFF0C;
 &#x8D26;&#x6237;&#x7BA1;&#x7406;&#x5458;&#x548C;&#x7528;&#x6237;&#x4F1A;&#x663E;&#x793A;&#x672C;&#x8EAB;&#x8D26;&#x6237;&#x7684;&#x8D26;&#x6237;&#x6811;&#x3002;</p>
 <pre class="language-"><code class="lang-bash">cacctmgr show accounts
 </code></pre>
+<p><img src="../images/cacctmgr_show_account.png" alt="cacctmgr_show_account"></p>
 <h2 id="10-&#x663E;&#x793A;&#x7528;&#x6237;">10. &#x663E;&#x793A;&#x7528;&#x6237;</h2>
 <p>&#x7CFB;&#x7EDF;&#x7BA1;&#x7406;&#x5458;&#x4F1A;&#x663E;&#x793A;&#x6240;&#x6709;&#x7528;&#x6237;&#xFF0C;
 &#x8D26;&#x6237;&#x7BA1;&#x7406;&#x5458;&#x548C;&#x7528;&#x6237;&#x4F1A;&#x663E;&#x793A;&#x540C;&#x4E00;&#x8D26;&#x6237;&#x4E0B;&#x7684;&#x6240;&#x6709;&#x7528;&#x6237;&#x3002;</p>
 <pre class="language-"><code class="lang-bash">cacctmgr show <span class="token function">users</span>
 </code></pre>
+<p><img src="../images/cacctmgr_show_user.png" alt="cacctmgr_show_user"></p>
 
                                 
                                 </section>
@@ -457,10 +494,14 @@
 
             
                 
-                <a href="ccontrol.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 4.5 ccontrol 查看分区和节点状态">
+                <a href="ccontrol.html" class="navigation navigation-prev " aria-label="Previous page: 4.5 ccontrol 查看分区和节点状态">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
+                
+                <a href="cacct.html" class="navigation navigation-next " aria-label="Next page: 4.7 cacct 查看作业信息">
+                    <i class="fa fa-angle-right"></i>
+                </a>
                 
             
         
@@ -469,7 +510,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"4.6 cacctmgr 管理用户/账户信息","level":"1.4.6","depth":2,"previous":{"title":"4.5 ccontrol 查看分区和节点状态","level":"1.4.5","depth":2,"path":"command/ccontrol.md","ref":"command/ccontrol.md","articles":[]},"dir":"ltr"},"config":{"plugins":["back-to-top-button","search-pro","-lunr","-search","code","prism","prism-themes","-highlight","pageview-count","splitter","expandable-chapters","chapter-fold","theme-comscore","emphasize"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"prism":{"lang":{"shell":"bash"},"css":["prismjs/themes/prism-okaidia.css"]},"emphasize":{},"splitter":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-comscore":{},"back-to-top-button":{},"pageview-count":{},"prism-themes":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Yinping Ma","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Crane Document","gitbook":"*","description":"Crane Document"},"file":{"path":"command/cacctmgr.md","mtime":"2022-08-31T09:10:39.588Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-05-08T09:45:32.999Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"4.6 cacctmgr 管理用户/账户信息","level":"1.4.6","depth":2,"next":{"title":"4.7 cacct 查看作业信息","level":"1.4.7","depth":2,"path":"command/cacct.md","ref":"command/cacct.md","articles":[]},"previous":{"title":"4.5 ccontrol 查看分区和节点状态","level":"1.4.5","depth":2,"path":"command/ccontrol.md","ref":"command/ccontrol.md","articles":[]},"dir":"ltr"},"config":{"plugins":["back-to-top-button","search-pro","-lunr","-search","code","prism","prism-themes","-highlight","pageview-count","splitter","expandable-chapters","chapter-fold","theme-comscore","emphasize"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"prism":{"lang":{"shell":"bash"},"css":["prismjs/themes/prism-okaidia.css"]},"emphasize":{},"splitter":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-comscore":{},"back-to-top-button":{},"pageview-count":{},"prism-themes":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Yinping Ma","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Crane Document","gitbook":"*","description":"Crane Document"},"file":{"path":"command/cacctmgr.md","mtime":"2023-05-15T09:45:39.127Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-05-17T16:31:17.156Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -515,7 +556,7 @@
         
     
         
-        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        <script src="../gitbook/gitbook-plugin-fontsettings/buttons.js"></script>
         
     
         
