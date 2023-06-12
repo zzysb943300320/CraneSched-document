@@ -8,7 +8,7 @@
 
 ~~~bash
 #!/bin/bash
-#CBATCH --task-per-node 1
+#CBATCH --ntasks-per-node 1
 #CBATCH --node 1
 #CBATCH -c 1
 #CBATCH --mem 20M
@@ -31,14 +31,18 @@ cbatch crane_submit.sh
 ![cbatch](../images/cbatch.png)
 
 #### 主要参数： ####
-- **--node**： 申请的节点数量
-- **--task-per-node**： 每个节点上运行的任务数量
-- **-c**: 每个节点申请的CPU核心数
-- **--mem**： 每个节点申请的内存大小
-- **--time**： 作业的最长运行时间
-- **-o**： 指定作业的标准输出重定向
-- **-p**： 作业使用的分区/队列
-- **-J**： 作业名
+- **-A, --account string**：提交作业的账户
+- **--chdir string**：任务工作路径
+- **-C, --config string**：配置文件路径(默认 "/etc/crane/config.yaml")
+- - **-c, --cpus-per-task float**: 每个节点申请的CPU核心数
+- **--help/-h**: 显示帮助
+- **-J, --job-name string**：作业名
+- **--mem string**： 每个节点申请的内存大小
+- **-N, --nodes uint32**： 申请的节点数量
+- **--ntasks-per-node uint32**： 每个节点上运行的任务数量
+- **-t, --time string**： 作业的最长运行时间
+- **-o, --output string**： 指定作业的标准输出重定向
+- **-p, --partition string**： 作业使用的分区/队列
 
 #### 常用环境变量 ####
 
