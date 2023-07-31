@@ -60,7 +60,7 @@ Crane作业调度系统中有三个用户角色：
     ![cacctmgr_add_account_CC](../images/cacctmgr_add_account_CC.png)
 
 
-## 2. 添加用户 ##
+## 3. 添加用户 ##
 系统管理员可以添加任意账户的用户， 账户管理员可以添加同一账号下的新用户。**添加的用户需要先有uid（先使用useradd在linux系统添加该用户）。**
 ### 主要参数 ###
 - **-A, --account string**： 此用户所属的父账户
@@ -109,7 +109,7 @@ cacctmgr delete account ComputingCentre
 ```bash
 cacctmgr delete qos test
 ```
-![cacctmgr_delete_qos](../images/cacctmgr_delete_qos.png)
+![cacctmgr_delete_qos](../images/cacctmgr_delete_qos_test.png)
 
 ## 7.  阻止用户或账户 ##
 ### 主要命令 ###
@@ -166,7 +166,7 @@ cacctmgr find account PKU
 ```bash
 cacctmgr find qos test
 ```
-![cacctmgr_find_qos](../images/cacctmgr_find_qos.png)
+![cacctmgr_find_qos](../images/cacctmgr_find_qos_test.png)
 
 ## 12. 修改账户 ##
 
@@ -248,7 +248,7 @@ cacctmgr show accounts
 ![cacctmgr_show_account](../images/cacctmgr_show_account.png)
 
 
-## 10. 显示用户 ##
+## 16. 显示用户 ##
 
 系统管理员会显示所有用户，
 账户管理员和用户会显示同一账户下的所有用户。
