@@ -1,4 +1,4 @@
-# Crane-FrontEnd 项目环境配置
+# CraneSched-FrontEnd 项目环境配置
 
 ## 1.安装go语言
 

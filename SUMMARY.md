@@ -1,14 +1,11 @@
-# Crane项目介绍
+# Summary
 
-* [1 Crane简介](README.md)
-
-* [2 Crane功能和特点](features.md)
-
-* [3 Crane安装配置](config/README.md)
-    * [3.1 Crane 后端环境配置](config/CraneConfiguration.md)
-    * [3.2 Crane 前端环境配置](config/Crane-FrontEndConfiguration.md)
-
-* [4 Crane使用教程](command/README.md)
+* [1 CraneSched简介](README.md)
+* [2 CraneSched功能和特点](features.md)
+* [3 CraneSched安装配置](config/README.md)
+    * [3.1 CraneSched 后端环境配置](config/CraneConfiguration.md)
+    * [3.2 CraneSched 前端环境配置](config/Crane-FrontEndConfiguration.md)
+* [4 CraneSched使用教程](command/README.md)
     * [4.1 cinfo 查看节点与分区状态](command/cinfo.md)
     * [4.2 cbatch 提交批处理作业](command/cbatch.md)
     * [4.3 cqueue 查看作业队列](command/cqueue.md)

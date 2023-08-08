@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>4.2 cbatch 提交批处理作业 · Crane Document</title>
+        <title>4.2 cbatch 提交批处理作业 · CraneSched Document</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -126,7 +126,7 @@
                 <a href="../">
             
                     
-                    1 Crane简介
+                    1 CraneSched简介
             
                 </a>
             
@@ -139,7 +139,7 @@
                 <a href="../features.html">
             
                     
-                    2 Crane功能和特点
+                    2 CraneSched功能和特点
             
                 </a>
             
@@ -147,12 +147,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3" data-path="../config/Centos7Configuration.md">
+        <li class="chapter " data-level="1.3" data-path="../config/">
             
-                <span>
+                <a href="../config/">
             
                     
-                    3 Crane安装配置
+                    3 CraneSched安装配置
             
                 </a>
             
@@ -161,12 +161,12 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.1" data-path="../config/Crane Configuration.html">
+        <li class="chapter " data-level="1.3.1" data-path="../config/CraneConfiguration.html">
             
-                <a href="../config/Crane Configuration.html">
+                <a href="../config/CraneConfiguration.html">
             
                     
-                    3.1 Crane 后端环境配置
+                    3.1 CraneSched 后端环境配置
             
                 </a>
             
@@ -174,12 +174,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.2" data-path="../config/Crane-FrontEnd Configuration.html">
+        <li class="chapter " data-level="1.3.2" data-path="../config/Crane-FrontEndConfiguration.html">
             
-                <a href="../config/Crane-FrontEnd Configuration.html">
+                <a href="../config/Crane-FrontEndConfiguration.html">
             
                     
-                    3.2 Crane 前端环境配置
+                    3.2 CraneSched 前端环境配置
             
                 </a>
             
@@ -192,12 +192,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4" data-path="README.md">
+        <li class="chapter " data-level="1.4" data-path="./">
             
-                <span>
+                <a href="./">
             
                     
-                    4 Crane使用教程
+                    4 CraneSched使用教程
             
                 </a>
             
@@ -284,6 +284,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.4.7" data-path="cacct.html">
+            
+                <a href="cacct.html">
+            
+                    
+                    4.7 cacct 查看作业信息
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -334,12 +347,12 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="cbatch-&#x7406;&#x4F5C;&#x4E1A;">cbatch &#x7406;&#x4F5C;&#x4E1A;</h1>
+                                <h1 id="cbatch-&#x63D0;&#x4EA4;&#x6279;&#x5904;&#x7406;&#x4F5C;&#x4E1A;">cbatch &#x63D0;&#x4EA4;&#x6279;&#x5904;&#x7406;&#x4F5C;&#x4E1A;</h1>
 <p><strong>cbatch&#x4E3B;&#x8981;&#x662F;&#x5C06;&#x7528;&#x6237;&#x63CF;&#x8FF0;&#x6574;&#x4E2A;&#x8BA1;&#x7B97;&#x8FC7;&#x7A0B;&#x7684;&#x811A;&#x672C;&#x4F20;&#x9012;&#x7ED9;&#x4F5C;&#x4E1A;&#x8C03;&#x5EA6;&#x7CFB;&#x7EDF;&#xFF0C;&#x5E76;&#x4E3A;&#x4F5C;&#x4E1A;&#x5206;&#x914D;&#x4F5C;&#x4E1A;&#x53F7;&#xFF0C;&#x7B49;&#x5F85;&#x4F5C;&#x4E1A;&#x8C03;&#x5EA6;&#x7CFB;&#x7EDF;&#x4E3A;&#x5176;&#x5206;&#x914D;&#x8D44;&#x6E90;&#x5E76;&#x6267;&#x884C;&#x3002;</strong></p>
 <p>&#x9996;&#x5148;&#x4ECB;&#x7ECD;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x5355;&#x8282;&#x70B9;&#x4F5C;&#x4E1A;&#x7684;&#x4F8B;&#x5B50;:</p>
 <p>&#x4E0B;&#x5217;&#x4F5C;&#x4E1A;&#x5C06;&#x7533;&#x8BF7;&#x4E00;&#x4E2A;&#x8282;&#x70B9;&#xFF0C;&#x4E00;&#x4E2A;CPU&#x6838;&#x5FC3;&#xFF0C;&#x5E76;&#x5728;&#x8BA1;&#x7B97;&#x8282;&#x70B9;&#x4E0A;&#x8FD0;&#x884C;hostname&#x5E76;&#x9000;&#x51FA;</p>
 <pre class="language-"><code class="lang-bash"><span class="token shebang important">#!/bin/bash</span>
-<span class="token comment">#CBATCH --task-per-node 1</span>
+<span class="token comment">#CBATCH --ntasks-per-node 1</span>
 <span class="token comment">#CBATCH --node 1</span>
 <span class="token comment">#CBATCH -c 1</span>
 <span class="token comment">#CBATCH --mem 20M</span>
@@ -357,14 +370,21 @@
 <p><img src="../images/cbatch.png" alt="cbatch"></p>
 <h4 id="&#x4E3B;&#x8981;&#x53C2;&#x6570;&#xFF1A;">&#x4E3B;&#x8981;&#x53C2;&#x6570;&#xFF1A;</h4>
 <ul>
-<li><strong>--node</strong>&#xFF1A; &#x7533;&#x8BF7;&#x7684;&#x8282;&#x70B9;&#x6570;&#x91CF;</li>
-<li><strong>--task-per-node</strong>&#xFF1A; &#x6BCF;&#x4E2A;&#x8282;&#x70B9;&#x4E0A;&#x8FD0;&#x884C;&#x7684;&#x4EFB;&#x52A1;&#x6570;&#x91CF;</li>
-<li><strong>-c</strong>: &#x6BCF;&#x4E2A;&#x8282;&#x70B9;&#x7533;&#x8BF7;&#x7684;CPU&#x6838;&#x5FC3;&#x6570;</li>
-<li><strong>--mem</strong>&#xFF1A; &#x6BCF;&#x4E2A;&#x8282;&#x70B9;&#x7533;&#x8BF7;&#x7684;&#x5185;&#x5B58;&#x5927;&#x5C0F;</li>
-<li><strong>--time</strong>&#xFF1A; &#x4F5C;&#x4E1A;&#x7684;&#x6700;&#x957F;&#x8FD0;&#x884C;&#x65F6;&#x95F4;</li>
-<li><strong>-o</strong>&#xFF1A; &#x6307;&#x5B9A;&#x4F5C;&#x4E1A;&#x7684;&#x6807;&#x51C6;&#x8F93;&#x51FA;&#x91CD;&#x5B9A;&#x5411;</li>
-<li><strong>-p</strong>&#xFF1A; &#x4F5C;&#x4E1A;&#x4F7F;&#x7528;&#x7684;&#x5206;&#x533A;/&#x961F;&#x5217;</li>
-<li><strong>-J</strong>&#xFF1A; &#x4F5C;&#x4E1A;&#x540D;</li>
+<li><strong>-A, --account string</strong>&#xFF1A;&#x63D0;&#x4EA4;&#x4F5C;&#x4E1A;&#x7684;&#x8D26;&#x6237;</li>
+<li><strong>--chdir string</strong>&#xFF1A;&#x4EFB;&#x52A1;&#x5DE5;&#x4F5C;&#x8DEF;&#x5F84;</li>
+<li><strong>-C, --config string</strong>&#xFF1A;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;(&#x9ED8;&#x8BA4; &quot;/etc/crane/config.yaml&quot;)</li>
+<li><ul>
+<li><strong>-c, --cpus-per-task float</strong>: &#x6BCF;&#x4E2A;&#x8282;&#x70B9;&#x7533;&#x8BF7;&#x7684;CPU&#x6838;&#x5FC3;&#x6570;</li>
+</ul>
+</li>
+<li><strong>--help/-h</strong>: &#x663E;&#x793A;&#x5E2E;&#x52A9;</li>
+<li><strong>-J, --job-name string</strong>&#xFF1A;&#x4F5C;&#x4E1A;&#x540D;</li>
+<li><strong>--mem string</strong>&#xFF1A; &#x6BCF;&#x4E2A;&#x8282;&#x70B9;&#x7533;&#x8BF7;&#x7684;&#x5185;&#x5B58;&#x5927;&#x5C0F;</li>
+<li><strong>-N, --nodes uint32</strong>&#xFF1A; &#x7533;&#x8BF7;&#x7684;&#x8282;&#x70B9;&#x6570;&#x91CF;</li>
+<li><strong>--ntasks-per-node uint32</strong>&#xFF1A; &#x6BCF;&#x4E2A;&#x8282;&#x70B9;&#x4E0A;&#x8FD0;&#x884C;&#x7684;&#x4EFB;&#x52A1;&#x6570;&#x91CF;</li>
+<li><strong>-t, --time string</strong>&#xFF1A; &#x4F5C;&#x4E1A;&#x7684;&#x6700;&#x957F;&#x8FD0;&#x884C;&#x65F6;&#x95F4;</li>
+<li><strong>-o, --output string</strong>&#xFF1A; &#x6307;&#x5B9A;&#x4F5C;&#x4E1A;&#x7684;&#x6807;&#x51C6;&#x8F93;&#x51FA;&#x91CD;&#x5B9A;&#x5411;</li>
+<li><strong>-p, --partition string</strong>&#xFF1A; &#x4F5C;&#x4E1A;&#x4F7F;&#x7528;&#x7684;&#x5206;&#x533A;/&#x961F;&#x5217;</li>
 </ul>
 <h4 id="&#x5E38;&#x7528;&#x73AF;&#x5883;&#x53D8;&#x91CF;">&#x5E38;&#x7528;&#x73AF;&#x5883;&#x53D8;&#x91CF;</h4>
 <table>
@@ -448,7 +468,7 @@ mpirun <span class="token parameter variable">-n</span> <span class="token numbe
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"4.2 cbatch 提交批处理作业","level":"1.4.2","depth":2,"next":{"title":"4.3 cqueue 查看作业队列","level":"1.4.3","depth":2,"path":"command/cqueue.md","ref":"command/cqueue.md","articles":[]},"previous":{"title":"4.1 cinfo 查看节点与分区状态","level":"1.4.1","depth":2,"path":"command/cinfo.md","ref":"command/cinfo.md","articles":[]},"dir":"ltr"},"config":{"plugins":["back-to-top-button","search-pro","-lunr","-search","code","prism","prism-themes","-highlight","pageview-count","splitter","expandable-chapters","chapter-fold","theme-comscore","emphasize"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"prism":{"lang":{"shell":"bash"},"css":["prismjs/themes/prism-okaidia.css"]},"emphasize":{},"splitter":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-comscore":{},"back-to-top-button":{},"pageview-count":{},"prism-themes":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Yinping Ma","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Crane Document","gitbook":"*","description":"Crane Document"},"file":{"path":"command/cbatch.md","mtime":"2023-05-08T09:43:43.617Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-05-08T09:45:32.999Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"4.2 cbatch 提交批处理作业","level":"1.4.2","depth":2,"next":{"title":"4.3 cqueue 查看作业队列","level":"1.4.3","depth":2,"path":"command/cqueue.md","ref":"command/cqueue.md","articles":[]},"previous":{"title":"4.1 cinfo 查看节点与分区状态","level":"1.4.1","depth":2,"path":"command/cinfo.md","ref":"command/cinfo.md","articles":[]},"dir":"ltr"},"config":{"plugins":["back-to-top-button","search-pro","-lunr","-search","code","prism","prism-themes","-highlight","pageview-count","splitter","expandable-chapters","chapter-fold","theme-comscore","emphasize"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"prism":{"lang":{"shell":"bash"},"css":["prismjs/themes/prism-okaidia.css"]},"emphasize":{},"splitter":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-comscore":{},"back-to-top-button":{},"pageview-count":{},"prism-themes":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Yinping Ma","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"CraneSched Document","gitbook":"*","description":"CraneSched Document"},"file":{"path":"command/cbatch.md","mtime":"2023-06-12T12:58:16.595Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-08-08T08:32:23.990Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -494,7 +514,7 @@ mpirun <span class="token parameter variable">-n</span> <span class="token numbe
         
     
         
-        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        <script src="../gitbook/gitbook-plugin-fontsettings/buttons.js"></script>
         
     
         

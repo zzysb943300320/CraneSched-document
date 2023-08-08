@@ -1,5 +1,5 @@
-# Crane使用教程
-**Crane有以下6个常用指令，请点击查看更详细使用信息**
+# CraneSched使用教程
+**CraneSched有以下6个常用指令，请点击查看更详细使用信息**
 - [**cinfo**： 查看节点与分区状态](command/cinfo.md)
 - [**cbatch**： 提交批量处理作业](command/cbatch.md)
 - [**cqueue**： 查看作业队列](command/cqueue.md)
