@@ -1,8 +1,8 @@
 {
-    "title" : "Crane Document", 
+    "title" : "CraneSched Document", 
     "author": "Yinping Ma", 
     "root": ".", 
-    "description": "Crane Document", 
+    "description": "CraneSched Document", 
     "plugins": [ 
         "back-to-top-button",
         "search-pro","-lunr", "-search",
