@@ -6,7 +6,7 @@ CraneSched分为前端和后端，前端主要是用Go开发，后端主要是�
 
 **CraneSched前端开源地址**：[CraneSched -FrontEnd](https://github.com/PKUHPC/CraneSched-FrontEnd)
 **CraneSched 后端开源地址**：[CraneSched ](https://github.com/PKUHPC/CraneSched )
-**CraneSched 文档地址**：[CraneSched-Document](https://pkuhpc.github.io/CraneSched -document)
+**CraneSched 文档地址**：[CraneSched-Document](https://pkuhpc.github.io/CraneSched-document)
 **CraneSched  demo集群**（试用账号：demo_admin，密码：demo_admin）：[CraneSched -Demo](https://hpc.pku.edu.cn/demo/CraneSched )
 
 # CraneSched  设计理念 #
