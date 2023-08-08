@@ -1,0 +1,516 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>4.3 cqueue 查看作业队列 · Crane Document</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Yinping Ma">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-okaidia.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-emphasize/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="ccancel.html" />
+    
+    
+    <link rel="prev" href="cbatch.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    1 CraneShed简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../features.html">
+            
+                <a href="../features.html">
+            
+                    
+                    2 CraneShed功能和特点
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../config/">
+            
+                <a href="../config/">
+            
+                    
+                    3 CraneShed安装配置
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../config/CraneConfiguration.html">
+            
+                <a href="../config/CraneConfiguration.html">
+            
+                    
+                    3.1 CraneShed 后端环境配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../config/Crane-FrontEndConfiguration.html">
+            
+                <a href="../config/Crane-FrontEndConfiguration.html">
+            
+                    
+                    3.2 CraneShed 前端环境配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    4 CraneShed使用教程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="cinfo.html">
+            
+                <a href="cinfo.html">
+            
+                    
+                    4.1 cinfo 查看节点与分区状态
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="cbatch.html">
+            
+                <a href="cbatch.html">
+            
+                    
+                    4.2 cbatch 提交批处理作业
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4.3" data-path="cqueue.html">
+            
+                <a href="cqueue.html">
+            
+                    
+                    4.3 cqueue 查看作业队列
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="ccancel.html">
+            
+                <a href="ccancel.html">
+            
+                    
+                    4.4 ccancel 取消运行或提交的作业
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="ccontrol.html">
+            
+                <a href="ccontrol.html">
+            
+                    
+                    4.5 ccontrol 查看分区和节点状态
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="cacctmgr.html">
+            
+                <a href="cacctmgr.html">
+            
+                    
+                    4.6 cacctmgr 管理用户/账户信息
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="cacct.html">
+            
+                <a href="cacct.html">
+            
+                    
+                    4.7 cacct 查看作业信息
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >4.3 cqueue 查看作业队列</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="cqueue-&#x67E5;&#x770B;&#x4F5C;&#x4E1A;&#x961F;&#x5217;">cqueue &#x67E5;&#x770B;&#x4F5C;&#x4E1A;&#x961F;&#x5217;</h1>
+<p><strong>cqueue&#x53EF;&#x4EE5;&#x67E5;&#x770B;&#x961F;&#x5217;&#x4E2D;&#x7684;&#x4F5C;&#x4E1A;&#x4FE1;&#x606F;&#x3002;</strong></p>
+<p>&#x67E5;&#x770B;&#x96C6;&#x7FA4;&#x4E2D;&#x6240;&#x6709;&#x961F;&#x5217;&#x7684;&#x4F5C;&#x4E1A;&#x4FE1;&#x606F;&#x3002;</p>
+<pre class="language-"><code class="lang-bash">cqueue
+</code></pre>
+<p><strong>cqueue&#x8FD0;&#x884C;&#x7ED3;&#x679C;&#x5C55;&#x793A;</strong></p>
+<p><img src="../images/cqueue.png" alt="cqueue"></p>
+<h4 id="&#x4E3B;&#x8981;&#x8F93;&#x51FA;&#x9879;">&#x4E3B;&#x8981;&#x8F93;&#x51FA;&#x9879;</h4>
+<ul>
+<li><strong>TaskId</strong>&#xFF1A;&#x4F5C;&#x4E1A;&#x540D;</li>
+<li><strong>Name</strong>: &#x4F5C;&#x4E1A;&#x540D;</li>
+<li><strong>Status</strong>&#xFF1A;&#x4F5C;&#x4E1A;&#x72B6;&#x6001;</li>
+<li><strong>Partition</strong>&#xFF1A;&#x4F5C;&#x4E1A;&#x6240;&#x5728;&#x5206;&#x533A;</li>
+<li><strong>User</strong>&#xFF1A;&#x4F5C;&#x4E1A;&#x6240;&#x5C5E;&#x7528;&#x6237;</li>
+<li><strong>Account</strong>&#xFF1A;&#x4F5C;&#x4E1A;&#x6240;&#x5C5E;&#x8D26;&#x6237;</li>
+<li><strong>Type</strong>&#xFF1A; &#x4F5C;&#x4E1A;&#x7C7B;&#x578B;</li>
+<li><strong>NodeIndex</strong>&#xFF1A; &#x4F5C;&#x4E1A;&#x8FD0;&#x884C;&#x7684;&#x8282;&#x70B9;&#x540D;</li>
+<li><strong>Nodes</strong>&#xFF1A;&#x4F5C;&#x4E1A;&#x6240;&#x5206;&#x914D;&#x8282;&#x70B9;&#x6570;</li>
+<li><strong>TimeLimit</strong>&#xFF1A;&#x4F5C;&#x4E1A;&#x65F6;&#x95F4;&#x9650;&#x5236;</li>
+</ul>
+<h4 id="&#x4E3B;&#x8981;&#x53C2;&#x6570;">&#x4E3B;&#x8981;&#x53C2;&#x6570;</h4>
+<ul>
+<li><strong>--help</strong>: &#x663E;&#x793A;&#x5E2E;&#x52A9;</li>
+<li><strong>--noHeader/-N</strong>&#xFF1A;&#x8F93;&#x51FA;&#x9690;&#x85CF;&#x8868;&#x5934;</li>
+<li><strong>--start/-S</strong>&#xFF1A;&#x663E;&#x793A;&#x4F5C;&#x4E1A;&#x7684;&#x5F00;&#x59CB;&#x65F6;&#x95F4;&#xFF08;pending&#x4F5C;&#x4E1A;&#x663E;&#x793A;&#x9884;&#x671F;&#x5F00;&#x59CB;&#x65F6;&#x95F4;&#xFF09;</li>
+<li><strong>--job/-j</strong>&#xFF1A;&#x6307;&#x5B9A;&#x67E5;&#x8BE2;&#x4F5C;&#x4E1A;&#x53F7;&#xFF0C;&#x6307;&#x5B9A;&#x591A;&#x4E2A;&#x4F5C;&#x4E1A;&#x53F7;&#x65F6;&#x7528;&#x9017;&#x53F7;&#x9694;&#x5F00;&#x3002;&#x5982; -j=2,3,4</li>
+<li><strong>--name/-n</strong>&#xFF1A;&#x6307;&#x5B9A;&#x67E5;&#x8BE2;&#x4F5C;&#x4E1A;&#x540D;&#xFF0C;&#x6307;&#x5B9A;&#x591A;&#x4E2A;&#x4F5C;&#x4E1A;&#x540D;&#x65F6;&#x7528;&#x9017;&#x53F7;&#x9694;&#x5F00;&#x3002;</li>
+<li><strong>--qos/-q</strong>&#xFF1A;&#x6307;&#x5B9A;&#x67E5;&#x8BE2;&#x4F5C;&#x4E1A;&#x7684;QoS&#xFF0C;&#x6307;&#x5B9A;&#x591A;&#x4E2A;QoS&#x65F6;&#x7528;&#x9017;&#x53F7;&#x9694;&#x5F00;&#x3002;</li>
+<li><strong>--state/-t</strong>&#xFF1A;&#x6307;&#x5B9A;&#x67E5;&#x8BE2;&#x4F5C;&#x4E1A;&#x72B6;&#x6001;&#xFF0C;&#x6307;&#x5B9A;&#x591A;&#x4E2A;&#x72B6;&#x6001;&#x65F6;&#x7528;&#x9017;&#x53F7;&#x9694;&#x5F00;&#x3002;</li>
+<li><strong>--user/-u</strong>&#xFF1A;&#x6307;&#x5B9A;&#x67E5;&#x8BE2;&#x4F5C;&#x4E1A;&#x6240;&#x5C5E;&#x7528;&#x6237;&#xFF0C;&#x6307;&#x5B9A;&#x591A;&#x4E2A;&#x7528;&#x6237;&#x65F6;&#x7528;&#x9017;&#x53F7;&#x9694;&#x5F00;&#x3002;</li>
+<li><strong>--Account/-A</strong>&#xFF1A;&#x6307;&#x5B9A;&#x67E5;&#x8BE2;&#x4F5C;&#x4E1A;&#x6240;&#x5C5E;&#x8D26;&#x6237;&#xFF0C;&#x6307;&#x5B9A;&#x591A;&#x4E2A;&#x8D26;&#x6237;&#x65F6;&#x7528;&#x9017;&#x53F7;&#x9694;&#x5F00;&#x3002;</li>
+<li><strong>--iterate/-i</strong>&#xFF1A;&#x6307;&#x5B9A;&#x95F4;&#x9694;&#x79D2;&#x6570;&#x5237;&#x65B0;&#x67E5;&#x8BE2;&#x7ED3;&#x679C;&#x3002;&#x5982; -i=3&#x8868;&#x793A;&#x6BCF;&#x9694;&#x4E09;&#x79D2;&#x8F93;&#x51FA;&#x4E00;&#x6B21;&#x67E5;&#x8BE2;&#x7ED3;&#x679C;</li>
+<li><strong>--partition/-p</strong>&#xFF1A;&#x6307;&#x5B9A;&#x67E5;&#x8BE2;&#x4F5C;&#x4E1A;&#x6240;&#x5728;&#x5206;&#x533A;&#xFF0C;&#x6307;&#x5B9A;&#x591A;&#x4E2A;&#x5206;&#x533A;&#x65F6;&#x7528;&#x9017;&#x53F7;&#x9694;&#x5F00;&#x3002;</li>
+<li><strong>--MaxVisibleLines/-m</strong>&#xFF1A;&#x6307;&#x5B9A;&#x8F93;&#x51FA;&#x7ED3;&#x679C;&#x7684;&#x6700;&#x5927;&#x6761;&#x6570;&#x3002;&#x5982;-m=500&#x8868;&#x793A;&#x6700;&#x591A;&#x8F93;&#x51FA;500&#x884C;&#x67E5;&#x8BE2;&#x7ED3;&#x679C;</li>
+<li><strong>--format/-o</strong>&#xFF1A;&#x4EE5;&#x6307;&#x5B9A;&#x683C;&#x5F0F;&#x8F93;&#x51FA;&#x7ED3;&#x679C;&#x8868;&#xFF0C;&#x53EF;&#x4EE5;&#x6307;&#x5B9A;&#x8F93;&#x51FA;&#x6307;&#x5B9A;&#x5217;&#x4EE5;&#x53CA;&#x5217;&#x5BBD;&#x3002;<ul>
+<li><strong>&#x4F8B;</strong><pre class="language-"><code class="lang-shell">cqueue <span class="token parameter variable">-h</span>
+</code></pre>
+<img src="../images/cqueue_h.png" alt="cqueue-h"><pre class="language-"><code class="lang-shell">cqueue <span class="token parameter variable">-N</span>
+</code></pre>
+<img src="../images/cqueue_N.png" alt="cqueue-N"><pre class="language-"><code class="lang-shell">cqueue <span class="token parameter variable">-S</span>
+</code></pre>
+<img src="../images/cqueue_S.png" alt="cqueue-S"><pre class="language-"><code class="lang-shell">cqueue <span class="token parameter variable">-j</span> <span class="token number">65,61</span>,63
+</code></pre>
+<img src="../images/cqueue_j.png" alt="cqueue-j"><pre class="language-"><code class="lang-shell">cqueue <span class="token parameter variable">-q</span> normal
+</code></pre>
+<img src="../images/cqueue_q.png" alt="cqueue-q"><pre class="language-"><code class="lang-shell">cqueue <span class="token parameter variable">-t</span> Pending
+</code></pre>
+<img src="../images/cqueue_t.png" alt="cqueue-t"><pre class="language-"><code class="lang-shell">cqueue <span class="token parameter variable">-u</span> root
+</code></pre>
+<img src="../images/cqueue_u.png" alt="cqueue-u"><pre class="language-"><code class="lang-shell">cqueue <span class="token parameter variable">-A</span> ROOT
+</code></pre>
+<img src="../images/cqueue_A.png" alt="cqueue-A"><pre class="language-"><code class="lang-shell">cqueue <span class="token parameter variable">-i</span> <span class="token number">3</span>
+</code></pre>
+<img src="../images/cqueue_i.png" alt="cqueue-i"><pre class="language-"><code class="lang-shell">cqueue <span class="token parameter variable">-p</span> CPU
+</code></pre>
+<img src="../images/cqueue_p.png" alt="cqueue-p"><pre class="language-"><code class="lang-shell">cqueue <span class="token parameter variable">-m</span> <span class="token number">3</span>
+</code></pre>
+<img src="../images/cqueue_m.png" alt="cqueue-m"><pre class="language-"><code class="lang-shell">cqueue <span class="token parameter variable">-o</span><span class="token operator">=</span><span class="token string">&quot;%n %u %.5j %.5t %.3T %.5T&quot;</span>
+</code></pre>
+<img src="../images/cqueue_o.png" alt="cqueue-o"></li>
+<li>format&#x4E2D;&#x7684;&#x6307;&#x5B9A;&#x5217;&#x7684;&#x5BF9;&#x5E94;&#x7F29;&#x5199;&#x5BF9;&#x7167;&#xFF1A;<ul>
+<li>j-TaskId&#xFF1B;n-Name&#xFF1B;t-State&#xFF1B;p-Partition&#xFF1B;u-User&#xFF1B;a-Account&#xFF1B;T-Type&#xFF1B;I-NodeIndex&#xFF1B;l-TimeLimit&#xFF1B;N-Nodes</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="cbatch.html" class="navigation navigation-prev " aria-label="Previous page: 4.2 cbatch 提交批处理作业">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="ccancel.html" class="navigation navigation-next " aria-label="Next page: 4.4 ccancel 取消运行或提交的作业">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"4.3 cqueue 查看作业队列","level":"1.4.3","depth":2,"next":{"title":"4.4 ccancel 取消运行或提交的作业","level":"1.4.4","depth":2,"path":"command/ccancel.md","ref":"command/ccancel.md","articles":[]},"previous":{"title":"4.2 cbatch 提交批处理作业","level":"1.4.2","depth":2,"path":"command/cbatch.md","ref":"command/cbatch.md","articles":[]},"dir":"ltr"},"config":{"plugins":["back-to-top-button","search-pro","-lunr","-search","code","prism","prism-themes","-highlight","pageview-count","splitter","expandable-chapters","chapter-fold","theme-comscore","emphasize"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"prism":{"lang":{"shell":"bash"},"css":["prismjs/themes/prism-okaidia.css"]},"emphasize":{},"splitter":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-comscore":{},"back-to-top-button":{},"pageview-count":{},"prism-themes":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Yinping Ma","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Crane Document","gitbook":"*","description":"Crane Document"},"file":{"path":"command/cqueue.md","mtime":"2023-06-12T15:11:42.585Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-08-08T07:14:49.654Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        
+    
+
+    </body>
+</html>
+
