@@ -2,6 +2,16 @@
 
 **ccancel可以终止正在运行或者在排队中的作业。**
 
+主要参数
+- **--help/-h**: 显示帮助
+- **-A, --account string**：取消账户下的任务
+- **-C, --config string**：配置文件路径(默认 "/etc/crane/config.yaml")
+- **-n, --name string**：仅使用任务名称取消任务
+- **-w, --nodes strings**：取消节点上运行的任务
+- **-p, --partition string**：取消分区上运行的任务
+- **-t, --state string**：取消某状态的任务。有效的任务状态是 PENDING(PD)、RUNNING(R)。任务状态不区分大小写
+- **-u, --user string**：取消特定用户提交的任务
+
 取消作业号为280的作业：
 
 ~~~bash
