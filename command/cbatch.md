@@ -32,7 +32,7 @@ cbatch crane_submit.sh
 
 #### 主要参数： ####
 - **-A, --account string**：提交作业的账户
-- **--chdir string**：任务工作路径
+- **--chdir string**：作业工作路径
 - **-C, --config string**：配置文件路径(默认 "/etc/crane/config.yaml")
 - - **-c, --cpus-per-task float**: 每个节点申请的CPU核心数
 - **--help/-h**: 显示帮助
