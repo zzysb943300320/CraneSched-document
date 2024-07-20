@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>4.5 ccontrol 查看分区和节点状态 · CraneSched Document</title>
+        <title>4.7 ccontrol 查看/修改分区和节点状态 · CraneSched Document</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -232,12 +232,38 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.3" data-path="cqueue.html">
+        <li class="chapter " data-level="1.4.3" data-path="crun.html">
+            
+                <a href="crun.html">
+            
+                    
+                    4.3 crun 提交交互式任务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="calloc.html">
+            
+                <a href="calloc.html">
+            
+                    
+                    4.4 calloc 提交交互式任务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="cqueue.html">
             
                 <a href="cqueue.html">
             
                     
-                    4.3 cqueue 查看作业队列
+                    4.5 cqueue 查看作业队列
             
                 </a>
             
@@ -245,12 +271,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.4" data-path="ccancel.html">
+        <li class="chapter " data-level="1.4.6" data-path="ccancel.html">
             
                 <a href="ccancel.html">
             
                     
-                    4.4 ccancel 取消运行或提交的作业
+                    4.6 ccancel 取消运行或提交的作业
             
                 </a>
             
@@ -258,12 +284,12 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.4.5" data-path="ccontrol.html">
+        <li class="chapter active" data-level="1.4.7" data-path="ccontrol.html">
             
                 <a href="ccontrol.html">
             
                     
-                    4.5 ccontrol 查看分区和节点状态
+                    4.7 ccontrol 查看/修改分区和节点状态
             
                 </a>
             
@@ -271,12 +297,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.6" data-path="cacctmgr.html">
+        <li class="chapter " data-level="1.4.8" data-path="cacctmgr.html">
             
                 <a href="cacctmgr.html">
             
                     
-                    4.6 cacctmgr 管理用户/账户信息
+                    4.8 cacctmgr 查看和调整用户/账号信息
             
                 </a>
             
@@ -284,12 +310,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.7" data-path="cacct.html">
+        <li class="chapter " data-level="1.4.9" data-path="cacct.html">
             
                 <a href="cacct.html">
             
                     
-                    4.7 cacct 查看作业信息
+                    4.9 cacct 查看作业信息
             
                 </a>
             
@@ -332,7 +358,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >4.5 ccontrol 查看分区和节点状态</a>
+        <a href=".." >4.7 ccontrol 查看/修改分区和节点状态</a>
     </h1>
 </div>
 
@@ -347,8 +373,18 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="ccontrol-&#x67E5;&#x770B;&#x5206;&#x533A;&#x548C;&#x8282;&#x70B9;&#x72B6;&#x6001;">ccontrol &#x67E5;&#x770B;&#x5206;&#x533A;&#x548C;&#x8282;&#x70B9;&#x72B6;&#x6001;</h1>
-<p><strong>ccontrol&#x53EF;&#x4EE5;&#x67E5;&#x770B;&#x5206;&#x533A;&#x548C;&#x8282;&#x70B9;&#x7684;&#x72B6;&#x6001;&#x3002;</strong></p>
+                                <h1 id="ccontrol-&#x67E5;&#x770B;&#x4FEE;&#x6539;&#x5206;&#x533A;&#x548C;&#x8282;&#x70B9;&#x72B6;&#x6001;">ccontrol &#x67E5;&#x770B;/&#x4FEE;&#x6539;&#x5206;&#x533A;&#x548C;&#x8282;&#x70B9;&#x72B6;&#x6001;</h1>
+<p><strong>ccontrol&#x53EF;&#x4EE5;&#x67E5;&#x770B;/&#x4FEE;&#x6539;&#x5206;&#x533A;&#x548C;&#x8282;&#x70B9;&#x7684;&#x72B6;&#x6001;&#x3002;</strong></p>
+<h4 id="&#x4E3B;&#x8981;&#x547D;&#x4EE4;">&#x4E3B;&#x8981;&#x547D;&#x4EE4;</h4>
+<ul>
+<li><strong>help</strong>&#xFF1A;&#x663E;&#x793A;&#x5E2E;&#x52A9;</li>
+<li><strong>add</strong>&#xFF1A;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x5206;&#x533A;&#x6216;&#x8005;&#x8282;&#x70B9;</li>
+<li><strong>delete</strong>&#xFF1A;&#x5220;&#x9664;&#x4E00;&#x4E2A;&#x5206;&#x533A;&#x6216;&#x8005;&#x8282;&#x70B9;</li>
+<li><strong>show</strong>&#xFF1A;&#x663E;&#x793A;&#x5B9E;&#x4F53;&#x7684;&#x72B6;&#x6001;&#xFF0C;&#x9ED8;&#x8BA4;&#x4E3A;&#x6240;&#x6709;&#x8BB0;&#x5F55;</li>
+<li><strong>update</strong>&#xFF1A;&#x4FEE;&#x6539;&#x4F5C;&#x4E1A;/&#x5206;&#x533A;/&#x8282;&#x70B9;&#x4FE1;&#x606F;</li>
+<li><strong>hold</strong>&#xFF1A;&#x6682;&#x505C;&#x4F5C;&#x4E1A;&#x8C03;&#x5EA6;</li>
+<li><strong>release</strong>&#xFF1A;&#x7EE7;&#x7EED;&#x4F5C;&#x4E1A;&#x8C03;&#x5EA6;</li>
+</ul>
 <h3 id="1-&#x67E5;&#x770B;&#x5206;&#x533A;&#x72B6;&#x6001;">1. &#x67E5;&#x770B;&#x5206;&#x533A;&#x72B6;&#x6001;</h3>
 <pre class="language-"><code class="lang-bash">ccontrol show partition
 </code></pre>
@@ -379,8 +415,8 @@
 <ul>
 <li><strong>NodeName</strong>&#xFF1A;&#x8282;&#x70B9;&#x540D;</li>
 <li><strong>State</strong>&#xFF1A;&#x8282;&#x70B9;&#x72B6;&#x6001;<ul>
-<li><strong>IDLE</strong>&#xFF1A; &#x8282;&#x70B9;&#x7A7A;&#x95F2;&#xFF0C;&#x53EF;&#x4F7F;&#x7528;</li>
-<li><strong>DOWN</strong>&#xFF1A; &#x8282;&#x70B9;&#x5B95;&#x673A;&#xFF0C;&#x4E0D;&#x53EF;&#x7528;</li>
+<li><strong>IDLE</strong>&#xFF1A;&#x8282;&#x70B9;&#x7A7A;&#x95F2;&#xFF0C;&#x53EF;&#x4F7F;&#x7528;</li>
+<li><strong>DOWN</strong>&#xFF1A;&#x8282;&#x70B9;&#x5B95;&#x673A;&#xFF0C;&#x4E0D;&#x53EF;&#x7528;</li>
 </ul>
 </li>
 <li><strong>CPUs</strong>&#xFF1A;&#x8282;&#x70B9;CPU&#x6570;&#x76EE;</li>
@@ -391,6 +427,111 @@
 <li><strong>FreeMem</strong>&#xFF1A;&#x8282;&#x70B9;&#x7A7A;&#x95F2;&#x7684;&#x5185;&#x5B58;&#x5927;&#x5C0F;</li>
 <li><strong>Patition</strong>&#xFF1A;&#x8282;&#x70B9;&#x6240;&#x5C5E;&#x5206;&#x533A;</li>
 <li><strong>RunningTask</strong>&#xFF1A;&#x8282;&#x70B9;&#x4E0A;&#x6B63;&#x5728;&#x8FD0;&#x884C;&#x7684;&#x4F5C;&#x4E1A;&#x6570;&#x91CF;</li>
+</ul>
+<h3 id="3-&#x67E5;&#x770B;&#x4F5C;&#x4E1A;&#x72B6;&#x6001;">3. &#x67E5;&#x770B;&#x4F5C;&#x4E1A;&#x72B6;&#x6001;</h3>
+<pre class="language-"><code class="lang-bash">ccontrol show job
+</code></pre>
+<p><strong>ccontrol show job &#x8FD0;&#x884C;&#x7ED3;&#x679C;&#x5C55;&#x793A;</strong>
+<img src="../images/ccontrol_job.png" alt="ccontrol"></p>
+<h4 id="&#x4E3B;&#x8981;&#x8F93;&#x51FA;&#x9879;">&#x4E3B;&#x8981;&#x8F93;&#x51FA;&#x9879;</h4>
+<ul>
+<li><strong>JobId</strong>&#xFF1A;&#x4F5C;&#x4E1A;&#x53F7;</li>
+<li><strong>JobName</strong>&#xFF1A;&#x4F5C;&#x4E1A;&#x540D;</li>
+<li><strong>UserId</strong>&#xFF1A;&#x4F5C;&#x4E1A;&#x6240;&#x5C5E;&#x7528;&#x6237;</li>
+<li><strong>GroupId</strong>&#xFF1A;&#x5206;&#x7EC4;id</li>
+<li><strong>Account</strong>&#xFF1A;&#x4F5C;&#x4E1A;&#x6240;&#x5C5E;&#x8D26;&#x6237;</li>
+<li><strong>JobState</strong>&#xFF1A;&#x4F5C;&#x4E1A;&#x72B6;&#x6001;</li>
+<li><strong>RunTime</strong>&#xFF1A;&#x4F5C;&#x4E1A;&#x8FD0;&#x884C;&#x65F6;&#x95F4;</li>
+<li><strong>TimeLimit</strong>&#xFF1A;&#x4F5C;&#x4E1A;&#x8FD0;&#x884C;&#x65F6;&#x95F4;&#x9650;&#x5236;</li>
+<li><strong>SubmitTime</strong>&#xFF1A;&#x4F5C;&#x4E1A;&#x63D0;&#x4EA4;&#x65F6;&#x95F4;</li>
+<li><strong>StartTime</strong>&#xFF1A;&#x4F5C;&#x4E1A;&#x5F00;&#x59CB;&#x65F6;&#x95F4;</li>
+<li><strong>EndTime</strong>&#xFF1A;&#x4F5C;&#x4E1A;&#x7ED3;&#x675F;&#x65F6;&#x95F4;</li>
+<li><strong>Partition</strong>&#xFF1A;&#x4F5C;&#x4E1A;&#x6240;&#x5C5E;&#x5206;&#x533A;</li>
+<li><strong>Nodelist</strong>&#xFF1A;&#x4F5C;&#x4E1A;&#x8FD0;&#x884C;&#x7684;&#x8282;&#x70B9;</li>
+<li><strong>NumNodes</strong>&#xFF1A;&#x8282;&#x70B9;&#x6570;&#x91CF;</li>
+</ul>
+<h3 id="4-&#x4FEE;&#x6539;&#x4F5C;&#x4E1A;&#x4FE1;&#x606F;">4. &#x4FEE;&#x6539;&#x4F5C;&#x4E1A;&#x4FE1;&#x606F;</h3>
+<pre class="language-"><code class="lang-bash">ccontrol update job
+</code></pre>
+<h4 id="&#x4E3B;&#x8981;&#x53C2;&#x6570;">&#x4E3B;&#x8981;&#x53C2;&#x6570;</h4>
+<ul>
+<li><strong>--job/-J</strong>&#xFF1A;&#x6307;&#x5B9A;&#x4FEE;&#x6539;&#x7684;&#x4F5C;&#x4E1A;&#x53F7;</li>
+<li><strong>--time-limit/-T</strong>&#xFF1A;&#x4FEE;&#x6539;&#x65F6;&#x95F4;&#x9650;&#x5236;</li>
+<li><strong>--priority/-P</strong>&#xFF1A;&#x4FEE;&#x6539;&#x65F6;&#x95F4;&#x9650;&#x5236;</li>
+</ul>
+<h3 id="5-&#x6682;&#x505C;&#x4F5C;&#x4E1A;&#x8C03;&#x5EA6;">5. &#x6682;&#x505C;&#x4F5C;&#x4E1A;&#x8C03;&#x5EA6;</h3>
+<h4 id="&#x4E3B;&#x8981;&#x53C2;&#x6570;">&#x4E3B;&#x8981;&#x53C2;&#x6570;</h4>
+<ul>
+<li><strong>--time-limit/-T</strong>&#xFF1A;&#x4FEE;&#x6539;&#x65F6;&#x95F4;&#x9650;&#x5236;</li>
+</ul>
+<pre class="language-"><code class="lang-bash">ccontrol hold <span class="token number">1</span>               <span class="token comment">#&#x6682;&#x505C;&#x8C03;&#x5EA6;&#x7F16;&#x53F7;&#x4E3A;1&#x7684;&#x4EFB;&#x52A1;</span>
+ccontrol hold <span class="token number">1,2</span>,3 <span class="token parameter variable">-t</span> <span class="token number">0</span>:0:5  <span class="token comment">#&#x6682;&#x505C;&#x8C03;&#x5EA6;&#x7F16;&#x53F7;&#x4E3A;1,2,3&#x7684;&#x4EFB;&#x52A1;5&#x79D2;&#x949F;&#xFF08;&#x968F;&#x540E;&#x89E3;&#x9664;&#x6682;&#x505C;&#xFF09;</span>
+</code></pre>
+<ul>
+<li>hold &#x63A5;&#x53D7; job_id &#x7684;&#x65B9;&#x5F0F;&#x4E0E; ccancel &#x76F8;&#x540C;&#xFF0C;&#x8981;&#x6C42;&#x4E3A;&#x9017;&#x53F7;&#x5206;&#x9694;&#x7684;&#x4EFB;&#x52A1;&#x7F16;&#x53F7;&#x3002;</li>
+<li>&#x53EA;&#x80FD; hold pending &#x4EFB;&#x52A1;&#x3002;</li>
+<li>&#x5982;&#x679C;&#x6B64;&#x524D;&#x6709;&#x8BBE;&#x7F6E;&#x89E3;&#x9664;&#x6682;&#x505C;&#x7684;&#x5B9A;&#x65F6;&#x5668;&#xFF0C;&#x8BE5;&#x64CD;&#x4F5C;&#x4F1A;&#x53D6;&#x6D88;&#x539F;&#x6709;&#x7684;&#x5B9A;&#x65F6;&#x5668;&#x3002;</li>
+<li>&#x4F7F;&#x7528; cqueue &#x67E5;&#x8BE2;&#x65F6;&#xFF0C;&#x5982;&#x679C;&#x4EFB;&#x52A1;&#x88AB; hold&#xFF0C;Node(Reason) &#x4E00;&#x5217;&#x4F1A;&#x663E;&#x793A; &quot;Held&quot;&#x3002;</li>
+</ul>
+<h3 id="6-&#x7EE7;&#x7EED;&#x4F5C;&#x4E1A;&#x8C03;&#x5EA6;">6. &#x7EE7;&#x7EED;&#x4F5C;&#x4E1A;&#x8C03;&#x5EA6;</h3>
+<pre class="language-"><code class="lang-bash">ccontrol release <span class="token number">1,2</span>,3
+</code></pre>
+<ul>
+<li>&#x5982;&#x679C;&#x6B64;&#x524D;&#x6709;&#x8BBE;&#x7F6E;&#x89E3;&#x9664;&#x6682;&#x505C;&#x7684;&#x5B9A;&#x65F6;&#x5668;&#xFF0C;&#x8BE5;&#x64CD;&#x4F5C;&#x4F1A;&#x53D6;&#x6D88;&#x539F;&#x6709;&#x7684;&#x5B9A;&#x65F6;&#x5668;&#x3002;</li>
+<li>&#x53EA;&#x80FD; release pending &#x4EFB;&#x52A1;&#x3002;</li>
+</ul>
+<h3 id="7-&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x8282;&#x70B9;">7. &#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x8282;&#x70B9;</h3>
+<pre class="language-"><code class="lang-bash">ccontrol <span class="token function">add</span> <span class="token function">node</span>
+</code></pre>
+<h4 id="&#x4E3B;&#x8981;&#x53C2;&#x6570;">&#x4E3B;&#x8981;&#x53C2;&#x6570;</h4>
+<ul>
+<li><strong>-c, --cpu</strong>&#xFF1A;&#x8282;&#x70B9;&#x7684;&#x6838;&#x5FC3;&#x6570;</li>
+<li><strong>-M, --memory</strong>&#xFF1A;&#x8282;&#x70B9;&#x7684;&#x5185;&#x5B58;&#x5927;&#x5C0F;&#xFF0C;&#x9ED8;&#x8BA4;&#x662F;MB</li>
+<li><strong>-N, --name</strong>&#xFF1A;&#x8282;&#x70B9;&#x540D;&#x79F0;</li>
+<li><strong>-P, --partition</strong>&#xFF1A;&#x8282;&#x70B9;&#x6240;&#x5C5E;&#x7684;&#x5206;&#x533A;&#xFF0C;&#x53EF;&#x4EE5;&#x4E0D;&#x6307;&#x5B9A;&#xFF0C;&#x90A3;&#x4E48;&#x5C31;&#x4E0D;&#x5C5E;&#x4E8E;&#x4EFB;&#x4F55;&#x4E00;&#x4E2A;&#x5206;&#x533A;</li>
+</ul>
+<h3 id="8-&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x5206;&#x533A;">8. &#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x5206;&#x533A;</h3>
+<pre class="language-"><code class="lang-bash">ccontrol <span class="token function">add</span> partition
+</code></pre>
+<h4 id="&#x4E3B;&#x8981;&#x53C2;&#x6570;">&#x4E3B;&#x8981;&#x53C2;&#x6570;</h4>
+<ul>
+<li><strong>-A, --allowlist</strong>&#xFF1A;&#x5206;&#x533A;&#x5141;&#x8BB8;&#x7684;&#x8D26;&#x6237;&#x5217;&#x8868;</li>
+<li><strong>-D, --denylist</strong>&#xFF1A;&#x5206;&#x533A;&#x7981;&#x6B62;&#x7684;&#x8D26;&#x6237;&#x5217;&#x8868;&#xFF0C;&#x548C;&#x4E0A;&#x9762;&#x53EA;&#x80FD;&#x8BBE;&#x7F6E;&#x5176;&#x4E2D;&#x4E00;&#x4E2A;&#xFF0C;&#x6BCF;&#x6B21;&#x8BBE;&#x7F6E;&#x540E;&#x4EE5;&#x6700;&#x540E;&#x8BBE;&#x7F6E;&#x7684;&#x4E3A;&#x51C6;</li>
+<li><strong>-N, --name</strong>&#xFF1A;&#x5206;&#x533A;&#x7684;&#x540D;&#x79F0;</li>
+<li><strong>--nodes</strong>&#xFF1A;&#x5206;&#x533A;&#x7684;&#x8282;&#x70B9;&#x5217;&#x8868;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x805A;&#x5408;&#x5F62;&#x5F0F;cn[01-15]&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x72EC;&#x7ACB;&#x8282;&#x70B9;&#x540D;cn01,cn02&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x6DF7;&#x5408;&#x5199;&#xFF0C;&#x6CE8;&#x610F;&#x53C2;&#x6570;&#x7528;&quot;&quot;&#x5305;&#x6210;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;</li>
+<li><strong>-P, --priority</strong>&#xFF1A;&#x5206;&#x533A;&#x7684;&#x4F18;&#x5148;&#x7EA7;&#xFF0C;&#x76EE;&#x524D;&#x4E0D;&#x652F;&#x6301;&#x4F18;&#x5148;&#x7EA7;&#x4E3A;0</li>
+</ul>
+<h3 id="9-&#x5220;&#x9664;&#x4E00;&#x4E2A;&#x8282;&#x70B9;">9. &#x5220;&#x9664;&#x4E00;&#x4E2A;&#x8282;&#x70B9;</h3>
+<pre class="language-"><code class="lang-bash">ccontrol delete <span class="token function">node</span> <span class="token punctuation">[</span>name<span class="token punctuation">]</span>
+</code></pre>
+<p>&#x5C06;&#x8282;&#x70B9;&#x4ECE;&#x6240;&#x6709;&#x5206;&#x533A;&#x5220;&#x9664;&#xFF0C;&#x5982;&#x679C;&#x8282;&#x70B9;&#x4E0A;&#x9762;&#x8FD8;&#x6709;&#x4F5C;&#x4E1A;&#x6B63;&#x5728;&#x8FD0;&#x884C;&#xFF0C;&#x5219;&#x8BE2;&#x95EE;&#x7528;&#x6237;&#x662F;&#x5426;&#x9700;&#x8981;&#x6740;&#x6B7B;&#x4F5C;&#x4E1A;&#x6765;&#x5F3A;&#x5236;&#x5220;&#x9664;&#x3002;</p>
+<h3 id="10--&#x5220;&#x9664;&#x4E00;&#x4E2A;&#x5206;&#x533A;">10.  &#x5220;&#x9664;&#x4E00;&#x4E2A;&#x5206;&#x533A;</h3>
+<pre class="language-"><code class="lang-bash">ccontrol delete partition <span class="token punctuation">[</span>name<span class="token punctuation">]</span>
+</code></pre>
+<p>&#x5220;&#x9664;&#x4E00;&#x4E2A;&#x5206;&#x533A;&#xFF0C;&#x8BE5;&#x5206;&#x533A;&#x4E0A;&#x7684;&#x8282;&#x70B9;&#x5982;&#x679C;&#x8FD8;&#x6709;&#x6B63;&#x5728;&#x8FD0;&#x884C;&#x7684;&#x4F5C;&#x4E1A;&#xFF0C;&#x4F9D;&#x7136;&#x53EF;&#x4EE5;&#x7EE7;&#x7EED;&#x8FD0;&#x884C;&#x4E0D;&#x53D7;&#x5F71;&#x54CD;&#xFF0C;&#x4F46;&#x662F;&#x7531;&#x4E8E;&#x5206;&#x533A;&#x88AB;&#x5220;&#x9664;&#xFF0C;&#x4E0D;&#x80FD;&#x518D;&#x5F80;&#x8BE5;&#x5206;&#x533A;&#x8C03;&#x5EA6;&#x4F5C;&#x4E1A;&#x3002;</p>
+<h3 id="11--&#x4FEE;&#x6539;&#x8282;&#x70B9;&#x4FE1;&#x606F;">11.  &#x4FEE;&#x6539;&#x8282;&#x70B9;&#x4FE1;&#x606F;</h3>
+<pre class="language-"><code class="lang-bash">ccontrol update <span class="token function">node</span>
+</code></pre>
+<h4 id="&#x4E3B;&#x8981;&#x53C2;&#x6570;">&#x4E3B;&#x8981;&#x53C2;&#x6570;</h4>
+<ul>
+<li><strong>-c, --cpu</strong>&#xFF1A;&#x8282;&#x70B9;&#x7684;&#x6838;&#x5FC3;&#x6570;</li>
+<li><strong>-M, --memory</strong>&#xFF1A;&#x8282;&#x70B9;&#x7684;&#x5185;&#x5B58;&#x5927;&#x5C0F;&#xFF0C;&#x9ED8;&#x8BA4;&#x662F;MB</li>
+<li><strong>-N, --name</strong>&#xFF1A;&#x8282;&#x70B9;&#x540D;&#x79F0;</li>
+<li><strong>-P, --partition</strong>&#xFF1A;&#x8282;&#x70B9;&#x6240;&#x5C5E;&#x7684;&#x5206;&#x533A;
+&#x4EE5;&#x4E0B;&#x53C2;&#x6570;&#x548C;&#x4E0A;&#x9762;&#x53C2;&#x6570;&#x4E0D;&#x80FD;&#x4E00;&#x8D77;&#x8BBE;&#x7F6E;&#xFF0C;&#x4E0B;&#x9762;&#x53C2;&#x6570;&#x7528;&#x4E8E;&#x4FEE;&#x6539;&#x8282;&#x70B9;&#x72B6;&#x6001;</li>
+<li><strong>-R, --reason</strong>&#xFF1A;Set the reason of this state change</li>
+<li><strong>-S, --state</strong>&#xFF1A;Set the node state</li>
+</ul>
+<h3 id="12--&#x4FEE;&#x6539;&#x5206;&#x533A;&#x4FE1;&#x606F;">12.  &#x4FEE;&#x6539;&#x5206;&#x533A;&#x4FE1;&#x606F;</h3>
+<pre class="language-"><code class="lang-bash">ccontrol update partition
+</code></pre>
+<h4 id="&#x4E3B;&#x8981;&#x53C2;&#x6570;">&#x4E3B;&#x8981;&#x53C2;&#x6570;</h4>
+<ul>
+<li><strong>-A, --allowlist</strong>&#xFF1A;&#x5206;&#x533A;&#x5141;&#x8BB8;&#x7684;&#x8D26;&#x6237;&#x5217;&#x8868;</li>
+<li><strong>-D, --denylist</strong>&#xFF1A;&#x5206;&#x533A;&#x7981;&#x6B62;&#x7684;&#x8D26;&#x6237;&#x5217;&#x8868;&#xFF0C;&#x548C;&#x4E0A;&#x9762;&#x53EA;&#x80FD;&#x8BBE;&#x7F6E;&#x5176;&#x4E2D;&#x4E00;&#x4E2A;&#xFF0C;&#x6BCF;&#x6B21;&#x8BBE;&#x7F6E;&#x540E;&#x4EE5;&#x6700;&#x540E;&#x8BBE;&#x7F6E;&#x7684;&#x4E3A;&#x51C6;</li>
+<li><strong>-N, --name</strong>&#xFF1A;&#x5206;&#x533A;&#x7684;&#x540D;&#x79F0;</li>
+<li><strong>--nodes</strong>&#xFF1A;&#x5206;&#x533A;&#x7684;&#x8282;&#x70B9;&#x5217;&#x8868;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x805A;&#x5408;&#x5F62;&#x5F0F;cn[01-15]&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x72EC;&#x7ACB;&#x8282;&#x70B9;&#x540D;cn01,cn02&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x6DF7;&#x5408;&#x5199;&#xFF0C;&#x6CE8;&#x610F;&#x53C2;&#x6570;&#x7528;&quot;&quot;&#x5305;&#x6210;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;</li>
+<li><strong>-P, --priority</strong>&#xFF1A;&#x5206;&#x533A;&#x7684;&#x4F18;&#x5148;&#x7EA7;&#xFF0C;&#x76EE;&#x524D;&#x4E0D;&#x652F;&#x6301;&#x4F18;&#x5148;&#x7EA7;&#x4E3A;0</li>
 </ul>
 
                                 
@@ -419,12 +560,12 @@
 
             
                 
-                <a href="ccancel.html" class="navigation navigation-prev " aria-label="Previous page: 4.4 ccancel 取消运行或提交的作业">
+                <a href="ccancel.html" class="navigation navigation-prev " aria-label="Previous page: 4.6 ccancel 取消运行或提交的作业">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="cacctmgr.html" class="navigation navigation-next " aria-label="Next page: 4.6 cacctmgr 管理用户/账户信息">
+                <a href="cacctmgr.html" class="navigation navigation-next " aria-label="Next page: 4.8 cacctmgr 查看和调整用户/账号信息">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -435,7 +576,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"4.5 ccontrol 查看分区和节点状态","level":"1.4.5","depth":2,"next":{"title":"4.6 cacctmgr 管理用户/账户信息","level":"1.4.6","depth":2,"path":"command/cacctmgr.md","ref":"command/cacctmgr.md","articles":[]},"previous":{"title":"4.4 ccancel 取消运行或提交的作业","level":"1.4.4","depth":2,"path":"command/ccancel.md","ref":"command/ccancel.md","articles":[]},"dir":"ltr"},"config":{"plugins":["back-to-top-button","search-pro","-lunr","-search","code","prism","prism-themes","-highlight","pageview-count","splitter","expandable-chapters","chapter-fold","theme-comscore","emphasize"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"prism":{"lang":{"shell":"bash"},"css":["prismjs/themes/prism-okaidia.css"]},"emphasize":{},"splitter":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-comscore":{},"back-to-top-button":{},"pageview-count":{},"prism-themes":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Yinping Ma","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"CraneSched Document","gitbook":"*","description":"CraneSched Document"},"file":{"path":"command/ccontrol.md","mtime":"2023-05-17T06:28:50.211Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-08-08T10:19:03.605Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"4.7 ccontrol 查看/修改分区和节点状态","level":"1.4.7","depth":2,"next":{"title":"4.8 cacctmgr 查看和调整用户/账号信息","level":"1.4.8","depth":2,"path":"command/cacctmgr.md","ref":"command/cacctmgr.md","articles":[]},"previous":{"title":"4.6 ccancel 取消运行或提交的作业","level":"1.4.6","depth":2,"path":"command/ccancel.md","ref":"command/ccancel.md","articles":[]},"dir":"ltr"},"config":{"plugins":["back-to-top-button","search-pro","-lunr","-search","code","prism","prism-themes","-highlight","pageview-count","splitter","expandable-chapters","chapter-fold","theme-comscore","emphasize"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"prism":{"lang":{"shell":"bash"},"css":["prismjs/themes/prism-okaidia.css"]},"emphasize":{},"splitter":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-comscore":{},"back-to-top-button":{},"pageview-count":{},"prism-themes":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Yinping Ma","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"CraneSched Document","gitbook":"*","description":"CraneSched Document"},"file":{"path":"command/ccontrol.md","mtime":"2024-07-19T04:37:17.625Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-07-20T09:30:43.373Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -481,7 +622,7 @@
         
     
         
-        <script src="../gitbook/gitbook-plugin-fontsettings/buttons.js"></script>
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
         
     
         

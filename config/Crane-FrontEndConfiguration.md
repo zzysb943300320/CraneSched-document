@@ -1,6 +1,6 @@
-# CraneSched-FrontEnd 项目环境配置
+# CraneSched-FrontEnd 项目环境配置 #
 
-## 1.安装go语言
+## 1.安装go语言 ##
 
 ```shell
 cd download/
@@ -26,7 +26,7 @@ go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
 go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
 ```
 
-## 2.安装protoc
+## 2.安装protoc ##
 
 ```shell
 wget https://github.com/protocolbuffers/protobuf/releases/download/v3.19.4/protobuf-all-3.19.4.tar.gz
@@ -38,40 +38,72 @@ protoc --version
 # libprotoc 3.19.4
 ```
 
-## 3.拉取项目
+## 3.拉取项目 ##
 
 ```shell
 git clone https://github.com/PKUHPC/Crane-FrontEnd.git # 克隆项目代码
-
-mkdir -p Crane-FrontEnd/out
-mkdir -p Crane-FrontEnd/generated/protos
 ```
 
-## 4.编译项目
+## 4.编译项目 ##
+
 生成proto文件
-```shell
-# 在Crane-FrontEnd/protos目录下
-protoc --go_out=../generated --go-grpc_out=../generated ./*
-```
-编译二进制文件
-注意工作目录为`Crane-FrontEnd/out`,在这个目录下编译所有命令
-Bash
-```shell
-# 在Crane-FrontEnd/out目录下编译所有命令
-go build ../cmd/cacctmgr/cacctmgr.go
-go build ../cmd/cbatch/cbatch.go 
-go build ../cmd/ccancel/ccancel.go 
-go build ../cmd/ccontrol/ccontrol.go 
-go build ../cmd/cinfo/cinfo.go 
-go build ../cmd/cqueue/cqueue.go 
-```
-Fish shell
-```shell
-for bin in ../cmd/**/c*.go ; go build $bin ; end
-```
-
-## 5.部署前端命令
 
 ```shell
-cp ./* /usr/local/bin/
+cd Crane-FrontEnd/
+make all
+```
+
+## 5.部署前端命令 ##
+
+### 5.1. 本地更新 ###
+
+```shell
+cp ./bin/* /usr/local/bin/
+```
+
+### 5.2. 用pdsh远端更新 ###
+
+以下用demo集群为例：
+
+```bash
+pdcp -w login -w crane0[1-4] -w cranectl ./bin/* /usr/local/bin/
+```
+
+### 5.3. 部署cfored ###
+
+在登录节点和计算节点部署
+
+```bash
+systemctl stop firewalld
+systemctl disable firewalld
+
+# 上述两条命令不成功需要执行下面命令
+#或者开放端口
+firewall-cmd --add-port=10012/tcp --permanent --zone=public
+# 重启防火墙(修改配置后要重启防火墙)
+firewall-cmd --reload
+
+# 在Crane-FrontEnd/目录下
+# 本地节点
+cp ./etc/cfored.service /etc/systemd/system/
+# 远端节点
+pdcp -w login -w crane0[1-4] -w cranectl ./etc/cfored.service /etc/systemd/system/
+# 启动cfored
+systemctl start cfored
+```
+
+### 5.4. 部署cwrapper ###
+
+在登录节点和计算节点上，用cwrapper命令将鹤思命令与slurm常用命令关联：
+
+```bash
+cat > /etc/profile.d/cwrapper.sh << 'EOF'
+alias sbatch='cwrapper sbatch'
+alias sacct='cwrapper sacct'
+alias sacctmgr='cwrapper sacctmgr'
+alias scancel='cwrapper scancel'
+alias scontrol='cwrapper scontrol'
+alias sinfo='cwrapper sinfo'
+alias squeue='cwrapper squeue'
+EOF
 ```
