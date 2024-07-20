@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>4.7 cacct 查看作业信息 · CraneSched Document</title>
+        <title>4.9 cacct 查看作业信息 · CraneSched Document</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -230,12 +230,38 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.3" data-path="cqueue.html">
+        <li class="chapter " data-level="1.4.3" data-path="crun.html">
+            
+                <a href="crun.html">
+            
+                    
+                    4.3 crun 提交交互式任务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="calloc.html">
+            
+                <a href="calloc.html">
+            
+                    
+                    4.4 calloc 提交交互式任务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="cqueue.html">
             
                 <a href="cqueue.html">
             
                     
-                    4.3 cqueue 查看作业队列
+                    4.5 cqueue 查看作业队列
             
                 </a>
             
@@ -243,12 +269,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.4" data-path="ccancel.html">
+        <li class="chapter " data-level="1.4.6" data-path="ccancel.html">
             
                 <a href="ccancel.html">
             
                     
-                    4.4 ccancel 取消运行或提交的作业
+                    4.6 ccancel 取消运行或提交的作业
             
                 </a>
             
@@ -256,12 +282,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.5" data-path="ccontrol.html">
+        <li class="chapter " data-level="1.4.7" data-path="ccontrol.html">
             
                 <a href="ccontrol.html">
             
                     
-                    4.5 ccontrol 查看分区和节点状态
+                    4.7 ccontrol 查看/修改分区和节点状态
             
                 </a>
             
@@ -269,12 +295,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.6" data-path="cacctmgr.html">
+        <li class="chapter " data-level="1.4.8" data-path="cacctmgr.html">
             
                 <a href="cacctmgr.html">
             
                     
-                    4.6 cacctmgr 管理用户/账户信息
+                    4.8 cacctmgr 查看和调整用户/账号信息
             
                 </a>
             
@@ -282,12 +308,12 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.4.7" data-path="cacct.html">
+        <li class="chapter active" data-level="1.4.9" data-path="cacct.html">
             
                 <a href="cacct.html">
             
                     
-                    4.7 cacct 查看作业信息
+                    4.9 cacct 查看作业信息
             
                 </a>
             
@@ -330,7 +356,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >4.7 cacct 查看作业信息</a>
+        <a href=".." >4.9 cacct 查看作业信息</a>
     </h1>
 </div>
 
@@ -355,45 +381,59 @@
 <h3 id="&#x4E3B;&#x8981;&#x8F93;&#x51FA;&#x9879;">&#x4E3B;&#x8981;&#x8F93;&#x51FA;&#x9879;</h3>
 <ul>
 <li><strong>TaskId</strong>&#xFF1A;&#x4F5C;&#x4E1A;&#x53F7;</li>
-<li><strong>TaskName</strong>: &#x4F5C;&#x4E1A;&#x540D;</li>
+<li><strong>TaskName</strong>&#xFF1A;&#x4F5C;&#x4E1A;&#x540D;</li>
 <li><strong>Partition</strong>&#xFF1A;&#x4F5C;&#x4E1A;&#x6240;&#x5728;&#x5206;&#x533A;</li>
 <li><strong>Account</strong>&#xFF1A;&#x4F5C;&#x4E1A;&#x6240;&#x5C5E;&#x8D26;&#x6237;</li>
 <li><strong>AllocCPUs</strong>&#xFF1A;&#x4F5C;&#x4E1A;&#x5206;&#x914D;&#x7684;CPU&#x6570;&#x91CF;</li>
 <li><strong>State</strong>&#xFF1A;&#x4F5C;&#x4E1A;&#x72B6;&#x6001;</li>
-<li><strong>ExitCode</strong>&#xFF1A;&#x4F5C;&#x4E1A;&#x72B6;&#x6001;&#x7801;<h3 id="&#x4E3B;&#x8981;&#x53C2;&#x6570;">&#x4E3B;&#x8981;&#x53C2;&#x6570;</h3>
-</li>
+<li><strong>ExitCode</strong>&#xFF1A;&#x4F5C;&#x4E1A;&#x72B6;&#x6001;&#x7801;</li>
+</ul>
+<h3 id="&#x4E3B;&#x8981;&#x53C2;&#x6570;">&#x4E3B;&#x8981;&#x53C2;&#x6570;</h3>
+<ul>
 <li><strong>--MaxVisibleLines/-m</strong>&#xFF1A;&#x6307;&#x5B9A;&#x8F93;&#x51FA;&#x7ED3;&#x679C;&#x7684;&#x6700;&#x5927;&#x6761;&#x6570;&#x3002;&#x5982;-m=500&#x8868;&#x793A;&#x6700;&#x591A;&#x8F93;&#x51FA;500&#x884C;&#x67E5;&#x8BE2;&#x7ED3;&#x679C;</li>
 <li><strong>-A/--account string</strong>&#xFF1A;&#x6307;&#x5B9A;&#x67E5;&#x8BE2;&#x4F5C;&#x4E1A;&#x7684;&#x6240;&#x5C5E;&#x8D26;&#x6237;&#xFF0C;&#x6307;&#x5B9A;&#x591A;&#x4E2A;&#x8D26;&#x6237;&#x65F6;&#x7528;&#x9017;&#x53F7;&#x9694;&#x5F00;&#x3002;</li>
 <li><strong>-C/--config string</strong>&#xFF1A;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;(&#x9ED8;&#x8BA4;&#x4E3A; &quot;/etc/crane/config.yaml&quot;)</li>
 <li><strong>-E/--endtime string</strong>&#xFF1A;&#x6307;&#x5B9A;&#x67E5;&#x8BE2;&#x8BE5;&#x65F6;&#x95F4;&#x4E4B;&#x524D;&#x7ED3;&#x675F;&#x7684;&#x4F5C;&#x4E1A;&#xFF0C;&#x4F8B;&#xFF1A;cacct -E=2023-03-14T10:00:00</li>
 <li><strong>-o/--format string</strong>&#xFF1A;&#x4EE5;&#x6307;&#x5B9A;&#x683C;&#x5F0F;&#x8F93;&#x51FA;&#x7ED3;&#x679C;&#x8868;&#xFF0C;&#x53EF;&#x4EE5;&#x6307;&#x5B9A;&#x8F93;&#x51FA;&#x6307;&#x5B9A;&#x5217;&#x4EE5;&#x53CA;&#x5217;&#x5BBD;&#x3002;</li>
-<li><strong>--help/-h</strong>: &#x663E;&#x793A;&#x5E2E;&#x52A9;</li>
+<li><strong>--help/-h</strong>&#xFF1A;&#x663E;&#x793A;&#x5E2E;&#x52A9;</li>
 <li><strong>-j/ --job string</strong>&#xFF1A;&#x6307;&#x5B9A;&#x67E5;&#x8BE2;&#x4F5C;&#x4E1A;&#x53F7;&#xFF0C;&#x6307;&#x5B9A;&#x591A;&#x4E2A;&#x4F5C;&#x4E1A;&#x53F7;&#x65F6;&#x7528;&#x9017;&#x53F7;&#x9694;&#x5F00;&#x3002;&#x5982; -j=2,3,4</li>
 <li><strong>-n/ --name string</strong>&#xFF1A;&#x6307;&#x5B9A;&#x67E5;&#x8BE2;&#x4F5C;&#x4E1A;&#x540D;&#xFF0C;&#x6307;&#x5B9A;&#x591A;&#x4E2A;&#x4F5C;&#x4E1A;&#x540D;&#x65F6;&#x7528;&#x9017;&#x53F7;&#x9694;&#x5F00;&#x3002;</li>
 <li><strong>--noHeader/-N</strong>&#xFF1A;&#x8F93;&#x51FA;&#x9690;&#x85CF;&#x8868;&#x5934;</li>
 <li><strong>-S/--startime string</strong>&#xFF1A;&#x6307;&#x5B9A;&#x67E5;&#x8BE2;&#x8BE5;&#x65F6;&#x95F4;&#x4E4B;&#x540E;&#x5F00;&#x59CB;&#x7684;&#x4F5C;&#x4E1A;&#xFF0C;&#x4F8B;&#xFF1A;cacct -S=2023-03-14T10:00:00</li>
-<li><strong>-u/--user string</strong>&#xFF1A;&#x6307;&#x5B9A;&#x67E5;&#x8BE2;&#x67D0;&#x4E2A;&#x7528;&#x6237;&#x7684;&#x4F5C;&#x4E1A;&#xFF0C;&#x6307;&#x5B9A;&#x591A;&#x4E2A;&#x7528;&#x6237;&#x65F6;&#x7528;&#x9017;&#x53F7;&#x9694;&#x5F00;&#x3002;<ul>
-<li>&#x4F8B;<pre class="language-"><code class="lang-shell">cacct
+<li><p><strong>-u/--user string</strong>&#xFF1A;&#x6307;&#x5B9A;&#x67E5;&#x8BE2;&#x67D0;&#x4E2A;&#x7528;&#x6237;&#x7684;&#x4F5C;&#x4E1A;&#xFF0C;&#x6307;&#x5B9A;&#x591A;&#x4E2A;&#x7528;&#x6237;&#x65F6;&#x7528;&#x9017;&#x53F7;&#x9694;&#x5F00;&#x3002;</p>
+<ul>
+<li><p>&#x4F8B;</p>
+<pre class="language-"><code class="lang-shell">cacct
 </code></pre>
-<img src="../images/cacct.png" alt="cacct"><pre class="language-"><code class="lang-shell">cacct <span class="token parameter variable">-h</span>
+<p><img src="../images/cacct.png" alt="cacct"></p>
+<pre class="language-"><code class="lang-shell">cacct <span class="token parameter variable">-h</span>
 </code></pre>
-<img src="../images/cacct_h.png" alt="cacct_h"><pre class="language-"><code class="lang-shell">cacct <span class="token parameter variable">-N</span>
+<p><img src="../images/cacct_h.png" alt="cacct_h"></p>
+<pre class="language-"><code class="lang-shell">cacct <span class="token parameter variable">-N</span>
 </code></pre>
-<img src="../images/cacct_n.png" alt="cacct_N"><pre class="language-"><code class="lang-shell">cacct <span class="token parameter variable">-S</span><span class="token operator">=</span><span class="token number">2023</span>-03-14T10:00:00
+<p><img src="../images/cacct_n.png" alt="cacct_N"></p>
+<pre class="language-"><code class="lang-shell">cacct <span class="token parameter variable">-S</span><span class="token operator">=</span><span class="token number">2023</span>-03-14T10:00:00
 </code></pre>
-<img src="../images/cacct_S.png" alt="cacct_S"><pre class="language-"><code class="lang-shell">cacct <span class="token parameter variable">-E</span><span class="token operator">=</span><span class="token number">2023</span>-05-07T10:00:00
+<p><img src="../images/cacct_S.png" alt="cacct_S"></p>
+<pre class="language-"><code class="lang-shell">cacct <span class="token parameter variable">-E</span><span class="token operator">=</span><span class="token number">2023</span>-05-07T10:00:00
 </code></pre>
-<img src="../images/cacct_E.png" alt="cacct_E"><pre class="language-"><code class="lang-shell">cacct <span class="token parameter variable">-j</span><span class="token operator">=</span><span class="token number">25,24</span>,23
+<p><img src="../images/cacct_E.png" alt="cacct_E"></p>
+<pre class="language-"><code class="lang-shell">cacct <span class="token parameter variable">-j</span><span class="token operator">=</span><span class="token number">25,24</span>,23
 </code></pre>
-<img src="../images/cacct_j.png" alt="cacct_j"><pre class="language-"><code class="lang-shell">cacct <span class="token parameter variable">-u</span><span class="token operator">=</span>root
+<p><img src="../images/cacct_j.png" alt="cacct_j"></p>
+<pre class="language-"><code class="lang-shell">cacct <span class="token parameter variable">-u</span><span class="token operator">=</span>root
 </code></pre>
-<img src="../images/cacct_u.png" alt="cacct_u"><pre class="language-"><code class="lang-shell">cacct <span class="token parameter variable">-A</span><span class="token operator">=</span>ROOT
+<p><img src="../images/cacct_u.png" alt="cacct_u"></p>
+<pre class="language-"><code class="lang-shell">cacct <span class="token parameter variable">-A</span><span class="token operator">=</span>ROOT
 </code></pre>
-<img src="../images/cacct_A.png" alt="cacct_A"><pre class="language-"><code class="lang-shell">cacct <span class="token parameter variable">-m</span><span class="token operator">=</span><span class="token number">10</span>
+<p><img src="../images/cacct_A.png" alt="cacct_A"></p>
+<pre class="language-"><code class="lang-shell">cacct <span class="token parameter variable">-m</span><span class="token operator">=</span><span class="token number">10</span>
 </code></pre>
-<img src="../images/cacct_m.png" alt="cacct_m"><pre class="language-"><code class="lang-shell">cacct <span class="token parameter variable">-o</span><span class="token operator">=</span><span class="token string">&quot;TaskId,TaskName%30,Partition,Account,State&quot;</span>
+<p><img src="../images/cacct_m.png" alt="cacct_m"></p>
+<pre class="language-"><code class="lang-shell">cacct <span class="token parameter variable">-o</span><span class="token operator">=</span><span class="token string">&quot;TaskId,TaskName%30,Partition,Account,State&quot;</span>
 </code></pre>
-<img src="../images/cacct_o.png" alt="cacct_o"></li>
+<p><img src="../images/cacct_o.png" alt="cacct_o"></p>
+</li>
 </ul>
 </li>
 </ul>
@@ -424,7 +464,7 @@
 
             
                 
-                <a href="cacctmgr.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 4.6 cacctmgr 管理用户/账户信息">
+                <a href="cacctmgr.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 4.8 cacctmgr 查看和调整用户/账号信息">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
@@ -436,7 +476,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"4.7 cacct 查看作业信息","level":"1.4.7","depth":2,"previous":{"title":"4.6 cacctmgr 管理用户/账户信息","level":"1.4.6","depth":2,"path":"command/cacctmgr.md","ref":"command/cacctmgr.md","articles":[]},"dir":"ltr"},"config":{"plugins":["back-to-top-button","search-pro","-lunr","-search","code","prism","prism-themes","-highlight","pageview-count","splitter","expandable-chapters","chapter-fold","theme-comscore","emphasize"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"prism":{"lang":{"shell":"bash"},"css":["prismjs/themes/prism-okaidia.css"]},"emphasize":{},"splitter":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-comscore":{},"back-to-top-button":{},"pageview-count":{},"prism-themes":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Yinping Ma","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"CraneSched Document","gitbook":"*","description":"CraneSched Document"},"file":{"path":"command/cacct.md","mtime":"2023-08-19T14:06:46.145Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-08-19T14:07:17.225Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"4.9 cacct 查看作业信息","level":"1.4.9","depth":2,"previous":{"title":"4.8 cacctmgr 查看和调整用户/账号信息","level":"1.4.8","depth":2,"path":"command/cacctmgr.md","ref":"command/cacctmgr.md","articles":[]},"dir":"ltr"},"config":{"plugins":["back-to-top-button","search-pro","-lunr","-search","code","prism","prism-themes","-highlight","pageview-count","splitter","expandable-chapters","chapter-fold","theme-comscore","emphasize"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"prism":{"lang":{"shell":"bash"},"css":["prismjs/themes/prism-okaidia.css"]},"emphasize":{},"splitter":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-comscore":{},"back-to-top-button":{},"pageview-count":{},"prism-themes":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Yinping Ma","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"CraneSched Document","gitbook":"*","description":"CraneSched Document"},"file":{"path":"command/cacct.md","mtime":"2024-07-19T07:12:32.418Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-07-20T09:30:43.373Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -482,7 +522,7 @@
         
     
         
-        <script src="../gitbook/gitbook-plugin-fontsettings/buttons.js"></script>
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
         
     
         

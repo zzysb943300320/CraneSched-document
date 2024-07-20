@@ -232,12 +232,38 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.3" data-path="cqueue.html">
+        <li class="chapter " data-level="1.4.3" data-path="crun.html">
+            
+                <a href="crun.html">
+            
+                    
+                    4.3 crun 提交交互式任务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="calloc.html">
+            
+                <a href="calloc.html">
+            
+                    
+                    4.4 calloc 提交交互式任务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="cqueue.html">
             
                 <a href="cqueue.html">
             
                     
-                    4.3 cqueue 查看作业队列
+                    4.5 cqueue 查看作业队列
             
                 </a>
             
@@ -245,12 +271,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.4" data-path="ccancel.html">
+        <li class="chapter " data-level="1.4.6" data-path="ccancel.html">
             
                 <a href="ccancel.html">
             
                     
-                    4.4 ccancel 取消运行或提交的作业
+                    4.6 ccancel 取消运行或提交的作业
             
                 </a>
             
@@ -258,12 +284,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.5" data-path="ccontrol.html">
+        <li class="chapter " data-level="1.4.7" data-path="ccontrol.html">
             
                 <a href="ccontrol.html">
             
                     
-                    4.5 ccontrol 查看分区和节点状态
+                    4.7 ccontrol 查看/修改分区和节点状态
             
                 </a>
             
@@ -271,12 +297,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.6" data-path="cacctmgr.html">
+        <li class="chapter " data-level="1.4.8" data-path="cacctmgr.html">
             
                 <a href="cacctmgr.html">
             
                     
-                    4.6 cacctmgr 管理用户/账户信息
+                    4.8 cacctmgr 查看和调整用户/账号信息
             
                 </a>
             
@@ -284,12 +310,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.7" data-path="cacct.html">
+        <li class="chapter " data-level="1.4.9" data-path="cacct.html">
             
                 <a href="cacct.html">
             
                     
-                    4.7 cacct 查看作业信息
+                    4.9 cacct 查看作业信息
             
                 </a>
             
@@ -358,54 +384,53 @@
 <ul>
 <li><strong>PARTITION</strong>&#xFF1A;&#x5206;&#x533A;&#x540D;</li>
 <li><strong>AVAIL</strong>&#xFF1A; &#x5206;&#x533A;&#x72B6;&#x6001;<ul>
+<li><strong>UP</strong>&#xFF1A; &#x53EF;&#x7528;</li>
+<li><strong>DOWN</strong>&#xFF1A; &#x4E0D;&#x53EF;&#x7528;</li>
+</ul>
+</li>
+<li><strong>NODES</strong>&#xFF1A;&#x8282;&#x70B9;&#x6570;</li>
+<li><strong>STATE</strong>&#xFF1A;&#x8282;&#x70B9;&#x72B6;&#x6001;<ul>
 <li><strong>idel</strong>&#xFF1A; &#x7A7A;&#x95F2;</li>
 <li><strong>mix</strong>&#xFF1A; &#x8282;&#x70B9;&#x90E8;&#x5206;&#x6838;&#x5FC3;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;</li>
 <li><strong>alloc</strong>&#xFF1A; &#x8282;&#x70B9;&#x5DF2;&#x88AB;&#x5360;&#x7528;</li>
 <li><strong>down</strong>&#xFF1A; &#x8282;&#x70B9;&#x4E0D;&#x53EF;&#x7528;</li>
 </ul>
 </li>
-<li><strong>NODES</strong>&#xFF1A;&#x8282;&#x70B9;&#x6570;</li>
 <li><strong>NODELIST</strong>&#xFF1A; &#x8282;&#x70B9;&#x5217;&#x8868;</li>
 </ul>
 <h4 id="&#x4E3B;&#x8981;&#x53C2;&#x6570;">&#x4E3B;&#x8981;&#x53C2;&#x6570;</h4>
 <ul>
-<li><strong>--help</strong>: &#x663E;&#x793A;&#x5E2E;&#x52A9;</li>
-<li><strong>-N/--Node</strong>&#xFF1A;&#x4EE5;&#x8282;&#x70B9;&#x4E3A;&#x4E2D;&#x5FC3;&#x663E;&#x793A;&#x4FE1;&#x606F;&#xFF0C;&#x6309;&#x8282;&#x70B9;&#x540D;&#x4ECE;&#x5C0F;&#x5230;&#x5927;&#x8F93;&#x51FA;</li>
+<li><strong>-h/--help</strong>&#xFF1A;&#x663E;&#x793A;&#x5E2E;&#x52A9;</li>
 <li><strong>-C/--config string</strong>&#xFF1A;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;(&#x9ED8;&#x8BA4;&#x4E3A; &quot;/etc/crane/config.yaml&quot;)</li>
 <li><strong>-d/--dead</strong>&#xFF1A;&#x53EA;&#x663E;&#x793A;&#x65E0;&#x54CD;&#x5E94;&#x8282;&#x70B9;</li>
-<li><strong>-o/--format string</strong>&#xFF1A;&#x4EE5;&#x6307;&#x5B9A;&#x683C;&#x5F0F;&#x8F93;&#x51FA;&#x7ED3;&#x679C;&#x8868;&#xFF0C;&#x53EF;&#x4EE5;&#x6307;&#x5B9A;&#x8F93;&#x51FA;&#x6307;&#x5B9A;&#x5217;&#x4EE5;&#x53CA;&#x5217;&#x5BBD;&#x3002;</li>
-<li><strong>-i/--iterate uint</strong>&#xFF1A;&#x6307;&#x5B9A;&#x95F4;&#x9694;&#x79D2;&#x6570;&#x5237;&#x65B0;&#x67E5;&#x8BE2;&#x7ED3;&#x679C;&#x3002;&#x5982; -i=3&#x8868;&#x793A;&#x6BCF;&#x9694;&#x4E09;&#x79D2;&#x8F93;&#x51FA;&#x4E00;&#x6B21;&#x67E5;&#x8BE2;&#x7ED3;&#x679C;</li>
+<li><strong>-i/--iterate uint</strong>&#xFF1A;&#x6307;&#x5B9A;&#x95F4;&#x9694;&#x79D2;&#x6570;&#x5237;&#x65B0;&#x67E5;&#x8BE2;&#x7ED3;&#x679C;&#x3002;&#x5982; -i=3 &#x8868;&#x793A;&#x6BCF;&#x9694;&#x4E09;&#x79D2;&#x8F93;&#x51FA;&#x4E00;&#x6B21;&#x67E5;&#x8BE2;&#x7ED3;&#x679C;</li>
 <li><strong>-n/--nodes string</strong>&#xFF1A;&#x663E;&#x793A;&#x6307;&#x5B9A;&#x8282;&#x70B9;&#x4FE1;&#x606F;&#xFF0C;&#x591A;&#x4E2A;&#x8282;&#x70B9;&#x7528;&#x9017;&#x53F7;&#x9694;&#x5F00;&#x3002;&#x4F8B;&#xFF1A;cinfo -n dby01,dby02</li>
 <li><strong>-p/--partition string</strong>&#xFF1A;&#x663E;&#x793A;&#x6307;&#x5B9A;&#x5206;&#x533A;&#x4FE1;&#x606F;&#xFF0C;&#x591A;&#x4E2A;&#x5206;&#x533A;&#x7528;&#x9017;&#x53F7;&#x9694;&#x5F00;&#x3002;&#x4F8B;&#xFF1A;cinfo -p CPU,GPU</li>
 <li><strong>-r/--responding</strong>&#xFF1A;&#x53EA;&#x663E;&#x793A;&#x6709;&#x54CD;&#x5E94;&#x8282;&#x70B9;</li>
-<li><strong>-t/--states string</strong>&#xFF1A;&#x4EC5;&#x663E;&#x793A;&#x72B6;&#x6001;&#x7684;&#x4FE1;&#x606F;&#x3002;&#x72B6;&#x6001;&#x53EF;&#x4EE5;&#x4E3A;(&#x4E0D;&#x533A;&#x5206;&#x5927;&#x5C0F;&#x5199;): IDLE, MIX, ALLOC&#x548C;DOWN</li>
-<li><strong>-s/--summarize</strong>&#xFF1A;&#x663E;&#x793A;&#x6458;&#x8981;&#x4FE1;&#x606F;&#xFF0C;&#x6BCF;&#x4E2A;&#x5206;&#x533A;&#x663E;&#x793A;&#x4E00;&#x884C;<ul>
-<li><strong>&#x4F8B;</strong><pre class="language-"><code class="lang-shell">cinfo <span class="token parameter variable">-h</span>
+<li><p><strong>-t/--states string</strong>&#xFF1A;&#x4EC5;&#x663E;&#x793A;&#x72B6;&#x6001;&#x7684;&#x4FE1;&#x606F;&#x3002;&#x72B6;&#x6001;&#x53EF;&#x4EE5;&#x4E3A;(&#x4E0D;&#x533A;&#x5206;&#x5927;&#x5C0F;&#x5199;): IDLE, MIX, ALLOC&#x548C;DOWN</p>
+<ul>
+<li><p><strong>&#x4F8B;</strong></p>
+<pre class="language-"><code class="lang-shell">cinfo <span class="token parameter variable">-h</span>
 </code></pre>
-<img src="../images/cinfo_h.png" alt="cinfo-h"><pre class="language-"><code class="lang-shell">cinfo <span class="token parameter variable">-N</span>
+<p><img src="../images/cinfo_h.png" alt="cinfo-h"></p>
+<pre class="language-"><code class="lang-shell">cinfo <span class="token parameter variable">-d</span>
 </code></pre>
-<img src="../images/cinfo_N_big.png" alt="cinfo-N"><pre class="language-"><code class="lang-shell">cinfo <span class="token parameter variable">-d</span>
+<p><img src="../images/cinfo_d.png" alt="cinfo-d"></p>
+<pre class="language-"><code class="lang-shell">cinfo <span class="token parameter variable">-i</span> <span class="token number">3</span>
 </code></pre>
-<img src="../images/cinfo_d.png" alt="cinfo-d"><pre class="language-"><code class="lang-shell">cinfo <span class="token parameter variable">-o</span> <span class="token string">&quot;%.10P %.8l %.9F %.25l %.15a %.9D&quot;</span>
+<p><img src="../images/cinfo_i.png" alt="cinfo-i"></p>
+<pre class="language-"><code class="lang-shell">cinfo <span class="token parameter variable">-n</span> dby01,dby02
 </code></pre>
-<img src="../images/cinfo_o.png" alt="cinfo-o"><ul>
-<li>format&#x4E2D;&#x6307;&#x5B9A;&#x5217;&#x7684;&#x5BF9;&#x5E94;&#x7F29;&#x5199;&#x5BF9;&#x7167;&#xFF08;&#x533A;&#x5206;&#x5927;&#x5C0F;&#x5199;&#xFF09;&#xFF1A;<ul>
-<li>P&#xFF1A;PARTITION&#xFF0C;F&#xFF1A;NODES&#xFF08;A/I/O/T&#xFF09;&#xFF0C;a&#xFF1A;AVAIL&#xFF0C;D&#xFF1A;NODES&#xFF0C;I&#xFF1A;TIMELIMIT<pre class="language-"><code class="lang-shell">cinfo <span class="token parameter variable">-i</span> <span class="token number">3</span>
+<p><img src="../images/cinfo_n.png" alt="cinfo-n"></p>
+<pre class="language-"><code class="lang-shell">cinfo <span class="token parameter variable">-p</span> GPU,CPU
 </code></pre>
-<img src="../images/cinfo_i.png" alt="cinfo-i"><pre class="language-"><code class="lang-shell">cinfo <span class="token parameter variable">-n</span> dby01,dby02
+<p><img src="../images/cinfo_p.png" alt="cinfo-p"></p>
+<pre class="language-"><code class="lang-shell">cinfo <span class="token parameter variable">-r</span>
 </code></pre>
-<img src="../images/cinfo_n.png" alt="cinfo-n"><pre class="language-"><code class="lang-shell">cinfo <span class="token parameter variable">-p</span> GPU,CPU
+<p><img src="../images/cinfo_r.png" alt="cinfo-r"></p>
+<pre class="language-"><code class="lang-shell">cinfo <span class="token parameter variable">-t</span> IDLE
 </code></pre>
-<img src="../images/cinfo_p.png" alt="cinfo-p"><pre class="language-"><code class="lang-shell">cinfo <span class="token parameter variable">-r</span>
-</code></pre>
-<img src="../images/cinfo_r.png" alt="cinfo-r"><pre class="language-"><code class="lang-shell">cinfo <span class="token parameter variable">-t</span> IDLE
-</code></pre>
-<img src="../images/cinfo_t.png" alt="cinfo-t"><pre class="language-"><code class="lang-shell">cinfo <span class="token parameter variable">-s</span>
-</code></pre>
-<img src="../images/cinfo_s.png" alt="cinfo-s"></li>
-</ul>
-</li>
-</ul>
+<p><img src="../images/cinfo_t.png" alt="cinfo-t"></p>
 </li>
 </ul>
 </li>
@@ -453,7 +478,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"4.1 cinfo 查看节点与分区状态","level":"1.4.1","depth":2,"next":{"title":"4.2 cbatch 提交批处理作业","level":"1.4.2","depth":2,"path":"command/cbatch.md","ref":"command/cbatch.md","articles":[]},"previous":{"title":"4 CraneSched使用教程","level":"1.4","depth":1,"path":"command/README.md","ref":"command/README.md","articles":[{"title":"4.1 cinfo 查看节点与分区状态","level":"1.4.1","depth":2,"path":"command/cinfo.md","ref":"command/cinfo.md","articles":[]},{"title":"4.2 cbatch 提交批处理作业","level":"1.4.2","depth":2,"path":"command/cbatch.md","ref":"command/cbatch.md","articles":[]},{"title":"4.3 cqueue 查看作业队列","level":"1.4.3","depth":2,"path":"command/cqueue.md","ref":"command/cqueue.md","articles":[]},{"title":"4.4 ccancel 取消运行或提交的作业","level":"1.4.4","depth":2,"path":"command/ccancel.md","ref":"command/ccancel.md","articles":[]},{"title":"4.5 ccontrol 查看分区和节点状态","level":"1.4.5","depth":2,"path":"command/ccontrol.md","ref":"command/ccontrol.md","articles":[]},{"title":"4.6 cacctmgr 管理用户/账户信息","level":"1.4.6","depth":2,"path":"command/cacctmgr.md","ref":"command/cacctmgr.md","articles":[]},{"title":"4.7 cacct 查看作业信息","level":"1.4.7","depth":2,"path":"command/cacct.md","ref":"command/cacct.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["back-to-top-button","search-pro","-lunr","-search","code","prism","prism-themes","-highlight","pageview-count","splitter","expandable-chapters","chapter-fold","theme-comscore","emphasize"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"prism":{"lang":{"shell":"bash"},"css":["prismjs/themes/prism-okaidia.css"]},"emphasize":{},"splitter":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-comscore":{},"back-to-top-button":{},"pageview-count":{},"prism-themes":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Yinping Ma","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"CraneSched Document","gitbook":"*","description":"CraneSched Document"},"file":{"path":"command/cinfo.md","mtime":"2023-05-15T09:45:31.053Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-08-19T14:07:17.225Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"4.1 cinfo 查看节点与分区状态","level":"1.4.1","depth":2,"next":{"title":"4.2 cbatch 提交批处理作业","level":"1.4.2","depth":2,"path":"command/cbatch.md","ref":"command/cbatch.md","articles":[]},"previous":{"title":"4 CraneSched使用教程","level":"1.4","depth":1,"path":"command/README.md","ref":"command/README.md","articles":[{"title":"4.1 cinfo 查看节点与分区状态","level":"1.4.1","depth":2,"path":"command/cinfo.md","ref":"command/cinfo.md","articles":[]},{"title":"4.2 cbatch 提交批处理作业","level":"1.4.2","depth":2,"path":"command/cbatch.md","ref":"command/cbatch.md","articles":[]},{"title":"4.3 crun 提交交互式任务","level":"1.4.3","depth":2,"path":"command/crun.md","ref":"command/crun.md","articles":[]},{"title":"4.4 calloc 提交交互式任务","level":"1.4.4","depth":2,"path":"command/calloc.md","ref":"command/calloc.md","articles":[]},{"title":"4.5 cqueue 查看作业队列","level":"1.4.5","depth":2,"path":"command/cqueue.md","ref":"command/cqueue.md","articles":[]},{"title":"4.6 ccancel 取消运行或提交的作业","level":"1.4.6","depth":2,"path":"command/ccancel.md","ref":"command/ccancel.md","articles":[]},{"title":"4.7 ccontrol 查看/修改分区和节点状态","level":"1.4.7","depth":2,"path":"command/ccontrol.md","ref":"command/ccontrol.md","articles":[]},{"title":"4.8 cacctmgr 查看和调整用户/账号信息","level":"1.4.8","depth":2,"path":"command/cacctmgr.md","ref":"command/cacctmgr.md","articles":[]},{"title":"4.9 cacct 查看作业信息","level":"1.4.9","depth":2,"path":"command/cacct.md","ref":"command/cacct.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["back-to-top-button","search-pro","-lunr","-search","code","prism","prism-themes","-highlight","pageview-count","splitter","expandable-chapters","chapter-fold","theme-comscore","emphasize"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"prism":{"lang":{"shell":"bash"},"css":["prismjs/themes/prism-okaidia.css"]},"emphasize":{},"splitter":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-comscore":{},"back-to-top-button":{},"pageview-count":{},"prism-themes":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Yinping Ma","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"CraneSched Document","gitbook":"*","description":"CraneSched Document"},"file":{"path":"command/cinfo.md","mtime":"2024-07-18T09:07:30.557Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-07-20T09:30:43.373Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -499,7 +524,7 @@
         
     
         
-        <script src="../gitbook/gitbook-plugin-fontsettings/buttons.js"></script>
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
         
     
         
