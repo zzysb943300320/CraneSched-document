@@ -51,6 +51,7 @@ firewall-cmd --reload
 ## 2.安装依赖包 ##
 
 ```shell
+# CentOS
 # 启用 EPEL 存储库
 yum install -y epel-release
 yum update -y
@@ -60,6 +61,17 @@ yum install -y tig tmux fish pdsh htop
 yum install -y openssl-devel libcgroup-devel \
     curl-devel boost169-devel boost169-static pam-devel \
     zlib-devel zlib-static
+
+# Rocky
+# 启用 EPEL 存储库
+dnf install -y epel-release
+dnf update -y
+ 
+dnf install -y tig tmux fish pdsh htop
+
+dnf install -y openssl-devel libcgroup \
+    curl-devel boost169-devel boost169-static pam-devel \
+    zlib-devel
 ```
 
 ## 3.安装工具链 ##
@@ -194,6 +206,9 @@ dnf groupinstall -y "Development Tools"
 dnf install -y autoconf automake libtool cmake
 dnf install -y systemd-devel
 dnf install -y gnuplot
+
+# ninja-build需开启Rocky-PowerTools.repo源
+dnf install -y ninja-build patch
 ```
 
 ```bash
@@ -235,9 +250,9 @@ git config --global http.proxy http://crane:hf2lH9UUC3E0@192.168.1.1:7890
 git config --global https.proxy http://crane:hf2lH9UUC3E0@192.168.1.1:7890
 
 # 选择一个合适的位置克隆项目
-git clone https://github.com/PKUHPC/Crane.git
+git clone https://github.com/PKUHPC/CraneSched.git
 
-cd Crane
+cd CraneSched
 mkdir build
 cd build
 
