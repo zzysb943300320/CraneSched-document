@@ -4,8 +4,8 @@
 
 ```shell
 cd download/
-wget https://golang.google.cn/dl/go1.17.3.linux-amd64.tar.gz
-tar -C /usr/local -xzf go1.17.3.linux-amd64.tar.gz
+wget https://golang.google.cn/dl/go1.21.12.linux-amd64.tar.gz
+tar -C /usr/local -xzf go1.21.12.linux-amd64.tar.gz
 
 # 在 /etc/profile中设置环境变量
 export GOROOT=/usr/local/go
@@ -41,7 +41,7 @@ protoc --version
 ## 3.拉取项目 ##
 
 ```shell
-git clone https://github.com/PKUHPC/Crane-FrontEnd.git # 克隆项目代码
+git clone https://github.com/PKUHPC/CraneSched-FrontEnd.git # 克隆项目代码
 ```
 
 ## 4.编译项目 ##
@@ -49,7 +49,7 @@ git clone https://github.com/PKUHPC/Crane-FrontEnd.git # 克隆项目代码
 生成proto文件
 
 ```shell
-cd Crane-FrontEnd/
+cd CraneSched-FrontEnd/
 make all
 ```
 
