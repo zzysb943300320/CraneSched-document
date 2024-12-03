@@ -6,12 +6,27 @@
 #### 主要命令 ####
 
 - **help**：显示帮助
+- **show**: 显示实体的状态，默认为所有记录
 - **add**：添加一个分区或者节点
-- **delete**：删除一个分区或者节点
-- **show**：显示实体的状态，默认为所有记录
 - **update**：修改作业/分区/节点信息
 - **hold**：暂停作业调度
 - **release**：继续作业调度
+### 支持的命令行选项 ###
+- **-h/--help**: 显示帮助
+- **--json**：json格式输出命令执行结果
+- **-v/--version**：查询版本号
+- **-C/--config string**：配置文件路径(默认 "/etc/crane/config.yaml")
+
+## 查看 ##
+### 支持的命令选项 ###
+- **config**: 查询配置信息
+- **job**：查询作业信息
+- **node**：查询节点信息
+- **partition**：查看集群分区情况
+~~~bash
+ccontrol show -h
+~~~
+![ccontrol_h](../images/ccontrol_show_h.png)
 
 ### 1. 查看分区状态 ###
 
@@ -21,7 +36,7 @@ ccontrol show partition
 
 **ccontrol show partition运行结果展示**
 
-![ccontrol](../images/ccontrol_partition.png)
+![ccontrol_show_partiton](../images/ccontrol_partition.png)
 
 #### 主要输出项 ####
 
@@ -47,7 +62,7 @@ ccontrol show node
 
 **ccontrol show node运行结果展示**
 
-![ccontrol](../images/ccontrol_node.png)
+![ccontrol_show_node](../images/ccontrol_node.png)
 
 #### 主要输出项 ####
 
@@ -71,7 +86,7 @@ ccontrol show job
 ~~~
 
 **ccontrol show job 运行结果展示**
-![ccontrol](../images/ccontrol_job.png)
+![ccontrol_show_job](../images/ccontrol_job.png)
 
 #### 主要输出项 ####
 
@@ -90,112 +105,104 @@ ccontrol show job
 - **Nodelist**：作业运行的节点
 - **NumNodes**：节点数量
 
-### 4. 修改作业信息 ###
-
+## 2.修改 ##
+#### 支持的命令行选项 ####
+- **job**：查询作业信息
+- **node**：查询节点信息
 ~~~bash
-ccontrol update job
+ccontrol update -h 
 ~~~
+![ccontrol_update_h](../images/ccontrol_update_h.png)
 
+### 1. 修改作业信息 ###
+#### 支持的命令行选项 ####
+- **-h/--help**: 显示帮助
+- **-J/--job-name string**：作业名
+- **-P/--priority float**： 作业优先级
+- **-T/--time-limit string**：作业超时时长
+~~~bash
+ccontrol update job -h
+~~~
+![ccontrol_update_job_h](../images/ccontrol_update_job_h.png)
+
+~~~bash
+ccontrol update job -J 30685 -T 0:25:25
+~~~
+![ccontrol_cqueue_p](../images/ccontrol_cqueue_p.png)
+![ccontrol](../images/ccontrol_30685.png)
+![ccontrol_cqueue_p](../images/ccontrol_cqueue_p_2.png)
+
+~~~bash
+ccontrol update job -J 191 -P 2.0
+~~~
+![ccontrol_update_job](../images/ccontrol_cqueue_j.png)
+
+### 2.修改节点信息 ###
+#### 支持的命令行选项 ####
+- **-h/--help**: 显示帮助
+- **-n/--name string**：节点名
+- **-r/--reason string**： 设置修改原因
+- **-t/--state string**：修改节点状态
+~~~bash
+ccontrol update node -h
+~~~
+![ccontrol_update_node_h](../images/ccontrol_update_node_h.png)
+
+~~~bash
+ccontrol update node -n crane01 -t drain -r improving performance
+~~~
+![ccontrol_show_node](../images/ccontrol_show_node.png)
+![ccontrol_update_node](../images/ccontrol_update_node_n.png)
+![ccontrol_show_node](../images/ccontrol_show_node_2.png)
 #### 主要参数 ####
+- **-c/--cpu**：节点的核心数（-h列表无该参数）
+- **-M/--memory**：节点的内存大小，默认是MB（-h列表无该参数）
+- **-n/--name**：节点名称
+- **-P/--partition**：节点所属的分区（-h列表无该参数）
+以下参数和上面参数不能一起设置，下面参数用于修改节点状态
+- **-r/--reason**：设置状态改变原因
+- **-t/--state**：设置节点状态
 
-- **--job/-J**：指定修改的作业号
-- **--time-limit/-T**：修改时间限制
-- **--priority/-P**：修改时间限制
+## 3. 暂停/恢复
+### 3.1. 暂停作业调度 ###
 
-### 5. 暂停作业调度 ###
+![ccontrol_hold_h](../images/ccontrol_hold_h.png)
 
 #### 主要参数 ####
 
 - **--time-limit/-T**：修改时间限制
 
 ~~~bash
-ccontrol hold 1               #暂停调度编号为1的任务
-ccontrol hold 1,2,3 -t 0:0:5  #暂停调度编号为1,2,3的任务5秒钟（随后解除暂停）
+ccontrol hold 30751             #暂停调度编号为30751的任务
+ccontrol hold 30751 -t 0:25:25  #暂停调度编号为30751的任务25分钟25秒钟（随后解除暂停）
 ~~~
 
 - hold 接受 job_id 的方式与 ccancel 相同，要求为逗号分隔的任务编号。
 - 只能 hold pending 任务。
 - 如果此前有设置解除暂停的定时器，该操作会取消原有的定时器。
 - 使用 cqueue 查询时，如果任务被 hold，Node(Reason) 一列会显示 "Held"。
+![ccontrol_hold_cqueue](../images/ccontrol_hold_cqueue.png)
+![ccontrol_hold](../images/ccontrol_hold_30751.png)
+![ccontrol_hold_cqueue](../images/ccontrol_hold_cqueue_2.png)
 
-### 6. 继续作业调度 ###
+### 3.2. 继续作业调度 ###
 
+![ccontrol_release_h](../images/ccontrol_release_h.png)
 ~~~bash
-ccontrol release 1,2,3
+ccontrol release 30751
 ~~~
 
 - 如果此前有设置解除暂停的定时器，该操作会取消原有的定时器。
-- 只能 release pending 任务。
+- 只能 release pending 任务1
+![ccontrol_release](../images/ccontrol_release_30751.png)
+![ccontrol_release_cqueue](../images/ccontrol_release_cqueue.png)
 
-### 7. 添加一个节点 ###
 
-~~~bash
-ccontrol add node
-~~~
+### completion ###
+#### 主要命令 ####
+- **bash**：为bash生成自动补全脚本
+- **fish**：为fish生成自动补全脚本
+- **powershell**：为powershell生成自动补全脚本
+- **zsh**：为zsh生成自动补全脚本
 
-#### 主要参数 ####
 
-- **-c, --cpu**：节点的核心数
-- **-M, --memory**：节点的内存大小，默认是MB
-- **-N, --name**：节点名称
-- **-P, --partition**：节点所属的分区，可以不指定，那么就不属于任何一个分区
-
-### 8. 添加一个分区 ###
-
-~~~bash
-ccontrol add partition
-~~~
-
-#### 主要参数 ####
-
-- **-A, --allowlist**：分区允许的账户列表
-- **-D, --denylist**：分区禁止的账户列表，和上面只能设置其中一个，每次设置后以最后设置的为准
-- **-N, --name**：分区的名称
-- **--nodes**：分区的节点列表，可以用聚合形式cn[01-15]，可以用独立节点名cn01,cn02，也可以混合写，注意参数用""包成一个字符串
-- **-P, --priority**：分区的优先级，目前不支持优先级为0
-
-### 9. 删除一个节点 ###
-
-~~~bash
-ccontrol delete node [name]
-~~~
-
-将节点从所有分区删除，如果节点上面还有作业正在运行，则询问用户是否需要杀死作业来强制删除。
-
-### 10.  删除一个分区 ###
-
-~~~bash
-ccontrol delete partition [name]
-~~~
-
-删除一个分区，该分区上的节点如果还有正在运行的作业，依然可以继续运行不受影响，但是由于分区被删除，不能再往该分区调度作业。
-
-### 11.  修改节点信息 ###
-
-~~~bash
-ccontrol update node
-~~~
-
-#### 主要参数 ####
-
-- **-c, --cpu**：节点的核心数
-- **-M, --memory**：节点的内存大小，默认是MB
-- **-N, --name**：节点名称
-- **-P, --partition**：节点所属的分区
-以下参数和上面参数不能一起设置，下面参数用于修改节点状态
-- **-R, --reason**：Set the reason of this state change
-- **-S, --state**：Set the node state
-
-### 12.  修改分区信息 ###
-
-~~~bash
-ccontrol update partition
-~~~
-
-#### 主要参数 ####
-
-- **-A, --allowlist**：分区允许的账户列表
-- **-D, --denylist**：分区禁止的账户列表，和上面只能设置其中一个，每次设置后以最后设置的为准
-- **-N, --name**：分区的名称
-- **--nodes**：分区的节点列表，可以用聚合形式cn[01-15]，可以用独立节点名cn01,cn02，也可以混合写，注意参数用""包成一个字符串
-- **-P, --priority**：分区的优先级，目前不支持优先级为0

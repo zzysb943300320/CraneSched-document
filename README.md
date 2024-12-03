@@ -4,20 +4,21 @@
 
 CraneSched分为前端和后端，前端主要是用Go开发，后端主要是用C++开发，欢迎开发者一起加入。
 
+**CraneSched 在线试用地址** ：[CraneSched -Demo](https://hpc.pku.edu.cn/demo/cranesched )
+
 **CraneSched前端开源地址**：[CraneSched -FrontEnd](https://github.com/PKUHPC/CraneSched-FrontEnd)
 
 **CraneSched 后端开源地址**：[CraneSched](https://github.com/PKUHPC/CraneSched )
 
 **CraneSched 文档地址**：[CraneSched-Document](https://pkuhpc.github.io/CraneSched-document )
 
-**CraneSched 在线试用地址**（试用账号：demo_admin，密码：demo_admin）：[CraneSched -Demo](https://hpc.pku.edu.cn/demo/cranesched )
 
 # CraneSched  设计理念 #
 
-- **完全开源**：源代码完全开放可得；
+- **完全开源**：源代码开放可得；
 - **功能强大**：支持高性能计算与智能计算两种作业模式；
-- **调度高效**：支持每秒调度10000个作业以上，支持同时运行100万个作业以上；
-- **高度可伸缩**：支持50000个节点以上的算力中心规模；
+- **调度高效**：支持每秒调度10000个作业以上，支持同时运行300万个作业以上；
+- **高度可伸缩**：支持100000个节点以上的算力中心规模；
 - **安全可靠**：RBAC权限控制和通信加密；
 - **代码精炼**：代码精炼高效，可读性高；
 - **简洁易用**：用户使用指令和系统管理指令简洁易用；
@@ -32,3 +33,5 @@ Cranectld负责算力中心节点生命周期的管理、作业队列的调度�
 ![architecture](./images/architecture.png)
 
 面向算力网络的国家战略，鹤思智能调度系统计划采用两级调度架构，上层调度为XCraneSched，下层调度为CraneSched，两者结合至上而下解决算力网络中算力资源调度问题。CraneSched针对单个算力中心资源调度，主要运行高性能计算和智能计算作业，通过适配器与XCraneSched连接，并承接来自XCraneSched分派的作业。XCraneSched通过各种适配器去连接超算、智算、云计算等各类算力中心，将其汇聚成一张算力网络，接受用户提交的作业，并将作业分发到最“合适”的算力中心。
+
+![architecture](./images/scenario.png)
