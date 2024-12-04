@@ -7,7 +7,7 @@
         <title>4.6 ccancel 取消运行或提交的作业 · CraneSched Document</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="generator" content="@gitbook-ng/gitbook 3.3.6">
         <meta name="author" content="Yinping Ma">
         
         
@@ -161,12 +161,12 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.1" data-path="../config/CraneConfiguration.html">
+        <li class="chapter " data-level="1.3.1" data-path="../config/Crane-CentOS7.html">
             
-                <a href="../config/CraneConfiguration.html">
+                <a href="../config/Crane-CentOS7.html">
             
                     
-                    3.1 CraneSched 后端环境配置
+                    3.1 Crane-CentOS7 环境配置
             
                 </a>
             
@@ -174,12 +174,51 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.2" data-path="../config/Crane-FrontEndConfiguration.html">
+        <li class="chapter " data-level="1.3.2" data-path="../config/Crane-Rocky_Linux9.html">
             
-                <a href="../config/Crane-FrontEndConfiguration.html">
+                <a href="../config/Crane-Rocky_Linux9.html">
             
                     
-                    3.2 CraneSched 前端环境配置
+                    3.2 Crane-Rocky_Linux9 环境配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../config/Crane-ubuntu.html">
+            
+                <a href="../config/Crane-ubuntu.html">
+            
+                    
+                    3.3 Crane-ubuntu 环境配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../config/Crane-OpenEuler22.html">
+            
+                <a href="../config/Crane-OpenEuler22.html">
+            
+                    
+                    3.4 Crane-OpenEuler22 环境配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../config/CraneSched.html">
+            
+                <a href="../config/CraneSched.html">
+            
+                    
+                    3.5 CraneSched配置文件
             
                 </a>
             
@@ -330,14 +369,6 @@
     
 
     
-
-    <li class="divider"></li>
-
-    <li>
-        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
-            Published with GitBook
-        </a>
-    </li>
 </ul>
 
 
@@ -377,14 +408,16 @@
 <p><strong>ccancel&#x53EF;&#x4EE5;&#x7EC8;&#x6B62;&#x6B63;&#x5728;&#x8FD0;&#x884C;&#x6216;&#x8005;&#x5728;&#x6392;&#x961F;&#x4E2D;&#x7684;&#x4F5C;&#x4E1A;&#x3002;</strong></p>
 <p>&#x4E3B;&#x8981;&#x53C2;&#x6570;</p>
 <ul>
-<li><strong>--help/-h</strong>: &#x663E;&#x793A;&#x5E2E;&#x52A9;</li>
-<li><strong>-A, --account string</strong>&#xFF1A;&#x53D6;&#x6D88;&#x8D26;&#x6237;&#x4E0B;&#x7684;&#x4EFB;&#x52A1;</li>
-<li><strong>-C, --config string</strong>&#xFF1A;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;(&#x9ED8;&#x8BA4; &quot;/etc/crane/config.yaml&quot;)</li>
-<li><strong>-n, --name string</strong>&#xFF1A;&#x4EC5;&#x4F7F;&#x7528;&#x4EFB;&#x52A1;&#x540D;&#x79F0;&#x53D6;&#x6D88;&#x4EFB;&#x52A1;</li>
-<li><strong>-w, --nodes strings</strong>&#xFF1A;&#x53D6;&#x6D88;&#x8282;&#x70B9;&#x4E0A;&#x8FD0;&#x884C;&#x7684;&#x4EFB;&#x52A1;</li>
-<li><strong>-p, --partition string</strong>&#xFF1A;&#x53D6;&#x6D88;&#x5206;&#x533A;&#x4E0A;&#x8FD0;&#x884C;&#x7684;&#x4EFB;&#x52A1;</li>
-<li><strong>-t, --state string</strong>&#xFF1A;&#x53D6;&#x6D88;&#x67D0;&#x72B6;&#x6001;&#x7684;&#x4EFB;&#x52A1;&#x3002;&#x6709;&#x6548;&#x7684;&#x4EFB;&#x52A1;&#x72B6;&#x6001;&#x662F; PENDING(PD)&#x3001;RUNNING(R)&#x3002;&#x4EFB;&#x52A1;&#x72B6;&#x6001;&#x4E0D;&#x533A;&#x5206;&#x5927;&#x5C0F;&#x5199;</li>
-<li><strong>-u, --user string</strong>&#xFF1A;&#x53D6;&#x6D88;&#x7279;&#x5B9A;&#x7528;&#x6237;&#x63D0;&#x4EA4;&#x7684;&#x4EFB;&#x52A1;<ul>
+<li><strong>-h/--help</strong>: &#x663E;&#x793A;&#x5E2E;&#x52A9;</li>
+<li><strong>-A/--account string</strong>&#xFF1A;&#x53D6;&#x6D88;&#x8D26;&#x6237;&#x4E0B;&#x7684;&#x4EFB;&#x52A1;</li>
+<li><strong>-C/--config string</strong>&#xFF1A;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;(&#x9ED8;&#x8BA4; &quot;/etc/crane/config.yaml&quot;)</li>
+<li><strong>-n/--name string</strong>&#xFF1A;&#x4EC5;&#x4F7F;&#x7528;&#x4EFB;&#x52A1;&#x540D;&#x79F0;&#x53D6;&#x6D88;&#x4EFB;&#x52A1;</li>
+<li><strong>-w/--nodes strings</strong>&#xFF1A;&#x53D6;&#x6D88;&#x8282;&#x70B9;&#x4E0A;&#x8FD0;&#x884C;&#x7684;&#x4EFB;&#x52A1;</li>
+<li><strong>-p/--partition string</strong>&#xFF1A;&#x53D6;&#x6D88;&#x5206;&#x533A;&#x4E0A;&#x8FD0;&#x884C;&#x7684;&#x4EFB;&#x52A1;</li>
+<li><strong>-t/--state string</strong>&#xFF1A;&#x53D6;&#x6D88;&#x67D0;&#x72B6;&#x6001;&#x7684;&#x4EFB;&#x52A1;&#x3002;&#x6709;&#x6548;&#x7684;&#x4EFB;&#x52A1;&#x72B6;&#x6001;&#x662F; PENDING(PD)&#x3001;RUNNING(R)&#x3002;&#x4EFB;&#x52A1;&#x72B6;&#x6001;&#x4E0D;&#x533A;&#x5206;&#x5927;&#x5C0F;&#x5199;</li>
+<li><strong>-u/--user string</strong>&#xFF1A;&#x53D6;&#x6D88;&#x7279;&#x5B9A;&#x7528;&#x6237;&#x63D0;&#x4EA4;&#x7684;&#x4EFB;&#x52A1;</li>
+<li><strong>--json</strong>&#xFF1A;json&#x683C;&#x5F0F;&#x8F93;&#x51FA;&#x547D;&#x4EE4;&#x6267;&#x884C;&#x7ED3;&#x679C;</li>
+<li><strong>-v/--version</strong>&#xFF1A;&#x67E5;&#x8BE2;&#x7248;&#x672C;&#x53F7;<ul>
 <li><strong>&#x4F8B;</strong>
 <img src="../images/ccancel_cqueue.png" alt="ccancel-cqueue"><pre class="language-"><code class="lang-bash">ccancel <span class="token parameter variable">-w</span> crane02
 </code></pre>
@@ -394,11 +427,33 @@
 </ul>
 </li>
 </ul>
-<p>&#x53D6;&#x6D88;&#x4F5C;&#x4E1A;&#x53F7;&#x4E3A;280&#x7684;&#x4F5C;&#x4E1A;&#xFF1A;</p>
-<pre class="language-"><code class="lang-bash">ccancel <span class="token number">280</span>
+<p>&#x53D6;&#x6D88;&#x4F5C;&#x4E1A;&#x53F7;&#x4E3A;30686&#x7684;&#x4F5C;&#x4E1A;&#xFF1A;</p>
+<pre class="language-"><code class="lang-bash">ccancel <span class="token number">30686</span>
 </code></pre>
 <p><strong>ccancel&#x8FD0;&#x884C;&#x7ED3;&#x679C;&#x5C55;&#x793A;</strong></p>
-<p><img src="../images/ccancel.png" alt="ccancel"></p>
+<p><img src="../images/ccancel_cqueue_30686.png" alt="ccancel-cqueue">
+<img src="../images/ccancel_30686.png" alt="ccancel_30686">
+<img src="../images/ccancel_cqueue_2.png" alt="ccancel-cqueue"></p>
+<p>&#x53D6;&#x6D88;&#x4F5C;&#x4E1A;&#x53F7;&#x4E3A;test1&#x7684;&#x4F5C;&#x4E1A;&#xFF1A;</p>
+<pre class="language-"><code class="lang-bash">ccancel <span class="token parameter variable">-n</span> <span class="token builtin class-name">test</span>
+</code></pre>
+<p><strong>ccancel&#x8FD0;&#x884C;&#x7ED3;&#x679C;&#x5C55;&#x793A;</strong></p>
+<p><img src="../images/ccancel_cqueue_test1.png" alt="ccancel-cqueue">
+<img src="../images/ccancel_n.png" alt="ccancel-n">
+<img src="../images/ccancel_cqueue_test1_2.png" alt="ccancel-cqueue"></p>
+<p>&#x53D6;&#x6D88;CPU&#x5206;&#x533A;&#x4E0A;&#x7684;&#x4F5C;&#x4E1A;</p>
+<pre class="language-"><code class="lang-bash">ccancel <span class="token parameter variable">-p</span> GPU
+</code></pre>
+<p><strong>ccancel&#x8FD0;&#x884C;&#x7ED3;&#x679C;&#x5C55;&#x793A;</strong></p>
+<p><img src="../images/ccancel_cqueue_p.png" alt="ccancel-cqueue">
+<img src="../images/ccancel_p.png" alt="ccancel-p">
+<img src="../images/ccancel_cqueue_p_2.png" alt="ccancel-cqueue"></p>
+<pre class="language-"><code class="lang-bash">ccancel <span class="token parameter variable">-A</span> PKU
+</code></pre>
+<p><img src="../images/ccancel_A.png" alt="ccancel-A"></p>
+<pre class="language-"><code class="lang-bash">ccancel <span class="token parameter variable">-u</span> ROOT
+</code></pre>
+<p><img src="../images/ccancel_u.png" alt="ccancel-u"></p>
 <p>&#x53D6;&#x6D88;&#x4F5C;&#x4E1A;&#x4E4B;&#x540E;&#xFF0C;&#x5982;&#x679C;&#x88AB;&#x5206;&#x914D;&#x8282;&#x70B9;&#x4E0A;&#x6CA1;&#x6709;&#x7528;&#x6237;&#x7684;&#x5176;&#x4ED6;&#x4F5C;&#x4E1A;&#xFF0C;&#x4F5C;&#x4E1A;&#x8C03;&#x5EA6;&#x7CFB;&#x7EDF;&#x4F1A;&#x7EC8;&#x6B62;&#x7528;&#x6237;&#x5728;&#x6240;&#x5206;&#x914D;&#x8282;&#x70B9;&#x7684;&#x6240;&#x6709;&#x8FDB;&#x7A0B;&#xFF0C;&#x5E76;&#x53D6;&#x6D88;&#x7528;&#x6237;&#x5728;&#x6240;&#x5206;&#x914D;&#x8282;&#x70B9;&#x4E0A;&#x7684;ssh&#x6743;&#x9650;&#x3002;</p>
 
                                 
@@ -443,7 +498,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"4.6 ccancel 取消运行或提交的作业","level":"1.4.6","depth":2,"next":{"title":"4.7 ccontrol 查看/修改分区和节点状态","level":"1.4.7","depth":2,"path":"command/ccontrol.md","ref":"command/ccontrol.md","articles":[]},"previous":{"title":"4.5 cqueue 查看作业队列","level":"1.4.5","depth":2,"path":"command/cqueue.md","ref":"command/cqueue.md","articles":[]},"dir":"ltr"},"config":{"plugins":["back-to-top-button","search-pro","-lunr","-search","code","prism","prism-themes","-highlight","pageview-count","splitter","expandable-chapters","chapter-fold","theme-comscore","emphasize"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"prism":{"lang":{"shell":"bash"},"css":["prismjs/themes/prism-okaidia.css"]},"emphasize":{},"splitter":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-comscore":{},"back-to-top-button":{},"pageview-count":{},"prism-themes":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Yinping Ma","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"CraneSched Document","gitbook":"*","description":"CraneSched Document"},"file":{"path":"command/ccancel.md","mtime":"2024-07-19T02:23:17.440Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-07-23T02:43:50.594Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"4.6 ccancel 取消运行或提交的作业","level":"1.4.6","depth":2,"next":{"title":"4.7 ccontrol 查看/修改分区和节点状态","level":"1.4.7","depth":2,"path":"command/ccontrol.md","ref":"command/ccontrol.md","articles":[]},"previous":{"title":"4.5 cqueue 查看作业队列","level":"1.4.5","depth":2,"path":"command/cqueue.md","ref":"command/cqueue.md","articles":[]},"dir":"ltr"},"config":{"plugins":["back-to-top-button","search-pro","-lunr","-search","code","prism","prism-themes","-highlight","pageview-count","splitter","expandable-chapters","chapter-fold","theme-comscore","emphasize"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"prism":{"lang":{"shell":"bash"},"css":["prismjs/themes/prism-okaidia.css"]},"emphasize":{},"splitter":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-comscore":{},"back-to-top-button":{},"pageview-count":{},"prism-themes":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Yinping Ma","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"CraneSched Document","gitbook":"*","description":"CraneSched Document"},"file":{"path":"command/ccancel.md","mtime":"2024-12-04T10:18:43.998Z","type":"markdown"},"gitbook":{"version":"3.3.6","time":"2024-12-04T11:02:59.006Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -485,7 +540,7 @@
         
     
         
-        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        <script src="../gitbook/@gitbook-ng/gitbook-plugin-sharing/buttons.js"></script>
         
     
         

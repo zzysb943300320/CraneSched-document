@@ -7,7 +7,7 @@
         <title>1 CraneSched简介 · CraneSched Document</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="generator" content="@gitbook-ng/gitbook 3.3.6">
         <meta name="author" content="Yinping Ma">
         
         
@@ -159,12 +159,12 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.1" data-path="config/CraneConfiguration.html">
+        <li class="chapter " data-level="1.3.1" data-path="config/Crane-CentOS7.html">
             
-                <a href="config/CraneConfiguration.html">
+                <a href="config/Crane-CentOS7.html">
             
                     
-                    3.1 CraneSched 后端环境配置
+                    3.1 Crane-CentOS7 环境配置
             
                 </a>
             
@@ -172,12 +172,51 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.2" data-path="config/Crane-FrontEndConfiguration.html">
+        <li class="chapter " data-level="1.3.2" data-path="config/Crane-Rocky_Linux9.html">
             
-                <a href="config/Crane-FrontEndConfiguration.html">
+                <a href="config/Crane-Rocky_Linux9.html">
             
                     
-                    3.2 CraneSched 前端环境配置
+                    3.2 Crane-Rocky_Linux9 环境配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="config/Crane-ubuntu.html">
+            
+                <a href="config/Crane-ubuntu.html">
+            
+                    
+                    3.3 Crane-ubuntu 环境配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="config/Crane-OpenEuler22.html">
+            
+                <a href="config/Crane-OpenEuler22.html">
+            
+                    
+                    3.4 Crane-OpenEuler22 环境配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="config/CraneSched.html">
+            
+                <a href="config/CraneSched.html">
+            
+                    
+                    3.5 CraneSched配置文件
             
                 </a>
             
@@ -328,14 +367,6 @@
     
 
     
-
-    <li class="divider"></li>
-
-    <li>
-        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
-            Published with GitBook
-        </a>
-    </li>
 </ul>
 
 
@@ -374,16 +405,16 @@
                                 <h1 id="cranesched-&#x7B80;&#x4ECB;">CraneSched &#x7B80;&#x4ECB;</h1>
 <p><strong>&#x9E64;&#x601D;(CraneSched)</strong>&#x662F;&#x5317;&#x4EAC;&#x5927;&#x5B66;&#x8BA1;&#x7B97;&#x4E2D;&#x5FC3;&#x548C;&#x5317;&#x4EAC;&#x5927;&#x5B66;&#x957F;&#x6C99;&#x8BA1;&#x7B97;&#x4E0E;&#x6570;&#x5B57;&#x7ECF;&#x6D4E;&#x7814;&#x7A76;&#x9662;&#x8054;&#x5408;&#x7814;&#x53D1;&#x7684;&#x7B97;&#x529B;&#x4E2D;&#x5FC3;&#x667A;&#x80FD;&#x8C03;&#x5EA6;&#x7CFB;&#x7EDF;&#x3002;&#x901A;&#x8FC7;&#x5BF9;&#x9AD8;&#x6027;&#x80FD;&#x8BA1;&#x7B97;&#x548C;&#x667A;&#x80FD;&#x8BA1;&#x7B97;&#x4E24;&#x7C7B;&#x4F5C;&#x4E1A;&#x573A;&#x666F;&#x8FDB;&#x884C;&#x7EC6;&#x5316;&#x5EFA;&#x6A21;&#x4E0E;&#x9488;&#x5BF9;&#x6027;&#x4F18;&#x5316;&#xFF0C;&#x5B9E;&#x73B0;&#x9AD8;&#x6027;&#x80FD;&#x8BA1;&#x7B97;&#x4E0E;&#x667A;&#x80FD;&#x8BA1;&#x7B97;&#x573A;&#x666F;&#x4E0B;&#x7684;&#x8D44;&#x6E90;&#x7BA1;&#x7406;&#x3001;&#x4F5C;&#x4E1A;&#x7BA1;&#x7406;&#x3001;&#x8D44;&#x6E90;&#x9694;&#x79BB;&#x3001;&#x901A;&#x8BAF;&#x52A0;&#x5BC6;&#x7B49;&#x529F;&#x80FD;&#x3002;</p>
 <p>CraneSched&#x5206;&#x4E3A;&#x524D;&#x7AEF;&#x548C;&#x540E;&#x7AEF;&#xFF0C;&#x524D;&#x7AEF;&#x4E3B;&#x8981;&#x662F;&#x7528;Go&#x5F00;&#x53D1;&#xFF0C;&#x540E;&#x7AEF;&#x4E3B;&#x8981;&#x662F;&#x7528;C++&#x5F00;&#x53D1;&#xFF0C;&#x6B22;&#x8FCE;&#x5F00;&#x53D1;&#x8005;&#x4E00;&#x8D77;&#x52A0;&#x5165;&#x3002;</p>
+<p><strong>CraneSched &#x5728;&#x7EBF;&#x8BD5;&#x7528;&#x5730;&#x5740;</strong> &#xFF1A;<a href="https://hpc.pku.edu.cn/demo/cranesched" target="_blank">CraneSched -Demo</a></p>
 <p><strong>CraneSched&#x524D;&#x7AEF;&#x5F00;&#x6E90;&#x5730;&#x5740;</strong>&#xFF1A;<a href="https://github.com/PKUHPC/CraneSched-FrontEnd" target="_blank">CraneSched -FrontEnd</a></p>
 <p><strong>CraneSched &#x540E;&#x7AEF;&#x5F00;&#x6E90;&#x5730;&#x5740;</strong>&#xFF1A;<a href="https://github.com/PKUHPC/CraneSched" target="_blank">CraneSched</a></p>
 <p><strong>CraneSched &#x6587;&#x6863;&#x5730;&#x5740;</strong>&#xFF1A;<a href="https://pkuhpc.github.io/CraneSched-document" target="_blank">CraneSched-Document</a></p>
-<p><strong>CraneSched &#x5728;&#x7EBF;&#x8BD5;&#x7528;&#x5730;&#x5740;</strong>&#xFF08;&#x8BD5;&#x7528;&#x8D26;&#x53F7;&#xFF1A;demo_admin&#xFF0C;&#x5BC6;&#x7801;&#xFF1A;demo_admin&#xFF09;&#xFF1A;<a href="https://hpc.pku.edu.cn/demo/cranesched" target="_blank">CraneSched -Demo</a></p>
 <h1 id="cranesched--&#x8BBE;&#x8BA1;&#x7406;&#x5FF5;">CraneSched  &#x8BBE;&#x8BA1;&#x7406;&#x5FF5;</h1>
 <ul>
-<li><strong>&#x5B8C;&#x5168;&#x5F00;&#x6E90;</strong>&#xFF1A;&#x6E90;&#x4EE3;&#x7801;&#x5B8C;&#x5168;&#x5F00;&#x653E;&#x53EF;&#x5F97;&#xFF1B;</li>
+<li><strong>&#x5B8C;&#x5168;&#x5F00;&#x6E90;</strong>&#xFF1A;&#x6E90;&#x4EE3;&#x7801;&#x5F00;&#x653E;&#x53EF;&#x5F97;&#xFF1B;</li>
 <li><strong>&#x529F;&#x80FD;&#x5F3A;&#x5927;</strong>&#xFF1A;&#x652F;&#x6301;&#x9AD8;&#x6027;&#x80FD;&#x8BA1;&#x7B97;&#x4E0E;&#x667A;&#x80FD;&#x8BA1;&#x7B97;&#x4E24;&#x79CD;&#x4F5C;&#x4E1A;&#x6A21;&#x5F0F;&#xFF1B;</li>
-<li><strong>&#x8C03;&#x5EA6;&#x9AD8;&#x6548;</strong>&#xFF1A;&#x652F;&#x6301;&#x6BCF;&#x79D2;&#x8C03;&#x5EA6;10000&#x4E2A;&#x4F5C;&#x4E1A;&#x4EE5;&#x4E0A;&#xFF0C;&#x652F;&#x6301;&#x540C;&#x65F6;&#x8FD0;&#x884C;100&#x4E07;&#x4E2A;&#x4F5C;&#x4E1A;&#x4EE5;&#x4E0A;&#xFF1B;</li>
-<li><strong>&#x9AD8;&#x5EA6;&#x53EF;&#x4F38;&#x7F29;</strong>&#xFF1A;&#x652F;&#x6301;50000&#x4E2A;&#x8282;&#x70B9;&#x4EE5;&#x4E0A;&#x7684;&#x7B97;&#x529B;&#x4E2D;&#x5FC3;&#x89C4;&#x6A21;&#xFF1B;</li>
+<li><strong>&#x8C03;&#x5EA6;&#x9AD8;&#x6548;</strong>&#xFF1A;&#x652F;&#x6301;&#x6BCF;&#x79D2;&#x8C03;&#x5EA6;10000&#x4E2A;&#x4F5C;&#x4E1A;&#x4EE5;&#x4E0A;&#xFF0C;&#x652F;&#x6301;&#x540C;&#x65F6;&#x8FD0;&#x884C;300&#x4E07;&#x4E2A;&#x4F5C;&#x4E1A;&#x4EE5;&#x4E0A;&#xFF1B;</li>
+<li><strong>&#x9AD8;&#x5EA6;&#x53EF;&#x4F38;&#x7F29;</strong>&#xFF1A;&#x652F;&#x6301;100000&#x4E2A;&#x8282;&#x70B9;&#x4EE5;&#x4E0A;&#x7684;&#x7B97;&#x529B;&#x4E2D;&#x5FC3;&#x89C4;&#x6A21;&#xFF1B;</li>
 <li><strong>&#x5B89;&#x5168;&#x53EF;&#x9760;</strong>&#xFF1A;RBAC&#x6743;&#x9650;&#x63A7;&#x5236;&#x548C;&#x901A;&#x4FE1;&#x52A0;&#x5BC6;&#xFF1B;</li>
 <li><strong>&#x4EE3;&#x7801;&#x7CBE;&#x70BC;</strong>&#xFF1A;&#x4EE3;&#x7801;&#x7CBE;&#x70BC;&#x9AD8;&#x6548;&#xFF0C;&#x53EF;&#x8BFB;&#x6027;&#x9AD8;&#xFF1B;</li>
 <li><strong>&#x7B80;&#x6D01;&#x6613;&#x7528;</strong>&#xFF1A;&#x7528;&#x6237;&#x4F7F;&#x7528;&#x6307;&#x4EE4;&#x548C;&#x7CFB;&#x7EDF;&#x7BA1;&#x7406;&#x6307;&#x4EE4;&#x7B80;&#x6D01;&#x6613;&#x7528;&#xFF1B;</li>
@@ -394,7 +425,7 @@
 <p>Cranectld&#x8D1F;&#x8D23;&#x7B97;&#x529B;&#x4E2D;&#x5FC3;&#x8282;&#x70B9;&#x751F;&#x547D;&#x5468;&#x671F;&#x7684;&#x7BA1;&#x7406;&#x3001;&#x4F5C;&#x4E1A;&#x961F;&#x5217;&#x7684;&#x8C03;&#x5EA6;&#x53CA;&#x7BA1;&#x7406;&#x3001;&#x8282;&#x70B9;&#x8D44;&#x6E90;&#x8C03;&#x5EA6;&#x53CA;&#x7BA1;&#x7406;&#xFF0C;&#x5904;&#x7406;&#x6765;&#x81EA;&#x7528;&#x6237;&#x6307;&#x4EE4;&#x7684;&#x4F5C;&#x4E1A;&#x63D0;&#x4EA4;&#x3001;&#x4FEE;&#x6539;&#x3001;&#x67E5;&#x8BE2;&#x7B49;&#x8BF7;&#x6C42;&#x3002;Craned&#x4E3B;&#x8981;&#x7528;&#x6765;&#x76D1;&#x63A7;&#x8282;&#x70B9;&#x8D44;&#x6E90;&#x53CA;&#x4F5C;&#x4E1A;&#x72B6;&#x6001;&#xFF0C;&#x63A5;&#x53D7;&#x7528;&#x6237;&#x7684;&#x5404;&#x79CD;&#x6307;&#x4EE4;&#xFF0C;&#x5E76;&#x5C06;&#x5176;&#x53D1;&#x9001;&#x7ED9;Cranectld&#xFF0C;&#x5411;&#x7528;&#x6237;&#x4F20;&#x9001;Cranectld&#x5BF9;&#x6307;&#x4EE4;&#x5904;&#x7406;&#x7684;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#x3002;</p>
 <p><img src="images/architecture.png" alt="architecture"></p>
 <p>&#x9762;&#x5411;&#x7B97;&#x529B;&#x7F51;&#x7EDC;&#x7684;&#x56FD;&#x5BB6;&#x6218;&#x7565;&#xFF0C;&#x9E64;&#x601D;&#x667A;&#x80FD;&#x8C03;&#x5EA6;&#x7CFB;&#x7EDF;&#x8BA1;&#x5212;&#x91C7;&#x7528;&#x4E24;&#x7EA7;&#x8C03;&#x5EA6;&#x67B6;&#x6784;&#xFF0C;&#x4E0A;&#x5C42;&#x8C03;&#x5EA6;&#x4E3A;XCraneSched&#xFF0C;&#x4E0B;&#x5C42;&#x8C03;&#x5EA6;&#x4E3A;CraneSched&#xFF0C;&#x4E24;&#x8005;&#x7ED3;&#x5408;&#x81F3;&#x4E0A;&#x800C;&#x4E0B;&#x89E3;&#x51B3;&#x7B97;&#x529B;&#x7F51;&#x7EDC;&#x4E2D;&#x7B97;&#x529B;&#x8D44;&#x6E90;&#x8C03;&#x5EA6;&#x95EE;&#x9898;&#x3002;CraneSched&#x9488;&#x5BF9;&#x5355;&#x4E2A;&#x7B97;&#x529B;&#x4E2D;&#x5FC3;&#x8D44;&#x6E90;&#x8C03;&#x5EA6;&#xFF0C;&#x4E3B;&#x8981;&#x8FD0;&#x884C;&#x9AD8;&#x6027;&#x80FD;&#x8BA1;&#x7B97;&#x548C;&#x667A;&#x80FD;&#x8BA1;&#x7B97;&#x4F5C;&#x4E1A;&#xFF0C;&#x901A;&#x8FC7;&#x9002;&#x914D;&#x5668;&#x4E0E;XCraneSched&#x8FDE;&#x63A5;&#xFF0C;&#x5E76;&#x627F;&#x63A5;&#x6765;&#x81EA;XCraneSched&#x5206;&#x6D3E;&#x7684;&#x4F5C;&#x4E1A;&#x3002;XCraneSched&#x901A;&#x8FC7;&#x5404;&#x79CD;&#x9002;&#x914D;&#x5668;&#x53BB;&#x8FDE;&#x63A5;&#x8D85;&#x7B97;&#x3001;&#x667A;&#x7B97;&#x3001;&#x4E91;&#x8BA1;&#x7B97;&#x7B49;&#x5404;&#x7C7B;&#x7B97;&#x529B;&#x4E2D;&#x5FC3;&#xFF0C;&#x5C06;&#x5176;&#x6C47;&#x805A;&#x6210;&#x4E00;&#x5F20;&#x7B97;&#x529B;&#x7F51;&#x7EDC;&#xFF0C;&#x63A5;&#x53D7;&#x7528;&#x6237;&#x63D0;&#x4EA4;&#x7684;&#x4F5C;&#x4E1A;&#xFF0C;&#x5E76;&#x5C06;&#x4F5C;&#x4E1A;&#x5206;&#x53D1;&#x5230;&#x6700;&#x201C;&#x5408;&#x9002;&#x201D;&#x7684;&#x7B97;&#x529B;&#x4E2D;&#x5FC3;&#x3002;</p>
-<p><img src="images/scenario.png" alt="scenario"></p>
+<p><img src="images/scenario.png" alt="architecture"></p>
 
                                 
                                 </section>
@@ -434,7 +465,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"1 CraneSched简介","level":"1.1","depth":1,"next":{"title":"2 CraneSched功能和特点","level":"1.2","depth":1,"path":"features.md","ref":"features.md","articles":[]},"dir":"ltr"},"config":{"plugins":["back-to-top-button","search-pro","-lunr","-search","code","prism","prism-themes","-highlight","pageview-count","splitter","expandable-chapters","chapter-fold","theme-comscore","emphasize"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"prism":{"lang":{"shell":"bash"},"css":["prismjs/themes/prism-okaidia.css"]},"emphasize":{},"splitter":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-comscore":{},"back-to-top-button":{},"pageview-count":{},"prism-themes":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Yinping Ma","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"CraneSched Document","gitbook":"*","description":"CraneSched Document"},"file":{"path":"README.md","mtime":"2024-07-18T08:31:54.167Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-07-23T02:43:50.594Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"1 CraneSched简介","level":"1.1","depth":1,"next":{"title":"2 CraneSched功能和特点","level":"1.2","depth":1,"path":"features.md","ref":"features.md","articles":[]},"dir":"ltr"},"config":{"plugins":["back-to-top-button","search-pro","-lunr","-search","code","prism","prism-themes","-highlight","pageview-count","splitter","expandable-chapters","chapter-fold","theme-comscore","emphasize"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"prism":{"lang":{"shell":"bash"},"css":["prismjs/themes/prism-okaidia.css"]},"emphasize":{},"splitter":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-comscore":{},"back-to-top-button":{},"pageview-count":{},"prism-themes":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Yinping Ma","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"CraneSched Document","gitbook":"*","description":"CraneSched Document"},"file":{"path":"README.md","mtime":"2024-12-04T10:18:43.857Z","type":"markdown"},"gitbook":{"version":"3.3.6","time":"2024-12-04T11:02:59.006Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
@@ -476,7 +507,7 @@
         
     
         
-        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        <script src="gitbook/@gitbook-ng/gitbook-plugin-sharing/buttons.js"></script>
         
     
         

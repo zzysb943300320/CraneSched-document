@@ -7,7 +7,7 @@
         <title>4.5 cqueue 查看作业队列 · CraneSched Document</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="generator" content="@gitbook-ng/gitbook 3.3.6">
         <meta name="author" content="Yinping Ma">
         
         
@@ -161,12 +161,12 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.1" data-path="../config/CraneConfiguration.html">
+        <li class="chapter " data-level="1.3.1" data-path="../config/Crane-CentOS7.html">
             
-                <a href="../config/CraneConfiguration.html">
+                <a href="../config/Crane-CentOS7.html">
             
                     
-                    3.1 CraneSched 后端环境配置
+                    3.1 Crane-CentOS7 环境配置
             
                 </a>
             
@@ -174,12 +174,51 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.2" data-path="../config/Crane-FrontEndConfiguration.html">
+        <li class="chapter " data-level="1.3.2" data-path="../config/Crane-Rocky_Linux9.html">
             
-                <a href="../config/Crane-FrontEndConfiguration.html">
+                <a href="../config/Crane-Rocky_Linux9.html">
             
                     
-                    3.2 CraneSched 前端环境配置
+                    3.2 Crane-Rocky_Linux9 环境配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../config/Crane-ubuntu.html">
+            
+                <a href="../config/Crane-ubuntu.html">
+            
+                    
+                    3.3 Crane-ubuntu 环境配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../config/Crane-OpenEuler22.html">
+            
+                <a href="../config/Crane-OpenEuler22.html">
+            
+                    
+                    3.4 Crane-OpenEuler22 环境配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../config/CraneSched.html">
+            
+                <a href="../config/CraneSched.html">
+            
+                    
+                    3.5 CraneSched配置文件
             
                 </a>
             
@@ -330,14 +369,6 @@
     
 
     
-
-    <li class="divider"></li>
-
-    <li>
-        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
-            Published with GitBook
-        </a>
-    </li>
 </ul>
 
 
@@ -395,47 +426,61 @@
 </ul>
 <h4 id="&#x4E3B;&#x8981;&#x53C2;&#x6570;">&#x4E3B;&#x8981;&#x53C2;&#x6570;</h4>
 <ul>
-<li><strong>--help</strong>&#xFF1A;&#x663E;&#x793A;&#x5E2E;&#x52A9;</li>
-<li><strong>--config/-C</strong>&#xFF1A;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;</li>
-<li><strong>--noHeader/-N</strong>&#xFF1A;&#x8F93;&#x51FA;&#x9690;&#x85CF;&#x8868;&#x5934;</li>
-<li><strong>--start/-S</strong>&#xFF1A;&#x663E;&#x793A;&#x4F5C;&#x4E1A;&#x7684;&#x5F00;&#x59CB;&#x65F6;&#x95F4;&#xFF08;pending&#x4F5C;&#x4E1A;&#x663E;&#x793A;&#x9884;&#x671F;&#x5F00;&#x59CB;&#x65F6;&#x95F4;&#xFF09;</li>
-<li><strong>--job/-j</strong>&#xFF1A;&#x6307;&#x5B9A;&#x67E5;&#x8BE2;&#x4F5C;&#x4E1A;&#x53F7;&#xFF0C;&#x6307;&#x5B9A;&#x591A;&#x4E2A;&#x4F5C;&#x4E1A;&#x53F7;&#x65F6;&#x7528;&#x9017;&#x53F7;&#x9694;&#x5F00;&#x3002;&#x5982; -j=2,3,4</li>
-<li><strong>--name/-n</strong>&#xFF1A;&#x6307;&#x5B9A;&#x67E5;&#x8BE2;&#x4F5C;&#x4E1A;&#x540D;&#xFF0C;&#x6307;&#x5B9A;&#x591A;&#x4E2A;&#x4F5C;&#x4E1A;&#x540D;&#x65F6;&#x7528;&#x9017;&#x53F7;&#x9694;&#x5F00;&#x3002;</li>
-<li><strong>--qos/-q</strong>&#xFF1A;&#x6307;&#x5B9A;&#x67E5;&#x8BE2;&#x4F5C;&#x4E1A;&#x7684;QoS&#xFF0C;&#x6307;&#x5B9A;&#x591A;&#x4E2A;QoS&#x65F6;&#x7528;&#x9017;&#x53F7;&#x9694;&#x5F00;&#x3002;</li>
-<li><strong>--state/-t</strong>&#xFF1A;&#x6307;&#x5B9A;&#x67E5;&#x8BE2;&#x4F5C;&#x4E1A;&#x72B6;&#x6001;&#xFF0C;&#x6307;&#x5B9A;&#x591A;&#x4E2A;&#x72B6;&#x6001;&#x65F6;&#x7528;&#x9017;&#x53F7;&#x9694;&#x5F00;&#x3002;</li>
-<li><strong>--user/-u</strong>&#xFF1A;&#x6307;&#x5B9A;&#x67E5;&#x8BE2;&#x4F5C;&#x4E1A;&#x6240;&#x5C5E;&#x7528;&#x6237;&#xFF0C;&#x6307;&#x5B9A;&#x591A;&#x4E2A;&#x7528;&#x6237;&#x65F6;&#x7528;&#x9017;&#x53F7;&#x9694;&#x5F00;&#x3002;</li>
-<li><strong>--Account/-A</strong>&#xFF1A;&#x6307;&#x5B9A;&#x67E5;&#x8BE2;&#x4F5C;&#x4E1A;&#x6240;&#x5C5E;&#x8D26;&#x6237;&#xFF0C;&#x6307;&#x5B9A;&#x591A;&#x4E2A;&#x8D26;&#x6237;&#x65F6;&#x7528;&#x9017;&#x53F7;&#x9694;&#x5F00;&#x3002;</li>
-<li><strong>--iterate/-i</strong>&#xFF1A;&#x6307;&#x5B9A;&#x95F4;&#x9694;&#x79D2;&#x6570;&#x5237;&#x65B0;&#x67E5;&#x8BE2;&#x7ED3;&#x679C;&#x3002;&#x5982; -i=3&#x8868;&#x793A;&#x6BCF;&#x9694;&#x4E09;&#x79D2;&#x8F93;&#x51FA;&#x4E00;&#x6B21;&#x67E5;&#x8BE2;&#x7ED3;&#x679C;</li>
-<li><strong>--partition/-p</strong>&#xFF1A;&#x6307;&#x5B9A;&#x67E5;&#x8BE2;&#x4F5C;&#x4E1A;&#x6240;&#x5728;&#x5206;&#x533A;&#xFF0C;&#x6307;&#x5B9A;&#x591A;&#x4E2A;&#x5206;&#x533A;&#x65F6;&#x7528;&#x9017;&#x53F7;&#x9694;&#x5F00;&#x3002;</li>
-<li><strong>--MaxVisibleLines/-m</strong>&#xFF1A;&#x6307;&#x5B9A;&#x8F93;&#x51FA;&#x7ED3;&#x679C;&#x7684;&#x6700;&#x5927;&#x6761;&#x6570;&#x3002;&#x5982;-m=500&#x8868;&#x793A;&#x6700;&#x591A;&#x8F93;&#x51FA;500&#x884C;&#x67E5;&#x8BE2;&#x7ED3;&#x679C;</li>
-<li><strong>--format/-o</strong>&#xFF1A;&#x4EE5;&#x6307;&#x5B9A;&#x683C;&#x5F0F;&#x8F93;&#x51FA;&#x7ED3;&#x679C;&#x8868;&#xFF0C;&#x53EF;&#x4EE5;&#x6307;&#x5B9A;&#x8F93;&#x51FA;&#x6307;&#x5B9A;&#x5217;&#x4EE5;&#x53CA;&#x5217;&#x5BBD;&#x3002;<ul>
+<li><strong>-A/--Account string</strong>&#xFF1A;&#x6307;&#x5B9A;&#x67E5;&#x8BE2;&#x4F5C;&#x4E1A;&#x6240;&#x5C5E;&#x8D26;&#x6237;&#xFF0C;&#x6307;&#x5B9A;&#x591A;&#x4E2A;&#x8D26;&#x6237;&#x65F6;&#x7528;&#x9017;&#x53F7;&#x9694;&#x5F00;</li>
+<li><strong>-C/--config string</strong>&#xFF1A;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;</li>
+<li><strong>-o/--format string</strong>: &#x4EE5;&#x6307;&#x5B9A;&#x683C;&#x5F0F;&#x8F93;&#x51FA;&#x7ED3;&#x679C;&#x8868;&#xFF0C;&#x53EF;&#x4EE5;&#x6307;&#x5B9A;&#x8F93;&#x51FA;&#x6307;&#x5B9A;&#x5217;&#x4EE5;&#x53CA;&#x5217;&#x5BBD;</li>
+<li><strong>-F/--full</strong>: &#x663E;&#x793A;&#x5B8C;&#x6574;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x5982;&#x679C;&#x672A;&#x6307;&#x5B9A;&#xFF0C;&#x9ED8;&#x8BA4;&#x6BCF;&#x9879;&#x8F93;&#x51FA;30&#x4E2A;&#x5B57;&#x7B26;</li>
+<li><strong>-h/--help</strong>: &#x663E;&#x793A;&#x5E2E;&#x52A9;</li>
+<li><strong>-i/--iterate uint</strong>&#xFF1A;&#x6307;&#x5B9A;&#x95F4;&#x9694;&#x79D2;&#x6570;&#x5237;&#x65B0;&#x67E5;&#x8BE2;&#x7ED3;&#x679C;&#x3002;&#x5982; -i=3&#x8868;&#x793A;&#x6BCF;&#x9694;&#x4E09;&#x79D2;&#x8F93;&#x51FA;&#x4E00;&#x6B21;&#x67E5;&#x8BE2;&#x7ED3;&#x679C;</li>
+<li><strong>-j/--job string</strong>: &#x6307;&#x5B9A;&#x67E5;&#x8BE2;&#x4F5C;&#x4E1A;&#x53F7;&#xFF0C;&#x6307;&#x5B9A;&#x591A;&#x4E2A;&#x4F5C;&#x4E1A;&#x53F7;&#x65F6;&#x7528;&#x9017;&#x53F7;&#x9694;&#x5F00;&#x3002;&#x5982; -j=2,3,4</li>
+<li><strong>--json</strong>: json&#x683C;&#x5F0F;&#x8F93;&#x51FA;&#x547D;&#x4EE4;&#x6267;&#x884C;&#x7ED3;&#x679C;</li>
+<li><strong>-m/--MaxVisibleLines uint32</strong>&#xFF1A;&#x6307;&#x5B9A;&#x8F93;&#x51FA;&#x7ED3;&#x679C;&#x7684;&#x6700;&#x5927;&#x6761;&#x6570;&#x3002;&#x5982;-m=500&#x8868;&#x793A;&#x6700;&#x591A;&#x8F93;&#x51FA;500&#x884C;&#x67E5;&#x8BE2;&#x7ED3;&#x679C;</li>
+<li><strong>-n/--name string</strong>&#xFF1A;&#x6307;&#x5B9A;&#x67E5;&#x8BE2;&#x4F5C;&#x4E1A;&#x540D;&#xFF0C;&#x6307;&#x5B9A;&#x591A;&#x4E2A;&#x4F5C;&#x4E1A;&#x540D;&#x65F6;&#x7528;&#x9017;&#x53F7;&#x9694;&#x5F00;</li>
+<li><strong>-N/--noHeader</strong>&#xFF1A;&#x8F93;&#x51FA;&#x9690;&#x85CF;&#x8868;&#x5934;</li>
+<li><strong>-p/--partition string</strong>&#xFF1A;&#x6307;&#x5B9A;&#x67E5;&#x8BE2;&#x4F5C;&#x4E1A;&#x6240;&#x5728;&#x5206;&#x533A;&#xFF0C;&#x6307;&#x5B9A;&#x591A;&#x4E2A;&#x5206;&#x533A;&#x65F6;&#x7528;&#x9017;&#x53F7;&#x9694;&#x5F00;</li>
+<li><strong>-q/--qos string</strong>&#xFF1A;&#x6307;&#x5B9A;&#x67E5;&#x8BE2;&#x4F5C;&#x4E1A;&#x7684;QoS&#xFF0C;&#x6307;&#x5B9A;&#x591A;&#x4E2A;QoS&#x65F6;&#x7528;&#x9017;&#x53F7;&#x9694;&#x5F00;</li>
+<li><strong>--self</strong>&#xFF1A;&#x67E5;&#x770B;&#x5F53;&#x524D;&#x7528;&#x6237;&#x63D0;&#x4EA4;&#x7684;&#x4F5C;&#x4E1A;</li>
+<li><strong>-S/--start</strong>&#xFF1A;&#x663E;&#x793A;&#x4F5C;&#x4E1A;&#x7684;&#x5F00;&#x59CB;&#x65F6;&#x95F4;&#xFF08;pending&#x4F5C;&#x4E1A;&#x663E;&#x793A;&#x9884;&#x671F;&#x5F00;&#x59CB;&#x65F6;&#x95F4;&#xFF09;</li>
+<li><strong>-t/--state string</strong>&#xFF1A;&#x6307;&#x5B9A;&#x67E5;&#x8BE2;&#x4F5C;&#x4E1A;&#x72B6;&#x6001;&#xFF0C;&#x6307;&#x5B9A;&#x591A;&#x4E2A;&#x72B6;&#x6001;&#x65F6;&#x7528;&#x9017;&#x53F7;&#x9694;&#x5F00;</li>
+<li><strong>-u/--user</strong>&#xFF1A;&#x6307;&#x5B9A;&#x67E5;&#x8BE2;&#x4F5C;&#x4E1A;&#x6240;&#x5C5E;&#x7528;&#x6237;&#xFF0C;&#x6307;&#x5B9A;&#x591A;&#x4E2A;&#x7528;&#x6237;&#x65F6;&#x7528;&#x9017;&#x53F7;&#x9694;&#x5F00;</li>
+<li><strong>/--version</strong>&#xFF1A;&#x67E5;&#x8BE2;&#x7248;&#x672C;&#x53F7;<ul>
 <li><strong>&#x4F8B;</strong><pre class="language-"><code class="lang-shell">cqueue <span class="token parameter variable">-h</span>
 </code></pre>
 <img src="../images/cqueue_h.png" alt="cqueue-h"><pre class="language-"><code class="lang-shell">cqueue <span class="token parameter variable">-N</span>
 </code></pre>
 <img src="../images/cqueue_N.png" alt="cqueue-N"><pre class="language-"><code class="lang-shell">cqueue <span class="token parameter variable">-S</span>
 </code></pre>
-<img src="../images/cqueue_S.png" alt="cqueue-S"><pre class="language-"><code class="lang-shell">cqueue <span class="token parameter variable">-j</span> <span class="token number">65,61</span>,63
+<img src="../images/cqueue_S.png" alt="cqueue-S"><pre class="language-"><code class="lang-shell">cqueue <span class="token parameter variable">-j</span> <span class="token number">30674,30675</span>
 </code></pre>
-<img src="../images/cqueue_j.png" alt="cqueue-j"><pre class="language-"><code class="lang-shell">cqueue <span class="token parameter variable">-q</span> normal
+<img src="../images/cqueue_j_30686.png" alt="cqueue-j"><pre class="language-"><code class="lang-shell">cqueue <span class="token parameter variable">-t</span> Pending
 </code></pre>
-<img src="../images/cqueue_q.png" alt="cqueue-q"><pre class="language-"><code class="lang-shell">cqueue <span class="token parameter variable">-t</span> Pending
+<img src="../images/cqueue_t.png" alt="cqueue-t"><pre class="language-"><code class="lang-shell">cqueue <span class="token parameter variable">-t</span> r
 </code></pre>
-<img src="../images/cqueue_t.png" alt="cqueue-t"><pre class="language-"><code class="lang-shell">cqueue <span class="token parameter variable">-u</span> root
+<img src="../images/cqueue_t_2.png" alt="cqueue-t"><pre class="language-"><code class="lang-shell">cqueue <span class="token parameter variable">-u</span> cranetest
 </code></pre>
-<img src="../images/cqueue_u.png" alt="cqueue-u"><pre class="language-"><code class="lang-shell">cqueue <span class="token parameter variable">-A</span> ROOT
+<img src="../images/cqueue_u.png" alt="cqueue-u"><pre class="language-"><code class="lang-shell">cqueue <span class="token parameter variable">-A</span> CraneTest
 </code></pre>
 <img src="../images/cqueue_A.png" alt="cqueue-A"><pre class="language-"><code class="lang-shell">cqueue <span class="token parameter variable">-i</span> <span class="token number">3</span>
 </code></pre>
 <img src="../images/cqueue_i.png" alt="cqueue-i"><pre class="language-"><code class="lang-shell">cqueue <span class="token parameter variable">-p</span> CPU
 </code></pre>
-<img src="../images/cqueue_p.png" alt="cqueue-p"><pre class="language-"><code class="lang-shell">cqueue <span class="token parameter variable">-m</span> <span class="token number">3</span>
+<img src="../images/cqueue_p_CPU.png" alt="cqueue-p"><pre class="language-"><code class="lang-shell">cqueue <span class="token parameter variable">-m</span> <span class="token number">3</span>
 </code></pre>
 <img src="../images/cqueue_m.png" alt="cqueue-m"><pre class="language-"><code class="lang-shell">cqueue <span class="token parameter variable">-o</span><span class="token operator">=</span><span class="token string">&quot;%n %u %.5j %.5t %.3T %.5T&quot;</span>
 </code></pre>
 <img src="../images/cqueue_o.png" alt="cqueue-o"></li>
 <li>format&#x4E2D;&#x7684;&#x6307;&#x5B9A;&#x5217;&#x7684;&#x5BF9;&#x5E94;&#x7F29;&#x5199;&#x5BF9;&#x7167;&#xFF1A;<ul>
-<li>j-TaskId&#xFF1B;n-Name&#xFF1B;t-State&#xFF1B;p-Partition&#xFF1B;u-User&#xFF1B;a-Account&#xFF1B;T-Type&#xFF1B;I-NodeIndex&#xFF1B;l-TimeLimit&#xFF1B;N-Nodes</li>
+<li>j-TaskId&#xFF1B;n-Name&#xFF1B;t-State&#xFF1B;p-Partition&#xFF1B;u-User&#xFF1B;a-Account&#xFF1B;T-Type&#xFF1B;I-NodeIndex&#xFF1B;l-TimeLimit&#xFF1B;N-Nodes<pre class="language-"><code class="lang-shell">cqueue <span class="token parameter variable">-n</span> <span class="token builtin class-name">test</span>
+</code></pre>
+<img src="../images/cqueue_n_test.png" alt="cqueue-n"><pre class="language-"><code class="lang-shell">cqueue <span class="token parameter variable">-N</span>
+</code></pre>
+<img src="../images/cqueue_N_2.png" alt="cqueue-N"><pre class="language-"><code class="lang-shell">cqueue <span class="token parameter variable">-q</span> test_qos
+</code></pre>
+<img src="../images/cqueue_q.png" alt="cqueue-q"><pre class="language-"><code class="lang-shell">cqueue <span class="token parameter variable">--self</span>
+</code></pre>
+<img src="../images/cqueue_self.png" alt="cqueue--self"><pre class="language-"><code class="lang-shell">cqueue <span class="token parameter variable">-t</span> Running <span class="token parameter variable">-S</span> <span class="token number">2024</span>-01-02T15:04:05~2024-01-11T11:12:41
+</code></pre>
+<img src="../images/cqueue_t_S.png" alt="cqueue-t"></li>
 </ul>
 </li>
 </ul>
@@ -484,7 +529,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"4.5 cqueue 查看作业队列","level":"1.4.5","depth":2,"next":{"title":"4.6 ccancel 取消运行或提交的作业","level":"1.4.6","depth":2,"path":"command/ccancel.md","ref":"command/ccancel.md","articles":[]},"previous":{"title":"4.4 calloc 提交交互式任务","level":"1.4.4","depth":2,"path":"command/calloc.md","ref":"command/calloc.md","articles":[]},"dir":"ltr"},"config":{"plugins":["back-to-top-button","search-pro","-lunr","-search","code","prism","prism-themes","-highlight","pageview-count","splitter","expandable-chapters","chapter-fold","theme-comscore","emphasize"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"prism":{"lang":{"shell":"bash"},"css":["prismjs/themes/prism-okaidia.css"]},"emphasize":{},"splitter":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-comscore":{},"back-to-top-button":{},"pageview-count":{},"prism-themes":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Yinping Ma","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"CraneSched Document","gitbook":"*","description":"CraneSched Document"},"file":{"path":"command/cqueue.md","mtime":"2024-07-19T02:12:25.996Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-07-23T02:43:50.594Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"4.5 cqueue 查看作业队列","level":"1.4.5","depth":2,"next":{"title":"4.6 ccancel 取消运行或提交的作业","level":"1.4.6","depth":2,"path":"command/ccancel.md","ref":"command/ccancel.md","articles":[]},"previous":{"title":"4.4 calloc 提交交互式任务","level":"1.4.4","depth":2,"path":"command/calloc.md","ref":"command/calloc.md","articles":[]},"dir":"ltr"},"config":{"plugins":["back-to-top-button","search-pro","-lunr","-search","code","prism","prism-themes","-highlight","pageview-count","splitter","expandable-chapters","chapter-fold","theme-comscore","emphasize"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"prism":{"lang":{"shell":"bash"},"css":["prismjs/themes/prism-okaidia.css"]},"emphasize":{},"splitter":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-comscore":{},"back-to-top-button":{},"pageview-count":{},"prism-themes":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Yinping Ma","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"CraneSched Document","gitbook":"*","description":"CraneSched Document"},"file":{"path":"command/cqueue.md","mtime":"2024-12-04T10:18:44.000Z","type":"markdown"},"gitbook":{"version":"3.3.6","time":"2024-12-04T11:02:59.006Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -526,7 +571,7 @@
         
     
         
-        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        <script src="../gitbook/@gitbook-ng/gitbook-plugin-sharing/buttons.js"></script>
         
     
         

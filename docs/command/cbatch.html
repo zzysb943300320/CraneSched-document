@@ -7,7 +7,7 @@
         <title>4.2 cbatch 提交批处理作业 · CraneSched Document</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="generator" content="@gitbook-ng/gitbook 3.3.6">
         <meta name="author" content="Yinping Ma">
         
         
@@ -161,12 +161,12 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.1" data-path="../config/CraneConfiguration.html">
+        <li class="chapter " data-level="1.3.1" data-path="../config/Crane-CentOS7.html">
             
-                <a href="../config/CraneConfiguration.html">
+                <a href="../config/Crane-CentOS7.html">
             
                     
-                    3.1 CraneSched 后端环境配置
+                    3.1 Crane-CentOS7 环境配置
             
                 </a>
             
@@ -174,12 +174,51 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.2" data-path="../config/Crane-FrontEndConfiguration.html">
+        <li class="chapter " data-level="1.3.2" data-path="../config/Crane-Rocky_Linux9.html">
             
-                <a href="../config/Crane-FrontEndConfiguration.html">
+                <a href="../config/Crane-Rocky_Linux9.html">
             
                     
-                    3.2 CraneSched 前端环境配置
+                    3.2 Crane-Rocky_Linux9 环境配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../config/Crane-ubuntu.html">
+            
+                <a href="../config/Crane-ubuntu.html">
+            
+                    
+                    3.3 Crane-ubuntu 环境配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../config/Crane-OpenEuler22.html">
+            
+                <a href="../config/Crane-OpenEuler22.html">
+            
+                    
+                    3.4 Crane-OpenEuler22 环境配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../config/CraneSched.html">
+            
+                <a href="../config/CraneSched.html">
+            
+                    
+                    3.5 CraneSched配置文件
             
                 </a>
             
@@ -330,14 +369,6 @@
     
 
     
-
-    <li class="divider"></li>
-
-    <li>
-        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
-            Published with GitBook
-        </a>
-    </li>
 </ul>
 
 
@@ -390,43 +421,113 @@
 
 <span class="token function">hostname</span>
 </code></pre>
-<p>&#x5047;&#x8BBE;&#x4E0A;&#x9762;&#x4F5C;&#x4E1A;&#x811A;&#x672C;&#x7684;&#x6587;&#x4EF6;&#x540D;&#x4E3A;crane_submit.sh&#xFF0C;&#x901A;&#x8FC7;cbatch&#x547D;&#x4EE4;&#x63D0;&#x4EA4;&#xFF1A;</p>
-<pre class="language-"><code class="lang-bash">cbatch crane_submit.sh
+<p>&#x5047;&#x8BBE;&#x4E0A;&#x9762;&#x4F5C;&#x4E1A;&#x811A;&#x672C;&#x7684;&#x6587;&#x4EF6;&#x540D;&#x4E3A;cbatch_test.sh&#xFF0C;&#x901A;&#x8FC7;cbatch&#x547D;&#x4EE4;&#x63D0;&#x4EA4;&#xFF1A;</p>
+<pre class="language-"><code class="lang-bash">cbatch cbatch_test.sh
 </code></pre>
 <p><strong>cbatch&#x8FD0;&#x884C;&#x7ED3;&#x679C;&#x5C55;&#x793A;</strong></p>
 <p><img src="../images/cbatch.png" alt="cbatch"></p>
+<p><img src="../images/cqueue_p.png" alt="cqueue-p"></p>
 <h4 id="&#x4E3B;&#x8981;&#x53C2;&#x6570;&#xFF1A;">&#x4E3B;&#x8981;&#x53C2;&#x6570;&#xFF1A;</h4>
 <ul>
 <li><strong>--help/-h</strong>&#xFF1A;&#x663E;&#x793A;&#x5E2E;&#x52A9;</li>
-<li><strong>-A, --account string</strong>&#xFF1A;&#x63D0;&#x4EA4;&#x4F5C;&#x4E1A;&#x7684;&#x8D26;&#x6237;</li>
-<li><strong>--chdir string</strong>&#xFF1A;&#x4F5C;&#x4E1A;&#x5DE5;&#x4F5C;&#x8DEF;&#x5F84;</li>
-<li><strong>-C, --config string</strong>&#xFF1A;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;(&#x9ED8;&#x8BA4; &quot;/etc/crane/config.yaml&quot;)</li>
-<li><strong>-c, --cpus-per-task float</strong>&#xFF1A;&#x6BCF;&#x4E2A;&#x8282;&#x70B9;&#x7533;&#x8BF7;&#x7684;CPU&#x6838;&#x5FC3;&#x6570;</li>
-<li><strong>-J, --job-name string</strong>&#xFF1A;&#x4F5C;&#x4E1A;&#x540D;</li>
+<li><strong>-A/--account string</strong>&#xFF1A;&#x63D0;&#x4EA4;&#x4F5C;&#x4E1A;&#x7684;&#x8D26;&#x6237;</li>
+<li><strong>-D/--chdir string</strong>:&#x4EFB;&#x52A1;&#x5DE5;&#x4F5C;&#x8DEF;&#x5F84;</li>
+<li><strong>-C/--config string</strong>&#xFF1A;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;(&#x9ED8;&#x8BA4; &quot;/etc/crane/config.yaml&quot;)</li>
+<li><strong>-c/--cpus-per-task float</strong>&#xFF1A;&#x6BCF;&#x4E2A;&#x8282;&#x70B9;&#x7533;&#x8BF7;&#x7684;CPU&#x6838;&#x5FC3;&#x6570;</li>
+<li><strong>-e/--error string</strong>: &#x6307;&#x5B9A;&#x811A;&#x672C;&#x9519;&#x8BEF;&#x65E5;&#x5FD7;&#x5B9A;&#x5411;&#x8DEF;&#x5F84;</li>
+<li><strong>-J/--job-name string</strong>&#xFF1A;&#x4F5C;&#x4E1A;&#x540D;</li>
 <li><strong>--mem string</strong>&#xFF1A;&#x6BCF;&#x4E2A;&#x8282;&#x70B9;&#x7533;&#x8BF7;&#x7684;&#x5185;&#x5B58;&#x5927;&#x5C0F;</li>
-<li><strong>-N, --nodes uint32</strong>&#xFF1A;&#x7533;&#x8BF7;&#x7684;&#x8282;&#x70B9;&#x6570;&#x91CF;</li>
+<li><strong>-N/--nodes uint32</strong>&#xFF1A;&#x7533;&#x8BF7;&#x7684;&#x8282;&#x70B9;&#x6570;&#x91CF;</li>
 <li><strong>--ntasks-per-node uint32</strong>&#xFF1A;&#x6BCF;&#x4E2A;&#x8282;&#x70B9;&#x4E0A;&#x8FD0;&#x884C;&#x7684;&#x4EFB;&#x52A1;&#x6570;&#x91CF;</li>
-<li><strong>-o, --output string</strong>&#xFF1A;&#x6307;&#x5B9A;&#x4F5C;&#x4E1A;&#x7684;&#x6807;&#x51C6;&#x8F93;&#x51FA;&#x91CD;&#x5B9A;&#x5411;</li>
-<li><strong>-p, --partition string</strong>&#xFF1A;&#x4F5C;&#x4E1A;&#x4F7F;&#x7528;&#x7684;&#x5206;&#x533A;/&#x961F;&#x5217;</li>
-<li><strong>-Q, --qos string</strong>&#xFF1A;&#x6307;&#x5B9A;&#x4F5C;&#x4E1A;&#x4F7F;&#x7528;&#x7684;qos&#x540D;&#x79F0;</li>
-<li><strong>-t, --time string</strong>&#xFF1A;&#x4F5C;&#x4E1A;&#x7684;&#x6700;&#x957F;&#x8FD0;&#x884C;&#x65F6;&#x95F4;</li>
-<li><strong>--repeat</strong>&#xFF1A;&#x4EE5;&#x6307;&#x5B9A;&#x7684;&#x91CD;&#x590D;&#x6B21;&#x6570;&#x63D0;&#x4EA4;&#x4F5C;&#x4E1A;&#xFF0C;&#x9ED8;&#x8BA4;&#x4E3A;1</li>
-<li><strong>-w, --nodelist</strong>&#xFF1A;&#x63D0;&#x4EA4;&#x4F5C;&#x4E1A;&#x5230;&#x6307;&#x5B9A;&#x8282;&#x70B9;&#x8FD0;&#x884C;</li>
-<li><strong>-x, --exclude</strong>&#xFF1A;&#x63D0;&#x4EA4;&#x7684;&#x4F5C;&#x4E1A;&#x6392;&#x9664;&#x67D0;&#x4E9B;&#x6307;&#x5B9A;&#x8282;&#x70B9;&#x8FD0;&#x884C;</li>
+<li><strong>-o/--output string</strong>&#xFF1A;&#x6307;&#x5B9A;&#x4F5C;&#x4E1A;&#x7684;&#x6807;&#x51C6;&#x8F93;&#x51FA;&#x91CD;&#x5B9A;&#x5411;</li>
+<li><strong>-p/--partition string</strong>&#xFF1A;&#x4F5C;&#x4E1A;&#x4F7F;&#x7528;&#x7684;&#x5206;&#x533A;/&#x961F;&#x5217;</li>
+<li><strong>-q/--qos string</strong>&#xFF1A;&#x6307;&#x5B9A;&#x4F5C;&#x4E1A;&#x4F7F;&#x7528;&#x7684;qos&#x540D;&#x79F0;</li>
+<li><strong>-t/--time string</strong>&#xFF1A;&#x4F5C;&#x4E1A;&#x7684;&#x6700;&#x957F;&#x8FD0;&#x884C;&#x65F6;&#x95F4;</li>
+<li><strong>--repeat uint32</strong>&#xFF1A;&#x4EE5;&#x6307;&#x5B9A;&#x7684;&#x91CD;&#x590D;&#x6B21;&#x6570;&#x63D0;&#x4EA4;&#x4F5C;&#x4E1A;&#xFF0C;&#x9ED8;&#x8BA4;&#x4E3A;1</li>
+<li><strong>-w/--nodelist</strong>&#xFF1A;&#x63D0;&#x4EA4;&#x4F5C;&#x4E1A;&#x5230;&#x6307;&#x5B9A;&#x8282;&#x70B9;&#x8FD0;&#x884C;</li>
+<li><strong>-x/--exclude</strong>&#xFF1A;&#x63D0;&#x4EA4;&#x7684;&#x4F5C;&#x4E1A;&#x6392;&#x9664;&#x67D0;&#x4E9B;&#x6307;&#x5B9A;&#x8282;&#x70B9;&#x8FD0;&#x884C;</li>
 <li><strong>--get-user-env</strong>&#xFF1A;&#x83B7;&#x53D6;&#x7528;&#x6237;&#x7684;&#x73AF;&#x5883;&#x53D8;&#x91CF;</li>
-<li><strong>--export</strong>&#xFF1A;&#x8BBE;&#x7F6E;&#x73AF;&#x5883;&#x53D8;&#x91CF;</li>
-<li><p><strong>--mail-type, --mail-user</strong>&#xFF1A;&#x8BBE;&#x7F6E;&#x90AE;&#x4EF6;&#x63D0;&#x9192;&#x529F;&#x80FD;</p>
-<ul>
+<li><strong>--gres</strong>:&#x4EFB;&#x52A1;&#x7533;&#x8BF7;&#x7684;&#x8BBE;&#x5907;&#x8D44;&#x6E90;&#x91CF;  <ul>
+<li>&#x683C;&#x5F0F;&#x4E3A;name:type:count&#x5982;GPU:A100:2 &#x6216;&#x8005;name:count&#x5982;GPU:2&#xFF0C;&#x7531;&#x8C03;&#x5EA6;&#x5668;&#x51B3;&#x5B9A;&#x5206;&#x914D;&#x7ED9;&#x4EFB;&#x52A1;&#x7684;&#x8BBE;&#x5907;type</li>
+</ul>
+</li>
+<li><strong>--export string</strong>&#xFF1A;&#x8BBE;&#x7F6E;&#x73AF;&#x5883;&#x53D8;&#x91CF;</li>
+<li><strong>--extra-attr string</strong>: json&#x683C;&#x5F0F;&#x63D0;&#x4EA4;&#x989D;&#x5916;&#x53C2;&#x6570;</li>
+<li><strong>--json</strong>: json&#x683C;&#x5F0F;&#x8F93;&#x51FA;&#x547D;&#x4EE4;&#x6267;&#x884C;&#x7ED3;&#x679C;
+_ <strong>-v/--version</strong>: &#x67E5;&#x8BE2;&#x7248;&#x672C;&#x53F7;</li>
+<li><strong>--mail-type, --mail-user</strong>&#xFF1A;&#x8BBE;&#x7F6E;&#x90AE;&#x4EF6;&#x63D0;&#x9192;&#x529F;&#x80FD;<ul>
 <li><strong>--mail-user</strong>&#xFF1A;&#x8BBE;&#x7F6E;&#x90AE;&#x4EF6;&#x63D0;&#x9192;&#x7684;&#x6536;&#x4EF6;&#x5730;&#x5740;</li>
 <li><strong>--mail-type</strong>&#xFF1A;&#x8BBE;&#x7F6E;&#x90AE;&#x4EF6;&#x63D0;&#x9192;&#x5728;&#x4EFB;&#x52A1;&#x8FD0;&#x884C;&#x7684;&#x54EA;&#x4E9B;&#x9636;&#x6BB5;&#x53D1;&#x9001;&#xFF08;&#x53EF;&#x7528;&#x7684;&#x503C;&#x5305;&#x62EC;&#xFF1A;NONE&#x3001;BEGIN&#x3001;END&#x3001;FAIL&#x3001;ALL&#xFF0C;&#x9ED8;&#x8BA4;&#x4E3A; None &#x5373;&#x4E0D;&#x53D1;&#x9001;&#x63D0;&#x9192;&#xFF09;</li>
 <li><strong>&#x6CE8;&#x610F;</strong>&#xFF1A;&#x4F7F;&#x7528;&#x90AE;&#x4EF6;&#x63D0;&#x9192;&#x529F;&#x80FD;&#x5FC5;&#x987B;&#x9884;&#x5148;&#x914D;&#x7F6E; Linux &#x7684; mail &#x547D;&#x4EE4;&#xFF0C;&#x540C;&#x65F6;&#x5728; CraneSched &#x540E;&#x7AEF;&#x542F;&#x7528;&#x90AE;&#x4EF6;&#x529F;&#x80FD;&#xFF0C;&#x5426;&#x5219;&#x90AE;&#x4EF6;&#x76F8;&#x5173;&#x53C2;&#x6570;&#x5C06;&#x88AB;&#x5FFD;&#x7565;&#x3002;</li>
-<li><p><strong>&#x4F8B;&#x5982;</strong>&#xFF1A;</p>
-<pre class="language-"><code class="lang-bash">cbatch --mail-type<span class="token operator">=</span>ALL --mail-user<span class="token operator">=</span>foo@bar.com test.job
+<li><strong>&#x4F8B;&#x5982;</strong>&#xFF1A;</li>
+</ul>
+</li>
+</ul>
+<pre class="language-"><code class="lang-bash">cbatch --mail-type<span class="token operator">=</span>ALL --mail-user<span class="token operator">=</span>foo@bar.com cbatch_test.sh
 </code></pre>
-</li>
-</ul>
-</li>
-</ul>
+<p><img src="../images/cbatch__mail.png" alt="cbatch--mail-type"></p>
+<pre class="language-"><code class="lang-bash">cbatch cbatch_test.sh
+</code></pre>
+<p><img src="../images/cbatch1.png" alt="cbatch"></p>
+<pre class="language-"><code class="lang-bash">cbatch <span class="token parameter variable">-h</span>
+</code></pre>
+<p><img src="../images/cbatch_h.png" alt="cbatch-h"></p>
+<pre class="language-"><code class="lang-bash">cbatch <span class="token parameter variable">-A</span><span class="token operator">=</span>acct-test cbatch_test.sh
+</code></pre>
+<p><img src="../images/cbatch_A.png" alt="cbatch-A">
+<img src="../images/cqueue_j_30726.png" alt="cqueue-j"></p>
+<pre class="language-"><code class="lang-bash">cbatch <span class="token parameter variable">-J</span> testjob01 cbatch_test.sh
+</code></pre>
+<p><img src="../images/cbatch_J_test.png" alt="cbatch-J">
+<img src="../images/cqueue_j_30728.png" alt="cqueue-j"></p>
+<pre class="language-"><code class="lang-bash">cbatch <span class="token parameter variable">-w</span> crane01,crane03 cbatch_test.sh
+</code></pre>
+<p><img src="../images/cbatch_w.png" alt="cbatch-w">
+<img src="../images/cqueue_j_30729.png" alt="cqueue-j"></p>
+<pre class="language-"><code class="lang-bash">cbatch <span class="token parameter variable">-p</span> GPU cbatch_test.sh
+</code></pre>
+<p><img src="../images/cbatch_p.png" alt="cbatch-p">
+<img src="../images/cqueue_j_30730.png" alt="cqueue-j"></p>
+<pre class="language-"><code class="lang-bash">cbatch <span class="token parameter variable">-t</span> 00:25:25 cbatch_test.sh
+</code></pre>
+<p><img src="../images/cbatch_t.png" alt="cbatch-t">
+<img src="../images/cqueue_j_30731.png" alt="cqueue-j"></p>
+<pre class="language-"><code class="lang-bash">cbatch <span class="token parameter variable">-c</span> <span class="token number">2</span> cbatch_test.sh
+</code></pre>
+<p><img src="../images/cbatch_c.png" alt="cbatch-c">
+<img src="../images/cqueue_j_30752.png" alt="cqueue-j">
+<img src="../images/ccontrol_show.png" alt="ccontrol"></p>
+<pre class="language-"><code class="lang-bash">cbatch <span class="token parameter variable">--mem</span> 123M cbatch_test.sh
+</code></pre>
+<p><img src="../images/cbatch__mem.png" alt="cbatch--mem">
+<img src="../images/cqueue_j_30755.png" alt="cqueue-j">
+<img src="../images/ccontrol_show_2.png" alt="ccontrol"></p>
+<pre class="language-"><code class="lang-bash">cbatch <span class="token parameter variable">-N</span> <span class="token number">2</span> --ntasks-per-node <span class="token number">2</span> cbatch_test.sh
+</code></pre>
+<p><img src="../images/cbatch_N.png" alt="cbatch-N">
+<img src="../images/cqueue_j_30756.png" alt="cqueue-j">
+<img src="../images/ccontrol_show_all.png" alt="ccontrol"></p>
+<pre class="language-"><code class="lang-bash">cbatch <span class="token parameter variable">-D</span> /path test.sh
+</code></pre>
+<p><img src="../images/cbatch_D.png" alt="cbatch-D"></p>
+<pre class="language-"><code class="lang-bash">cbatch <span class="token parameter variable">-e</span> error.log test.sh
+</code></pre>
+<p><img src="../images/cbatch_e.png" alt="cbatch-e"></p>
+<pre class="language-"><code class="lang-bash">cbatch <span class="token parameter variable">--export</span> ALL test.sh
+</code></pre>
+<p><img src="../images/cbatch_e.png" alt="cbatch--export"></p>
+<pre class="language-"><code class="lang-bash">cbatch --get-user-env test.sh
+</code></pre>
+<p><img src="../images/cbatch__get.png" alt="cbatch--get"></p>
+<pre class="language-"><code class="lang-bash">cbatch <span class="token parameter variable">-o</span> output.out test.sh
+</code></pre>
+<p><img src="../images/cbatch_o.png" alt="cbatch-o"></p>
+<pre class="language-"><code class="lang-bash">cbatch <span class="token parameter variable">-q</span> qos_test test.sh
+</code></pre>
+<p><img src="../images/cbatch_q.png" alt="cbatch-q"></p>
+<pre class="language-"><code class="lang-bash">cbatch <span class="token parameter variable">--repeat</span> <span class="token number">3</span> test.sh
+</code></pre>
+<p><img src="../images/cbatch_repeat.png" alt="cbatch--repeat"></p>
 <h4 id="&#x5E38;&#x7528;&#x73AF;&#x5883;&#x53D8;&#x91CF;">&#x5E38;&#x7528;&#x73AF;&#x5883;&#x53D8;&#x91CF;</h4>
 <table>
 <thead>
@@ -509,7 +610,7 @@ mpirun <span class="token parameter variable">-n</span> <span class="token numbe
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"4.2 cbatch 提交批处理作业","level":"1.4.2","depth":2,"next":{"title":"4.3 crun 提交交互式任务","level":"1.4.3","depth":2,"path":"command/crun.md","ref":"command/crun.md","articles":[]},"previous":{"title":"4.1 cinfo 查看节点与分区状态","level":"1.4.1","depth":2,"path":"command/cinfo.md","ref":"command/cinfo.md","articles":[]},"dir":"ltr"},"config":{"plugins":["back-to-top-button","search-pro","-lunr","-search","code","prism","prism-themes","-highlight","pageview-count","splitter","expandable-chapters","chapter-fold","theme-comscore","emphasize"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"prism":{"lang":{"shell":"bash"},"css":["prismjs/themes/prism-okaidia.css"]},"emphasize":{},"splitter":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-comscore":{},"back-to-top-button":{},"pageview-count":{},"prism-themes":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Yinping Ma","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"CraneSched Document","gitbook":"*","description":"CraneSched Document"},"file":{"path":"command/cbatch.md","mtime":"2024-07-18T09:23:22.863Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-07-23T02:43:50.594Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"4.2 cbatch 提交批处理作业","level":"1.4.2","depth":2,"next":{"title":"4.3 crun 提交交互式任务","level":"1.4.3","depth":2,"path":"command/crun.md","ref":"command/crun.md","articles":[]},"previous":{"title":"4.1 cinfo 查看节点与分区状态","level":"1.4.1","depth":2,"path":"command/cinfo.md","ref":"command/cinfo.md","articles":[]},"dir":"ltr"},"config":{"plugins":["back-to-top-button","search-pro","-lunr","-search","code","prism","prism-themes","-highlight","pageview-count","splitter","expandable-chapters","chapter-fold","theme-comscore","emphasize"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"prism":{"lang":{"shell":"bash"},"css":["prismjs/themes/prism-okaidia.css"]},"emphasize":{},"splitter":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-comscore":{},"back-to-top-button":{},"pageview-count":{},"prism-themes":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Yinping Ma","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"CraneSched Document","gitbook":"*","description":"CraneSched Document"},"file":{"path":"command/cbatch.md","mtime":"2024-12-04T10:18:43.998Z","type":"markdown"},"gitbook":{"version":"3.3.6","time":"2024-12-04T11:02:59.006Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -551,7 +652,7 @@ mpirun <span class="token parameter variable">-n</span> <span class="token numbe
         
     
         
-        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        <script src="../gitbook/@gitbook-ng/gitbook-plugin-sharing/buttons.js"></script>
         
     
         
