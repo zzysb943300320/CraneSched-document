@@ -1,6 +1,6 @@
 # Crane后端环境配置-CentOS 7 #
 
-## 以下内容为配置代码编译环境，在编译项目的节点执行，假设用户为root ##
+#### 以下内容为配置代码编译环境，在编译项目的节点执行，假设用户为root ####
 ## 1.换源（仅针对北大校内机器） ##
 ~~~bash
 # 清除所有源_c
@@ -53,17 +53,17 @@ EOF
 
 ~~~
 
-### 重建缓存 ###
+#### 重建缓存 ####
 ~~~bash
 yum makecache
 ~~~
 
-### 安装其他扩展仓库，如果已经装了这两个要先卸载！！ ###
+#### 安装其他扩展仓库，如果已经装了这两个要先卸载！！ ####
 ~~~bash
 yum install -y epel-release centos-release-scl-rh
 ~~~
 
-### 更换epel仓库为北大镜像源，修改repo文件/etc/yum.repos.d/epel.repo ###
+#### 更换epel仓库为北大镜像源，修改repo文件/etc/yum.repos.d/epel.repo ####
 ~~~bash
 cat > /etc/yum.repos.d/epel.repo << 'EOF'
 [epel]
@@ -95,7 +95,7 @@ gpgcheck=1
 EOF
 ~~~
 
-###  更改scl仓库为北大镜像源，修改repo文件 ###
+####  更改scl仓库为北大镜像源，修改repo文件 ####
 ~~~bash
 cat > /etc/yum.repos.d/CentOS-SCLo-scl-rh.repo << 'EOF'
 [centos-sclo-rh]
@@ -108,7 +108,7 @@ gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-SIG-SCLo
 EOF
 ~~~
 
-###  重建缓存 ###
+####  重建缓存 ####
 ~~~bash
 yum makecache
 ~~~
@@ -122,12 +122,12 @@ setenforce 0
 sed -i s#SELINUX=enforcing#SELINUX=disabled# /etc/selinux/config
 ~~~
 
-###  2.1 安装ca-certificates，确保系统能够安全地与外部服务器进行通信 ###
+### 2.1 安装ca-certificates，确保系统能够安全地与外部服务器进行通信 ###
 ~~~bash
 yum -y install ca-certificates
 ~~~
 
-###  2.2 同步时钟 ###
+### 2.2 同步时钟 ###
 ~~~bash
 yum -y install ntp ntpdate
 systemctl start ntpd
@@ -291,7 +291,7 @@ session    include      postlogin
 # Used with polkit to reauthorize users in remote sessions
 -session   optional     pam_reauthorize.so prepare
 ~~~
-### 注意：session optional pam_crane.so必须位于 session include password-auth之后！因为password-auth中有pam_systemd.so这个模块，会导致sshd session被移入systemd:/user.slice这个cgroups中！ ###
+#### 注意：session optional pam_crane.so必须位于 session include password-auth之后！因为password-auth中有pam_systemd.so这个模块，会导致sshd session被移入systemd:/user.slice这个cgroups中！ ####
 
 ## 8. 安装mongodb ##
 ### 安装数据库仅在需要存储数据的节点安装 ###
@@ -481,7 +481,7 @@ scp /etc/crane/config.yaml crane02:/etc/crane/
 
 
 # Crane 前端环境配置-CentOS 7 #
-## 理论上在任何使用 systemd 的系统上都能使用（例如 Debian/Ubuntu/AlmaLinux/Fedora 等）。该教程涉及的软件基于 ARM64。如果使用 x86-64 等架构，请调整软件下载链接。请全程以 root 用户执行命令。建议先完成后端环境的安装。##
+#### 理论上在任何使用 systemd 的系统上都能使用（例如 Debian/Ubuntu/AlmaLinux/Fedora 等）。该教程涉及的软件基于 ARM64。如果使用 x86-64 等架构，请调整软件下载链接。请全程以 root 用户执行命令。建议先完成后端环境的安装。####
 ## 1. 安装 Golang ##
 ~~~bash
 GOLANG_TARBALL=go1.22.0.linux-amd64.tar.gz

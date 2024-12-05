@@ -314,7 +314,7 @@ mount -t bpf bpf /sys/fs/bpf
 
 
 # Crane 前端环境配置-Ubuntu #
-## 理论上在任何使用 systemd 的系统上都能使用（例如 Debian/Ubuntu/AlmaLinux/Fedora 等）。该教程涉及的软件基于 ARM64。如果使用 x86-64 等架构，请调整软件下载链接。请全程以 root 用户执行命令。建议先完成后端环境的安装。##
+#### 理论上在任何使用 systemd 的系统上都能使用（例如 Debian/Ubuntu/AlmaLinux/Fedora 等）。该教程涉及的软件基于 ARM64。如果使用 x86-64 等架构，请调整软件下载链接。请全程以 root 用户执行命令。建议先完成后端环境的安装。####
 ## 1. 安装 Golang ##
 ~~~bash
 GOLANG_TARBALL=go1.22.0.linux-amd64.tar.gz

@@ -1,5 +1,5 @@
 # Crane 后端环境配置 - OpenEuler22 #
-## 该教程基于 ARM64 架构。请全程以 root 用户执行命令 ##
+#### 该教程基于 ARM64 架构。请全程以 root 用户执行命令 ####
 
 ## 1. 环境准备 ##
 ### 1.1 添加 EPEL 软件源 ###
@@ -64,30 +64,37 @@ dnf install -y \
     flex \
     bison \
     ninja-build
- 
-# 下载和解压 GCC 源码
+~~~
+#### 下载和解压 GCC 源码 ####
+~~~bash
 wget https://mirror.koddos.net/gcc/releases/gcc-13.2.0/gcc-13.2.0.tar.xz
 tar -xvf gcc-13.2.0.tar.xz
 cd gcc-13.2.0
-
-# 下载依赖
+~~~
+#### 下载依赖 ####
+~~~bash
 ./contrib/download_prerequisites
-
-# 创建编译目录并进入
+~~~
+#### 创建编译目录并进入 ####
+~~~bash
 mkdir -p build && cd build
-
-# 配置编译参数，指定安装路径为 /opt/gcc-13.2.0
+~~~
+#### 配置编译参数，指定安装路径为 /opt/gcc-13.2.0 ####
+~~~bash
 ../configure --prefix=/opt/gcc-13.2.0 --enable-languages=c,c++
-
-# 编译 GCC 并安装到 /opt/gcc-13.2.0
+~~~
+#### 编译 GCC 并安装到 /opt/gcc-13.2.0 ####
+~~~bash
 make -j$(nproc)
 make install
-
-# 安装 cmake
+~~~
+#### 安装 cmake ####
+~~~bash
 wget https://github.com/Kitware/CMake/releases/download/v3.26.4/cmake-3.26.4-linux-aarch64.sh
 bash cmake-3.26.4-linux-aarch64.sh --prefix=/usr/local --skip-license
-
-#检查 cmake 安装是否成功
+~~~
+#### 检查 cmake 安装是否成功 ####
+~~~bash
 cmake --version
 ~~~
 
@@ -248,7 +255,7 @@ popd
 #### 注意：如果拉取仓库或依赖时出错，请使用代理 ####
 
 ### 5.2 配置 PAM 模块 ###
-#### 请在整个集群部署成功并正常运行后再进行此操作，否则会导致 SSH 认证失败无法连接！ ####
+#### 请在整个集群部署成功并正常运行后再进行此操作，否则会导致 SSH 认证失败无法连接 ####
 #### 1. 将 PAM 模块拷贝到系统指定位置 ####
 ~~~bash
 # 在项目根目录下操作
@@ -407,7 +414,7 @@ pdsh -w crane[01-04] systemctl start craned
 
 
 # Crane 前端环境配置-OpenEuler22 #
-## 理论上在任何使用 systemd 的系统上都能使用（例如 Debian/Ubuntu/AlmaLinux/Fedora 等）。该教程涉及的软件基于 ARM64。如果使用 x86-64 等架构，请调整软件下载链接。请全程以 root 用户执行命令。建议先完成后端环境的安装。##
+#### 理论上在任何使用 systemd 的系统上都能使用（例如 Debian/Ubuntu/AlmaLinux/Fedora 等）。该教程涉及的软件基于 ARM64。如果使用 x86-64 等架构，请调整软件下载链接。请全程以 root 用户执行命令。建议先完成后端环境的安装。####
 ## 1. 安装 Golang ##
 ~~~bash
 GOLANG_TARBALL=go1.22.0.linux-amd64.tar.gz

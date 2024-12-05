@@ -1,5 +1,5 @@
 # Crane 后端环境配置 - Rocky Linux 9 #
-## 该教程基于 Rocky Linux 9，但也基本适用于 Rocky Linux 8 / Fedora。该教程涉及的软件基于 x86-64。如果使用 ARM64 等架构，请调整软件下载链接。请全程以 root 用户执行命令。 ##
+#### 该教程基于 Rocky Linux 9，但也基本适用于 Rocky Linux 8 / Fedora。该教程涉及的软件基于 x86-64。如果使用 ARM64 等架构，请调整软件下载链接。请全程以 root 用户执行命令。 ####
 
 ## 1. 环境准备 ##
 ### 1.1 添加 EPEL 软件源 ###
@@ -66,7 +66,7 @@ echo '+cpuset +cpu +io +memory +pids' > /sys/fs/cgroup/cgroup.subtree_control
 
 ## CGroup V2 eBPF ##
 #### eBpf需要使用clang编译，请确保系统中有clang17及以上 ####
-### 1. clang19安装教程： ###
+#### 1. clang19安装教程： ####
 ~~~bash
 dnf install \
     bpftool \
@@ -116,7 +116,7 @@ make
 make install
 ~~~
 
-### 2. ebpf 系统配置 ###
+#### 2. ebpf 系统配置 ####
 ~~~bash
 # 在项目build目录下
 cp ./src/Misc/BPF/cgroup_dev_bpf.o /etc/crane/cgroup_dev_bpf.o
@@ -134,7 +134,7 @@ mount -t debugfs none /sys/kernel/debug
 # 使用'cat /sys/kernel/debug/tracing/trace_pipe'查看设备访问日志
 ~~~
 
-### 3.  BPF 文件系统挂载 ###
+#### 3.  BPF 文件系统挂载 ####
 ~~~bash
 # 出现下面错误后：
 libbpf: specified path /sys/fs/bpf/dev_map is not on BPF FS
@@ -168,10 +168,8 @@ dnf install -y \
     flex \
     bison \
     ninja-build
- 
 echo 'source /opt/rh/gcc-toolset-13/enable' >> /etc/profile.d/extra.sh
 ~~~
-
 ### 2.3 安装常用工具 ###
 ~~~bash
 dnf install -y tar curl unzip git
@@ -616,7 +614,7 @@ popd
 
 
 # Crane 前端环境配置-Rocky Linux 9 #
-## 理论上在任何使用 systemd 的系统上都能使用（例如 Debian/Ubuntu/AlmaLinux/Fedora 等）。该教程涉及的软件基于 ARM64。如果使用 x86-64 等架构，请调整软件下载链接。请全程以 root 用户执行命令。建议先完成后端环境的安装。##
+#### 理论上在任何使用 systemd 的系统上都能使用（例如 Debian/Ubuntu/AlmaLinux/Fedora 等）。该教程涉及的软件基于 ARM64。如果使用 x86-64 等架构，请调整软件下载链接。请全程以 root 用户执行命令。建议先完成后端环境的安装。####
 ## 1. 安装 Golang ##
 ~~~bash
 GOLANG_TARBALL=go1.22.0.linux-amd64.tar.gz
