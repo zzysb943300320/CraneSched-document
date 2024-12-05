@@ -61,8 +61,9 @@ DefaultPartition: CPU
   - **hip**：HIP_VISIABLE_DEVICES
   - **ascend**：ASCEND_RT_VISIBLE_DEVICES
 ####          常见厂商设备文件路径及相关配置 ####
-| 厂商         | 设备文件路径               | EnvInjector   |
-|--------------|--------------------------|----------------|
-| Nvidia       | /dev/nvidia0 ...         | nvidia         |
-| AMD/海光DCU  | /dev/dri/renderer128...   | hip           |
-| 昇腾         | /dev/davinci0 ...         | ascend        |
+
+| 厂商                   |    设备文件路径            |          EnvInjector    |
+| ---------------------- | ------------------------ |-------------------------|
+| **Nvidia**            | **dev/nvidia0 ...**         |  nvidia               |
+| **AMD/海光DCU**       | **/dev/dri/renderer128...**  |hip                    |
+| **昇腾**              |**/dev/davinci0 ...**        |ascend                 |
