@@ -64,6 +64,6 @@ DefaultPartition: CPU
 
 | 厂商                   |    设备文件路径            |          EnvInjector    |
 | ---------------------- | ------------------------ |-------------------------|
-| **Nvidia**            | **dev/nvidia0 ...**         |  nvidia               |
+| **Nvidia**            | **/dev/nvidia0 ...**         |  nvidia               |
 | **AMD/海光DCU**       | **/dev/dri/renderer128...**  |hip                    |
 | **昇腾**              |**/dev/davinci0 ...**        |ascend                 |
