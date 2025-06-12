@@ -1,0 +1,226 @@
+.TH cbatch "1" "Cranes Commands" "2025" "cbatch Manual"
+
+.SH "NAME"
+.LP
+cbatch \- Submit batch jobs to the CraneSched job scheduling system.
+
+.SH "SYNOPSIS"
+.LP
+cbatch [\fIoptions\fP] [\fIscript_file\fP]
+
+.SH "DESCRIPTION"
+.LP
+cbatch submits batch scripts defining computational workflows to the CraneSched job scheduler. 
+It assigns a unique job ID and queues the job for resource allocation and execution. 
+Users must have valid accounts in the CraneSched system to submit jobs. 
+Refer to the \fBcacctmgr\fP(1) tutorial for user and account management.
+
+.SH "OPTIONS"
+.LP
+
+.TP
+\fB\-h\fR, \fB\-\-help\fR
+.PD
+Display help information and exit.
+.IP
+
+.TP
+\fB\-A\fR, \fB\-\-account\fR <\fIstring\fR>
+.PD
+Account for job submission (required for resource allocation tracking).
+.IP
+
+.TP
+\fB\-D\fR, \fB\-\-chdir\fR <\fIstring\fR>
+.PD
+Working directory for the job (default: submission directory).
+.IP
+
+.TP
+\fB\-C\fR, \fB\-\-config\fR <\fIstring\fR>
+.PD
+Path to the configuration file (default: "/etc/crane/config.yaml").
+.IP
+
+.TP
+\fB\-c\fR, \fB\-\-cpus\-per\-task\fR <\fIfloat\fR>
+.PD
+Number of CPU cores requested per task.
+.IP
+
+.TP
+\fB\-e\fR, \fB\-\-error\fR <\fIstring\fR>
+.PD
+Path to redirect script error logs (supports strftime format).
+.IP
+
+.TP
+\fB\-J\fR, \fB\-\-job\-name\fR <\fIstring\fR>
+.PD
+Name of the job (visible in job listings).
+.IP
+
+.TP
+\fB\-\-mem\fR <\fIstring\fR>
+.PD
+Memory requested per node (e.g., "20M", "4G"). Defaults to scheduler's setting if unset.
+.IP
+
+.TP
+\fB\-N\fR, \fB\-\-nodes\fR <\fIuint32\fR>
+.PD
+Number of nodes requested for the job.
+.IP
+
+.TP
+\fB\-\-ntasks\-per\-node\fR <\fIuint32\fR>
+.PD
+Number of tasks to run per node.
+.IP
+
+.TP
+\fB\-o\fR, \fB\-\-output\fR <\fIstring\fR>
+.PD
+Path to redirect standard output (supports strftime format).
+.IP
+
+.TP
+\fB\-p\fR, \fB\-\-partition\fR <\fIstring\fR>
+.PD
+Partition/queue to use for the job (e.g., "CPU", "GPU").
+.IP
+
+.TP
+\fB\-q\fR, \fB\-\-qos\fR <\fIstring\fR>
+.PD
+Quality of Service (QoS) name for the job.
+.IP
+
+.TP
+\fB\-t\fR, \fB\-\-time\fR <\fIstring\fR>
+.PD
+Maximum runtime for the job (format: "days-hours:minutes:seconds", e.g., "0:30:0" for 30 minutes).
+.IP
+
+.TP
+\fB\-\-repeat\fR <\fIuint32\fR>
+.PD
+Submit the job multiple times (default: 1).
+.IP
+
+.TP
+\fB\-w\fR, \fB\-\-nodelist\fR <\fInodelist\fR>
+.PD
+Submit the job to specific nodes (e.g., "crane01,crane02").
+.IP
+
+.TP
+\fB\-x\fR, \fB\-\-exclude\fR <\fInodelist\fR>
+.PD
+Exclude specified nodes from running the job.
+.IP
+
+.TP
+\fB\-\-get\-user\-env\fR
+.PD
+Retrieve the user's environment variables for the job.
+.IP
+
+.TP
+\fB\-\-gres\fR <\fIstring\fR>
+.PD
+Request GPU/accelerator resources. Format: "name:type:count" (e.g., "GPU:A100:2") or "name:count" (e.g., "GPU:2").
+.IP
+
+.TP
+\fB\-\-export\fR <\fIstring\fR>
+.PD
+Set environment variables for the job (e.g., "VAR1=value1,VAR2=value2").
+.IP
+
+.TP
+\fB\-\-extra\-attr\fR <\fIstring\fR>
+.PD
+Submit additional parameters in JSON format.
+.IP
+
+.TP
+\fB\-\-json\fR
+.PD
+Output command results in JSON format.
+.IP
+
+.TP
+\fB\-v\fR, \fB\-\-version\fR
+.PD
+Display version information and exit.
+.IP
+
+.TP
+\fB\-\-mail\-type\fR <\fItype\fR>
+.PD
+Specify email notification triggers (options: NONE, BEGIN, END, FAIL, ALL; default: NONE).
+.IP
+
+.TP
+\fB\-\-mail\-user\fR <\fIemail\fR>
+.PD
+Email address for job notifications. Requires Linux mail command and backend configuration.
+.IP
+
+.SH "JOB SCRIPT DIRECTIVES"
+.LP
+Job scripts must include directives to specify resource requirements. 
+Directives are lines starting with \fB#CBATCH\fR followed by options (same as command-line flags).
+
+.TP
+Example directives:
+.RS
+.nf
+#CBATCH --nodes 1
+#CBATCH --ntasks-per-node 1
+#CBATCH -c 1
+#CBATCH --mem 20M
+#CBATCH --time 0:3:1
+#CBATCH -o job.out
+#CBATCH -p CPU
+#CBATCH -J Test_Job
+.fi
+.RE
+
+.SH "EXAMPLES"
+.LP
+
+.TP
+Submit a single-node job:
+.IP
+.nf
+$ cbatch cbatch_test.sh
+.fi
+
+.TP
+Submit a GPU job with 2 A100 GPUs:
+.IP
+.nf
+$ cbatch --gres=GPU:A100:2 --partition=GPU gpu_job.sh
+.fi
+
+.TP
+Submit a job with email notifications:
+.IP
+.nf
+$ cbatch --mail-type=ALL --mail-user=user@example.com long_running_job.sh
+.fi
+
+.SH "EXIT STATUS"
+.LP
+Returns 0 on success, non-zero on error.
+
+.SH "SEE ALSO"
+.LP
+\fBcinfo\fR(1), \fBsqueue\fR(1), \fBscancel\fR(1), \fBcacctmgr\fR(1)
+
+.SH "COPYRIGHT"
+.LP
+Copyright (C) 2025 Your Organization.
+This manual page is distributed under the GNU General Public License.

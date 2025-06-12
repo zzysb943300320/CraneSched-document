@@ -1,0 +1,178 @@
+.TH calloc "1" "Cranes Commands" "2025" "calloc Manual"
+
+.SH "NAME"
+.LP
+calloc \- Submit interactive tasks to the cluster with resource requests.
+
+.SH "SYNOPSIS"
+.LP
+calloc [\fIoptions\fP]
+
+.SH "DESCRIPTION"
+.LP
+calloc requests compute resources via command-line parameters and opens a new terminal session on the allocated node(s). 
+Upon execution, it requires users to manually log in to the compute node to start interactive tasks. 
+Unlike batch jobs, calloc is designed for immediate, interactive workloads.
+
+.SH "OPTIONS"
+.LP
+
+.TP
+\fB\-h\fR, \fB\-\-help\fR
+.PD
+Display help information and exit.
+.IP
+
+.TP
+\fB\-A\fR, \fB\-\-account\fR <\fIstring\fR>
+.PD
+Account for job submission (required for resource allocation tracking).
+.IP
+
+.TP
+\fB\-D\fR, \fB\-\-chdir\fR <\fIstring\fR>
+.PD
+Working directory for the job (default: current directory).
+.IP
+
+.TP
+\fB\-C\fR, \fB\-\-config\fR <\fIstring\fR>
+.PD
+Path to the configuration file (default: "/etc/crane/config.yaml").
+.IP
+
+.TP
+\fB\-c\fR, \fB\-\-cpus\-per\-task\fR <\fIfloat\fR>
+.PD
+Number of CPU cores requested per task.
+.IP
+
+.TP
+\fB\-J\fR, \fB\-\-job\-name\fR <\fIstring\fR>
+.PD
+Name of the interactive job (visible in monitoring tools).
+.IP
+
+.TP
+\fB\-\-mem\fR <\fIstring\fR>
+.PD
+Memory requested per node (e.g., "2G", "16M"). Defaults to scheduler settings if unset.
+.IP
+
+.TP
+\fB\-N\fR, \fB\-\-nodes\fR <\fIuint32\fR>
+.PD
+Number of nodes requested for the interactive session.
+.IP
+
+.TP
+\fB\-\-ntasks\-per\-node\fR <\fIuint32\fR>
+.PD
+Number of tasks to run per node.
+.IP
+
+.TP
+\fB\-p\fR, \fB\-\-partition\fR <\fIstring\fR>
+.PD
+Partition/queue to use (e.g., "CPU", "GPU", "HIMEM").
+.IP
+
+.TP
+\fB\-q\fR, \fB\-\-qos\fR <\fIstring\fR>
+.PD
+Quality of Service (QoS) level for the job.
+.IP
+
+.TP
+\fB\-t\fR, \fB\-\-time\fR <\fIstring\fR>
+.PD
+Maximum runtime (format: "days-hours:minutes:seconds", e.g., "0-2:30:0" for 2.5 hours).
+.IP
+
+.TP
+\fB\-w\fR, \fB\-\-nodelist\fR <\fInodelist\fR>
+.PD
+Submit job to specific nodes (comma-separated, e.g., "crane01,crane05").
+.IP
+
+.TP
+\fB\-x\fR, \fB\-\-exclude\fR <\fInodelist\fR>
+.PD
+Exclude specific nodes from allocation (comma-separated).
+.IP
+
+.TP
+\fB\-\-get\-user\-env\fR
+.PD
+Inherit the user's current environment variables.
+.IP
+
+.TP
+\fB\-\-export\fR <\fIstring\fR>
+.PD
+Set environment variables (e.g., "VAR1=val1,VAR2=val2").
+.IP
+
+.TP
+\fB\-\-gres\fR <\fIstring\fR>
+.PD
+Request generic resources (format: "name:type:count" or "name:count"). 
+.RS
+Example: \fB--gres=GPU:A100:2\fR or \fB--gres=GPU:2\fR (scheduler selects device type).
+.RE
+.IP
+
+.TP
+\fB\-\-debug\-level\fR <\fIlevel\fR>
+.PD
+Set log output level (options: "info", "debug", "error", "warning").
+.IP
+
+.TP
+\fB\-\-json\fR
+.PD
+Output results in JSON format (for programmatic use).
+.IP
+
+.TP
+\fB\-v\fR, \fB\-\-version\fR
+.PD
+Query version number and exit.
+.IP
+
+.SH "EXAMPLES"
+.LP
+
+.TP
+Request an interactive session on a GPU node with 2 A100 GPUs:
+.IP
+.nf
+$ calloc -p GPU --gres=GPU:A100:2 -t 0-1:0:0
+.fi
+
+.TP
+Start an interactive job on specific nodes with 4 CPU cores:
+.IP
+.nf
+$ calloc -w crane03,crane04 -c 4 -t 0-0:30:0
+.fi
+
+.TP
+Submit an interactive task with environment variables:
+.IP
+.nf
+$ calloc --export=DATA_DIR=/storage/project,MPI_RANK=0 -J my_interactive_job
+.fi
+
+.SH "EXIT STATUS"
+.LP
+Returns 0 if resources are allocated and terminal session starts; non-zero on errors (e.g., insufficient resources, invalid parameters).
+
+.SH "SEE ALSO"
+.LP
+\fBcbatch\fR(1), \fBsqueue\fR(1), \fBcinfo\fR(1), \fBscancel\fR(1)
+
+.SH "COPYRIGHT"
+.LP
+Copyright (C) 2025 Your Organization.
+This manual page is distributed under the GNU General Public License.

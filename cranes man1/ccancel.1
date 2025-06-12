@@ -1,0 +1,127 @@
+.TH ccancel "1" "Cranes Commands" "2025" "ccancel Manual"
+
+.SH "NAME"
+.LP
+ccancel \- Cancel running or queued jobs in the cluster.
+
+.SH "SYNOPSIS"
+.LP
+ccancel [\fIoptions\fP] [\fIjob_id...\fP]
+
+.SH "DESCRIPTION"
+.LP
+ccancel terminates jobs that are running or pending in the queue. 
+It supports canceling jobs by ID, user, account, partition, or other criteria. 
+Jobs in states \fBPENDING\fR (PD) or \fBRUNNING\fR (R) can be canceled.
+
+.SH "OPTIONS"
+.LP
+
+.TP
+\fB\-h\fR, \fB\-\-help\fR
+.PD
+Display help information and exit.
+.IP
+
+.TP
+\fB\-A\fR, \fB\-\-account\fR <\fIstring\fR>
+.PD
+Cancel jobs associated with the specified account (comma-separated accounts).
+.IP
+
+.TP
+\fB\-C\fR, \fB\-\-config\fR <\fIstring\fR>
+.PD
+Path to the configuration file (default: "/etc/crane/config.yaml").
+.IP
+
+.TP
+\fB\-n\fR, \fB\-\-name\fR <\fIstring\fR>
+.PD
+Cancel jobs with the specified name (supports wildcard patterns).
+.IP
+
+.TP
+\fB\-w\fR, \fB\-\-nodes\fR <\fInodes\fR>
+.PD
+Cancel jobs running on specific nodes (comma-separated node names).
+.IP
+
+.TP
+\fB\-p\fR, \fB\-\-partition\fR <\fIstring\fR>
+.PD
+Cancel jobs in the specified partition (e.g., "GPU", "CPU").
+.IP
+
+.TP
+\fB\-t\fR, \fB\-\-state\fR <\fIstate\fR>
+.PD
+Cancel jobs in specified states (case-insensitive: PD, R, PENDING, RUNNING).
+.IP
+
+.TP
+\fB\-u\fR, \fB\-\-user\fR <\fIstring\fR>
+.PD
+Cancel jobs submitted by the specified user (comma-separated users).
+.IP
+
+.TP
+\fB\-\-json\fR
+.PD
+Output results in JSON format (for scripting purposes).
+.IP
+
+.TP
+\fB\-v\fR, \fB\-\-version\fR
+.PD
+Display version information and exit.
+.IP
+
+.SH "EXIT STATUS"
+.LP
+Returns:
+.RS
+\fB•\fR 0 if all specified jobs are canceled successfully  
+\fB•\fR 1 if any job cancellation fails (e.g., invalid ID, job not found)  
+\fB•\fR 2 for parameter errors or configuration issues
+.RE
+
+.SH "EXAMPLES"
+.LP
+
+.TP
+Cancel job with ID 1234:
+.IP
+.nf
+$ ccancel 1234
+.fi
+
+.TP
+Cancel all running jobs of user 'alice':
+.IP
+.nf
+$ ccancel -u alice -t running
+.fi
+
+.TP
+Cancel pending jobs in the GPU partition:
+.IP
+.nf
+$ ccancel -p GPU -t pending
+.fi
+
+.TP
+Cancel all jobs of account 'project01' in JSON format:
+.IP
+.nf
+$ ccancel -A project01 --json
+.fi
+
+.SH "SEE ALSO"
+.LP
+\fBcqueue\fR(1), \fBsqueue\fR(1), \fBcbatch\fR(1), \fBcalloc\fR(1)
+
+.SH "COPYRIGHT"
+.LP
+Copyright (C) 2025 Your Organization.
+This manual page is distributed under the GNU General Public License.

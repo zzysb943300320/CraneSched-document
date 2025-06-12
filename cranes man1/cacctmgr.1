@@ -1,0 +1,332 @@
+.TH cacctmgr "1" "Cranes Commands" "2025" "cacctmgr Manual"
+
+.SH "NAME"
+.LP
+cacctmgr \- Manage user and account information for the CraneSched system.
+
+.SH "SYNOPSIS"
+.LP
+cacctmgr [\fIglobal_options\fP] \fIcommand\fP [\fIcommand_options\fP]
+
+.SH "DESCRIPTION"
+.LP
+cacctmgr is a utility for managing user accounts, roles, and resource quotas in the CraneSched job scheduling system. It supports creating, deleting, modifying, and querying account entities, with role-based access control.
+
+.SH "USER ROLES"
+.LP
+Four privilege levels in CraneSched:
+.RS
+\fB• System Administrator (Admin)\fR: Full access to all accounts and users (typically root).  
+\fB• Platform Administrator (Operator)\fR: Full control over the account system.  
+\fB• Account Coordinator (Coordinator)\fR: Manage users within their own account hierarchy.  
+\fB• Regular User\fR: Limited to querying their own account information.  
+.RE
+
+.SH "GLOBAL OPTIONS"
+.LP
+
+.TP
+\fB\-h\fR, \fB\-\-help\fR
+.PD
+Display help information and exit.
+.IP
+
+.TP
+\fB\-C\fR, \fB\-\-config\fR <\fIpath\fR>
+.PD
+Specify configuration file (default: "/etc/crane/config.yaml").
+.IP
+
+.SH "MAIN COMMANDS"
+.LP
+
+.TP
+\fBhelp\fR
+.PD
+Show help for a specific command.
+.IP
+
+.TP
+\fBadd\fR
+.PD
+Create new entities (QoS, accounts, users).
+.IP
+
+.TP
+\fBblock\fR
+.PD
+Disable an entity (account or user).
+.IP
+
+.TP
+\fBdelete\fR
+.PD
+Remove an entity from the system.
+.IP
+
+.TP
+\fBmodify\fR
+.PD
+Update entity properties.
+.IP
+
+.TP
+\fBshow\fR
+.PD
+List entities (accounts, users, QoS).
+.IP
+
+.TP
+\fBunblock\fR
+.PD
+Re-enable a blocked entity.
+.IP
+
+.SH "ADD OPERATIONS"
+.LP
+
+.TP
+\fBcacctmgr add qos\fR
+.PD
+Create a new QoS level.
+.RS
+\fBOptions:\fR
+.RS
+\fB\-D, \-\-description\fR <\fItext\fR> QoS description  
+\fB\-c, \-\-max\_cpus\_per\_user\fR <\fIuint32\fR> Max CPUs per user (default 10)  
+\fB\-J, \-\-max\_jobs\_per\_user\fR <\fIuint32\fR> Max concurrent jobs  
+\fB\-T, \-\-max\_time\_limit\_per\_task\fR <\fIuint\fR> Task time limit (s, default 3600)  
+\fB\-N, \-\-name\fR <\fIname\fR> *Required* QoS name  
+\fB\-P, \-\-priority\fR <\fIuint32\fR> Priority level (default 1000)  
+.RE
+.RE
+.IP
+
+.TP
+\fBcacctmgr add account\fR
+.PD
+Create a new account.
+.RS
+\fBOptions:\fR
+.RS
+\fB\-Q, \-\-default\_qos\fR <\fIname\fR> Default QoS for account  
+\fB\-D, \-\-description\fR <\fItext\fR> Account description  
+\fB\-N, \-\-name\fR <\fIname\fR> *Required* account name  
+\fB\-P, \-\-parent\fR <\fIname\fR> Parent account (for sub-accounts)  
+\fB\-p, \-\-partition\fR <\flist\fR> Allowed partitions (comma-separated)  
+\fB\-q, \-\-qos\_list\fR <\flist\fR> Allowed QoS levels (comma-separated)  
+.RE
+.RE
+.IP
+
+.TP
+\fBcacctmgr add user\fR
+.PD
+Add a user to an account.
+.RS
+\fBOptions:\fR
+.RS
+\fB\-A, \-\-account\fR <\fIname\fR> *Required* parent account  
+\fB\-c, \-\-coordinate\fR Designate as account coordinator  
+\fB\-L, \-\-level\fR <\fIrole\fR> Privilege level (none/operator/admin, default none)  
+\fB\-N, \-\-name\fR <\fIuser\fR> *Required* username (must exist in Linux)  
+\fB\-p, \-\-partition\fR <\flist\fR> Allowed partitions (comma-separated)  
+.RE
+.RE
+.IP
+
+.SH "DELETE OPERATIONS"
+.LP
+
+.TP
+\fBcacctmgr delete user\fR
+.PD
+Remove a user from the system.
+.RS
+\fBNote:\fR Only system admins can delete users.
+.RE
+.IP
+
+.TP
+\fBcacctmgr delete account\fR
+.PD
+Remove an account (and its sub-accounts/users must be migrated first).
+.RS
+\fBNote:\fR Only system admins can delete accounts.
+.RE
+.IP
+
+.TP
+\fBcacctmgr delete qos\fR
+.PD
+Remove a QoS level.
+.IP
+
+.SH "BLOCK/UNBLOCK OPERATIONS"
+.LP
+
+.TP
+\fBcacctmgr block account\fR <\fIname\fR>
+.PD
+Disable an account (prevents job submissions).
+.IP
+
+.TP
+\fBcacctmgr block user\fR <\fIaccount/user\fR>
+.PD
+Block a user from submitting jobs.
+.IP
+
+.TP
+\fBcacctmgr unblock account\fR <\fIname\fR>
+.PD
+Re-enable a blocked account.
+.IP
+
+.TP
+\fBcacctmgr unblock user\fR <\fIaccount/user\fR>
+.PD
+Re-enable a blocked user.
+.IP
+
+.SH "MODIFY OPERATIONS"
+.LP
+
+.TP
+\fBcacctmgr modify account\fR
+.PD
+Update account properties.
+.RS
+\fBOptions:\fR
+.RS
+\fB\-N, \-\-name\fR <\fIname\fR> *Required* account name  
+\fB\-\-add\_allowed\_partition\fR <\fIpart\fR> Add partition access  
+\fB\-\-add\_allowed\_qos\_list\fR <\fIqos\fR> Add QoS access  
+\fB\-Q, \-\-default\_qos\fR <\fIname\fR> Set default QoS  
+\fB\-\-delete\_allowed\_partition\fR <\fIpart\fR> Remove partition access  
+\fB\-\-delete\_allowed\_qos\_list\fR <\fIqos\fR> Remove QoS access  
+\fB\-D, \-\-description\fR <\fItext\fR> Update description  
+\fB\-F, \-\-force\fR Bypass safety checks  
+.RE
+.RE
+.IP
+
+.TP
+\fBcacctmgr modify user\fR
+.PD
+Update user properties.
+.RS
+\fBOptions:\fR
+.RS
+\fB\-N, \-\-name\fR <\fIuser\fR> *Required* username  
+\fB\-A, \-\-account\fR <\fIname\fR> Change user's account (admin only)  
+\fB\-\-add\_allowed\_partition\fR <\fIpart\fR> Add partition access  
+\fB\-\-add\_allowed\_qos\_list\fR <\fIqos\fR> Add QoS access  
+\fB\-L, \-\-admin\_level\fR <\fIrole\fR> Set privilege level  
+\fB\-Q, \-\-default\_qos\fR <\fIname\fR> Set default QoS  
+\fB\-\-delete\_allowed\_partition\fR <\fIpart\fR> Remove partition access  
+\fB\-\-delete\_allowed\_qos\_list\fR <\fIqos\fR> Remove QoS access  
+\fB\-F, \-\-force\fR Bypass safety checks  
+.RE
+.RE
+.IP
+
+.TP
+\fBcacctmgr modify qos\fR
+.PD
+Update QoS properties.
+.RS
+\fBOptions:\fR
+.RS
+\fB\-N, \-\-name\fR <\fIname\fR> *Required* QoS name  
+\fB\-D, \-\-description\fR <\fItext\fR> Update description  
+\fB\-c, \-\-max\_cpus\_per\_user\fR <\fIuint32\fR> Set CPU limit  
+\fB\-J, \-\-max\_jobs\_per\_user\fR <\fIuint32\fR> Set job limit  
+\fB\-T, \-\-max\_time\_limit\_per\_task\fR <\fIuint\fR> Set time limit (s)  
+\fB\-P, \-\-priority\fR <\fIuint32\fR> Set priority level  
+.RE
+.RE
+.IP
+
+.SH "SHOW OPERATIONS"
+.LP
+
+.TP
+\fBcacctmgr show account-tree\fR
+.PD
+Display the account hierarchy.
+.RS
+\fBNote:\fR Admins see all trees; others see their own account tree.
+.RE
+.IP
+
+.TP
+\fBcacctmgr show users\fR
+.PD
+List users with their accounts and roles.
+.RS
+\fBNote:\fR Admins see all users; others see users in their account.
+.RE
+.IP
+
+.TP
+\fBcacctmgr show accounts\fR
+.PD
+List all accounts and their properties.
+.IP
+
+.TP
+\fBcacctmgr show qos\fR
+.PD
+List all QoS levels and their configurations.
+.IP
+
+.SH "EXAMPLES"
+.LP
+
+.TP
+Create a new 'research' account:
+.IP
+.nf
+$ cacctmgr add account -N research -p CPU,GPU -Q standard
+.fi
+
+.TP
+Add user 'alice' to 'research' account as coordinator:
+.IP
+.nf
+$ cacctmgr add user -N alice -A research -c
+.fi
+
+.TP
+Block user 'bob' from submitting jobs:
+.IP
+.nf
+$ cacctmgr block user research/bob
+.fi
+
+.TP
+Modify 'high_priority' QoS to allow 20 CPUs:
+.IP
+.nf
+$ cacctmgr modify qos -N high_priority -c 20
+.fi
+
+.SH "EXIT STATUS"
+.LP
+Returns:
+.RS
+\fB•\fR 0 on success  
+\fB•\fR 1 for invalid parameters  
+\fB•\fR 2 for permission errors  
+\fB•\fR 3 for dependency conflicts (e.g., deleting occupied account)  
+.RE
+
+.SH "SEE ALSO"
+.LP
+\fBcinfo\fR(1), \fBcbatch\fR(1), \fBcqueue\fR(1), \fBccancel\fR(1)
+
+.SH "COPYRIGHT"
+.LP
+Copyright (C) 2025 Your Organization.
+This manual page is distributed under the GNU General Public License.

@@ -1,0 +1,197 @@
+.TH crun "1" "Cranes Commands" "2025" "crun Manual"
+
+.SH "NAME"
+.LP
+crun \- Submit interactive tasks to compute nodes with resource requests.
+
+.SH "SYNOPSIS"
+.LP
+crun [\fIoptions\fP] [\fItask_command\fP]
+
+.SH "DESCRIPTION"
+.LP
+crun requests compute resources via command-line parameters and launches specified tasks on allocated nodes. 
+It forwards user input to the task and relays task output to the terminal in real time. 
+crun must be executed on nodes where \fBcfored\fR is running. 
+
+Tasks can be terminated by:
+.RS
+\fB•\fR Pressing Ctrl+C twice within 1 second (SIGINT)
+\fB•\fR Using \fBccancel\fR(1) to cancel the job
+\fB•\fR Exiting the task process on the compute node
+.RE
+
+.SH "OPTIONS"
+.LP
+
+.TP
+\fB\-h\fR, \fB\-\-help\fR
+.PD
+Display help information and exit.
+.IP
+
+.TP
+\fB\-A\fR, \fB\-\-account\fR <\fIstring\fR>
+.PD
+Account for job submission (required for resource tracking).
+.IP
+
+.TP
+\fB\-D\fR, \fB\-\-chdir\fR <\fIstring\fR>
+.PD
+Working directory for the task (default: current directory).
+.IP
+
+.TP
+\fB\-C\fR, \fB\-\-config\fR <\fIstring\fR>
+.PD
+Configuration file path (default: "/etc/crane/config.yaml").
+.IP
+
+.TP
+\fB\-c\fR, \fB\-\-cpus\-per\-task\fR <\fIfloat\fR>
+.PD
+Number of CPU cores requested per task.
+.IP
+
+.TP
+\fB\-J\fR, \fB\-\-job\-name\fR <\fIstring\fR>
+.PD
+Job name (visible in monitoring tools).
+.IP
+
+.TP
+\fB\-\-mem\fR <\fIstring\fR>
+.PD
+Memory requested per node (e.g., "4G", "256M"). Defaults to scheduler settings if unset.
+.IP
+
+.TP
+\fB\-N\fR, \fB\-\-nodes\fR <\fIuint32\fR>
+.PD
+Number of nodes requested for the task.
+.IP
+
+.TP
+\fB\-\-ntasks\-per\-node\fR <\fIuint32\fR>
+.PD
+Number of tasks per node.
+.IP
+
+.TP
+\fB\-p\fR, \fB\-\-partition\fR <\fIstring\fR>
+.PD
+Partition/queue to use (e.g., "GPU", "HIGH").
+.IP
+
+.TP
+\fB\-q\fR, \fB\-\-qos\fR <\fIstring\fR>
+.PD
+Quality of Service (QoS) level.
+.IP
+
+.TP
+\fB\-t\fR, \fB\-\-time\fR <\fIstring\fR>
+.PD
+Maximum runtime (format: "days-hours:minutes:seconds", e.g., "1-0:30:0").
+.IP
+
+.TP
+\fB\-w\fR, \fB\-\-nodelist\fR <\fInodelist\fR>
+.PD
+Specify nodes to run the task (comma-separated, e.g., "crane01,crane07").
+.IP
+
+.TP
+\fB\-x\fR, \fB\-\-exclude\fR <\fInodelist\fR>
+.PD
+Exclude nodes from allocation (comma-separated).
+.IP
+
+.TP
+\fB\-\-export\fR <\fIstring\fR>
+.PD
+Set environment variables (e.g., "VAR1=val1,VAR2=val2").
+.IP
+
+.TP
+\fB\-\-get\-user\-env\fR
+.PD
+Inherit the user's current environment variables.
+.IP
+
+.TP
+\fB\-\-json\fR
+.PD
+Output results in JSON format (for scripting).
+.IP
+
+.TP
+\fB\-v\fR, \fB\-\-version\fR
+.PD
+Display version information and exit.
+.IP
+
+.TP
+\fB\-\-debug\-level\fR <\fIlevel\fR>
+.PD
+Set log level (options: "info", "debug", "error").
+.IP
+
+.TP
+\fB\-\-x11\fR
+.PD
+Enable X11 forwarding for graphical applications.
+.IP
+
+.TP
+\fB\-\-gres\fR <\fIstring\fR>
+.PD
+Request device resources (format: "name:type:count" or "name:count"). 
+.RS
+Example: \fB--gres=GPU:A100:2\fR or \fB--gres=GPU:2\fR (scheduler chooses device type).
+.RE
+.IP
+
+.SH "EXAMPLES"
+.LP
+
+.TP
+Run a Python script on a GPU node with X11 forwarding:
+.IP
+.nf
+$ crun -p GPU --gres=GPU:A100:1 --x11 python analysis.py
+.fi
+
+.TP
+Launch an interactive MPI job on 2 nodes:
+.IP
+.nf
+$ crun -N 2 -c 8 --mem=16G mpirun -n 16 my_mpi_app
+.fi
+
+.TP
+Run a task in a specific working directory with env variables:
+.IP
+.nf
+$ crun -D /data/project --export=DATA_PATH=/input,OUT_PATH=/output \
+       Rscript process_data.R
+.fi
+
+.SH "EXIT STATUS"
+.LP
+Returns 0 if task completes successfully; non-zero if:
+.RS
+\fB•\fR Resource allocation fails
+\fB•\fR Task is canceled
+\fB•\fR Command execution errors occur
+.RE
+
+.SH "SEE ALSO"
+.LP
+\fBcbatch\fR(1), \fBcalloc\fR(1), \fBcinfo\fR(1), \fBccancel\fR(1), \fBsqueue\fR(1)
+
+.SH "COPYRIGHT"
+.LP
+Copyright (C) 2025 Your Organization.
+This manual page is distributed under the GNU General Public License.

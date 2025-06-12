@@ -1,0 +1,296 @@
+.TH ccontrol "1" "Cranes Commands" "2025" "ccontrol Manual"
+
+.SH "NAME"
+.LP
+ccontrol \- View and modify partition and node status in the cluster.
+
+.SH "SYNOPSIS"
+.LP
+ccontrol [\fIcommand\fP] [\fIoptions\fP]
+
+.SH "DESCRIPTION"
+.LP
+ccontrol is a comprehensive tool for managing cluster resources. It enables users to:
+.RS
+\fB•\fR View status of partitions, nodes, and jobs
+\fB•\fR Modify resource configurations and states
+\fB•\fR Pause and resume job scheduling
+\fB•\fR Generate shell autocompletion scripts
+.RE
+
+.SH "MAIN COMMANDS"
+.LP
+.TP
+\fBhelp\fR
+.PD
+Display help information for ccontrol commands.
+.IP
+
+.TP
+\fBshow\fR
+.PD
+View status of cluster entities (partitions, nodes, jobs).
+.IP
+
+.TP
+\fBupdate\fR
+.PD
+Modify configuration of partitions, nodes, or jobs.
+.IP
+
+.TP
+\fBhold\fR
+.PD
+Pause job scheduling for specified entities.
+.IP
+
+.TP
+\fBrelease\fR
+.PD
+Resume job scheduling for held entities.
+.IP
+
+.TP
+\fBcompletion\fR
+.PD
+Generate autocompletion scripts for shells (bash, zsh, etc.).
+.IP
+
+.SH "GLOBAL OPTIONS"
+.LP
+
+.TP
+\fB\-h\fR, \fB\-\-help\fR
+.PD
+Display help for the current command.
+.IP
+
+.TP
+\fB\-\-json\fR
+.PD
+Output results in JSON format.
+.IP
+
+.TP
+\fB\-v\fR, \fB\-\-version\fR
+.PD
+Display version information.
+.IP
+
+.TP
+\fB\-C\fR, \fB\-\-config\fR <\fIpath\fR>
+.PD
+Specify configuration file (default: "/etc/crane/config.yaml").
+.IP
+
+.SH "VIEW OPERATIONS"
+.LP
+Use \fBccontrol show\fR with subcommands to view specific entities:
+
+.TP
+\fBconfig\fR
+.PD
+Query cluster configuration information.
+.IP
+
+.TP
+\fBpartition\fR
+.PD
+View partition status and resource metrics.
+.RS
+\fBMain Output Items:\fR
+.RS
+\fBPartitionName\fR Partition name  
+\fBState\fR Partition status (up/down)  
+\fBTotalNodes\fR Total nodes in partition  
+\fBAliveNodes\fR Usable nodes  
+\fBTotalCpus\fR Total CPUs  
+\fBAvailCpus\fR Available CPUs  
+\fBAllocCpus\fR Allocated CPUs  
+\fBFreeCpus\fR Idle CPUs  
+\fBTotalMem\fR Total memory (MB)  
+\fBAvailMem\fR Available memory  
+\fBAllocMem\fR Allocated memory  
+\fBFreeMem\fR Idle memory  
+\fBHostList\fR List of nodes  
+.RE
+.RE
+.IP
+
+.TP
+\fBnode\fR
+.PD
+View node status and resource usage.
+.RS
+\fBMain Output Items:\fR
+.RS
+\fBNodeName\fR Node name  
+\fBState\fR Node state (IDLE/DOWN)  
+\fBCPUs\fR Total CPUs  
+\fBAllocCpus\fR Allocated CPUs  
+\fBFreeCpus\fR Free CPUs  
+\fBRealMemory\fR Total memory (MB)  
+\fBAllocMem\fR Allocated memory  
+\fBFreeMem\fR Free memory  
+\fBPartition\fR Assigned partition  
+\fBRunningTask\fR Active tasks  
+.RE
+.RE
+.IP
+
+.TP
+\fBjob\fR
+.PD
+View job status and resource allocation.
+.RS
+\fBMain Output Items:\fR
+.RS
+\fBJobId\fR Job ID  
+\fBJobName\fR Job name  
+\fBUserId\fR Submitting user  
+\fBAccount\fR Resource account  
+\fBJobState\fR Job status (PENDING/RUNNING/COMPLETED)  
+\fBRunTime\fR Elapsed runtime  
+\fBTimeLimit\fR Maximum runtime  
+\fBSubmitTime\fR Submission time  
+\fBStartTime\fR Start time  
+\fBPartition\fR Assigned partition  
+\fBNodeList\fR Nodes running job  
+\fBNumNodes\fR Number of nodes  
+.RE
+.RE
+.IP
+
+.SH "MODIFY OPERATIONS"
+.LP
+
+.TP
+\fBccontrol update job\fR
+.PD
+Modify job attributes.
+.RS
+\fBOptions:\fR
+.RS
+\fB\-J, \-\-job\-name\fR <\fIname\fR> Set job name  
+\fB\-P, \-\-priority\fR <\ffloat\fR> Set job priority  
+\fB\-T, \-\-time\-limit\fR <\fIduration\fR> Set runtime limit  
+.RE
+.RE
+.IP
+
+.TP
+\fBccontrol update node\fR
+.PD
+Modify node attributes or state.
+.RS
+\fBConfiguration Options:\fR
+.RS
+\fB\-n, \-\-name\fR <\fInode\fR> Node name  
+\fB\-c, \-\-cpu\fR <\fIcount\fR> Set CPU cores  
+\fB\-M, \-\-memory\fR <\fIsize\fR> Set memory (MB)  
+\fB\-P, \-\-partition\fR <\fIpart\fR> Assign partition  
+.RE
+\fBState Modification Options:\fR
+.RS
+\fB\-r, \-\-reason\fR <\fItext\fR> Set state change reason  
+\fB\-t, \-\-state\fR <\fIstate\fR> Set node state (IDLE/DOWN)  
+.RE
+.RE
+.IP
+
+.SH "JOB SCHEDULING CONTROL"
+.LP
+
+.TP
+\fBccontrol hold\fR
+.PD
+Pause job scheduling.
+.RS
+\fBParameters:\fR
+.RS
+\fBJob IDs\fR Comma-separated job IDs (e.g., 123,456)  
+\fB\-T, \-\-time\-limit\fR <\fIduration\fR> Auto-release after duration  
+\fBNotes:\fR Only pending jobs can be held; held jobs show "Held" in cqueue.  
+.RE
+.RE
+.IP
+
+.TP
+\fBccontrol release\fR
+.PD
+Resume scheduling for held jobs.
+.RS
+\fBParameters:\fR
+.RS
+\fBJob IDs\fR Comma-separated job IDs  
+\fBNotes:\fR Cancels any existing auto-release timer.  
+.RE
+.RE
+.IP
+
+.SH "SHELL COMPLETION"
+.LP
+.TP
+\fBccontrol completion\fR
+.PD
+Generate autocompletion scripts.
+.RS
+\fBSubcommands:\fR
+.RS
+\fBbash\fR Generate for bash  
+\fBfish\fR Generate for fish  
+\fBpowershell\fR Generate for PowerShell  
+\fBzsh\fR Generate for zsh  
+.RE
+.RE
+.IP
+
+.SH "EXAMPLES"
+.LP
+
+.TP
+View all partition statuses:
+.IP
+.nf
+$ ccontrol show partition
+.fi
+
+.TP
+Modify node crane01 to DOWN state:
+.IP
+.nf
+$ ccontrol update node -n crane01 -t DOWN -r "maintenance"
+.fi
+
+.TP
+Hold job 123 with 10-minute auto-release:
+.IP
+.nf
+$ ccontrol hold 123 -T 0:10:0
+.fi
+
+.TP
+Generate bash autocompletion:
+.IP
+.nf
+$ ccontrol completion bash > /etc/bash_completion.d/ccontrol
+.fi
+
+.SH "EXIT STATUS"
+.LP
+Returns:
+.RS
+\fB•\fR 0 on success  
+\fB•\fR 1 for invalid parameters  
+\fB•\fR 2 for permission errors  
+\fB•\fR 3 for state modification failures  
+.RE
+
+.SH "SEE ALSO"
+.LP
+\fBcinfo\fR(1), \fBcqueue\fR(1), \fBccancel\fR(1), \fBcbatch\fR(1)
+
+.SH "COPYRIGHT"
+.LP
+Copyright (C) 2025 Your Organization.
+This manual page is distributed under the GNU General Public License.

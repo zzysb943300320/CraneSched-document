@@ -1,0 +1,223 @@
+.TH cqueue "1" "Cranes Commands" "2025" "cqueue Manual"
+
+.SH "NAME"
+.LP
+cqueue \- View job queue information in the cluster.
+
+.SH "SYNOPSIS"
+.LP
+cqueue [\fIoptions\fP]
+
+.SH "DESCRIPTION"
+.LP
+cqueue displays information about jobs in the cluster's queues, including pending, running, and cancelled jobs. 
+It provides a comprehensive view of job status, resource allocation, and queue metrics.
+
+.SH "OPTIONS"
+.LP
+
+.TP
+\fB\-A\fR, \fB\-\-account\fR <\fIstring\fR>
+.PD
+Specify job accounts to query (comma-separated, e.g., \-A account1,account2).
+.IP
+
+.TP
+\fB\-C\fR, \fB\-\-config\fR <\fIstring\fR>
+.PD
+Path to the configuration file (default: "/etc/crane/config.yaml").
+.IP
+
+.TP
+\fB\-o\fR, \fB\-\-format\fR <\fIstring\fR>
+.PD
+Define output format (specify columns and widths, e.g., \--format="%j %p %u").
+.IP
+
+.TP
+\fB\-F\fR, \fB\-\-full\fR
+.PD
+Show full content without truncation (default truncates to 30 characters).
+.IP
+
+.TP
+\fB\-h\fR, \fB\-\-help\fR
+.PD
+Display help information and exit.
+.IP
+
+.TP
+\fB\-i\fR, \fB\-\-iterate\fR <\fIuint\fR>
+.PD
+Refresh output every <seconds> (e.g., \-i=5 for 5-second intervals).
+.IP
+
+.TP
+\fB\-j\fR, \fB\-\-job\fR <\fIstring\fR>
+.PD
+Query specific job IDs (comma-separated, e.g., \-j 123,456).
+.IP
+
+.TP
+\fB\-\-json\fR
+.PD
+Output results in JSON format (for programmatic use).
+.IP
+
+.TP
+\fB\-m\fR, \fB\-\-max\-visible\-lines\fR <\fIuint32\fR>
+.PD
+Limit output to maximum lines (e.g., \-m=100).
+.IP
+
+.TP
+\fB\-n\fR, \fB\-\-name\fR <\fIstring\fR>
+.PD
+Query jobs by name (comma-separated job names).
+.IP
+
+.TP
+\fB\-N\fR, \fB\-\-noheader\fR
+.PD
+Hide the output table header.
+.IP
+
+.TP
+\fB\-p\fR, \fB\-\-partition\fR <\fIstring\fR>
+.PD
+Filter by partition(s) (comma-separated, e.g., \-p GPU,CPU).
+.IP
+
+.TP
+\fB\-q\fR, \fB\-\-qos\fR <\fIstring\fR>
+.PD
+Filter by QoS level(s) (comma-separated).
+.IP
+
+.TP
+\fB\-\-self\fR
+.PD
+Show only jobs submitted by the current user.
+.IP
+
+.TP
+\fB\-S\fR, \fB\-\-start\fR
+.PD
+Show job start time (expected start for pending jobs).
+.IP
+
+.TP
+\fB\-t\fR, \fB\-\-state\fR <\fIstring\fR>
+.PD
+Filter by job state(s) (comma-separated, e.g., pending,running).
+.IP
+
+.TP
+\fB\-u\fR, \fB\-\-user\fR <\fIstring\fR>
+.PD
+Filter by user(s) (comma-separated, e.g., \-u alice,bob).
+.IP
+
+.TP
+\fB\-\-version\fR
+.PD
+Display version information and exit.
+.IP
+
+.SH "OUTPUT FIELDS"
+.LP
+Key fields displayed when querying job queues:
+
+.TP
+\fBJOBID\fR
+Job identifier (unique number).
+.IP
+
+.TP
+\fBPARTITION\fR
+Partition/queue the job belongs to.
+.IP
+
+.TP
+\fBNAME\fR
+Job name (specified via \-J or --job-name).
+.IP
+
+.TP
+\fBUSER\fR
+User who submitted the job.
+.IP
+
+.TP
+\fB ACCOUNT\fR
+Account associated with the job (for resource tracking).
+.IP
+
+.TP
+\fBSTATUS\fR
+Job status (pending, running, cancelled, completed, etc.).
+.IP
+
+.TP
+\fBTYPE\fR
+Job type (batch, interactive, system).
+.IP
+
+.TP
+\fBTIMELIMIT\fR
+Maximum allowed runtime (e.g., "01:30:00" for 1.5 hours).
+.IP
+
+.TP
+\fBNODES\fR
+Number of nodes allocated to the job.
+.IP
+
+.TP
+\fBNODELIST\fR
+List of nodes where the job is running (e.g., crane01[1-3]).
+.IP
+
+.SH "EXAMPLES"
+.LP
+
+.TP
+View all jobs in the cluster:
+.IP
+.nf
+$ cqueue
+.fi
+
+.TP
+Show running jobs in the GPU partition:
+.IP
+.nf
+$ cqueue -p GPU -t running
+.fi
+
+.TP
+Monitor jobs of user 'john' with 5-second refresh:
+.IP
+.nf
+$ cqueue -u john -i 5
+.fi
+
+.TP
+Query specific jobs in JSON format:
+.IP
+.nf
+$ cqueue -j 1024,2048 --json
+.fi
+
+.SH "EXIT STATUS"
+.LP
+Returns 0 on success, non-zero on errors (e.g., invalid parameters, query failure).
+
+.SH "SEE ALSO"
+.LP
+\fBcinfo\fR(1), \fBsqueue\fR(1), \fBcbatch\fR(1), \fBccancel\fR(1)
+
+.SH "COPYRIGHT"
+.LP
+Copyright (C) 2025 Your Organization.
+This manual page is distributed under the GNU General Public License.

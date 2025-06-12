@@ -1,0 +1,155 @@
+.TH cinfo "1" "Cranes Commands" "2025" "cinfo Manual"
+
+.SH "NAME"
+.LP
+cinfo \- Query node and partition status in a cluster.
+
+.SH "SYNOPSIS"
+.LP
+cinfo [\fIoptions\fP]
+
+.SH "DESCRIPTION"
+.LP
+cinfo is used to view the queue resource information of partitions and nodes in a cluster.
+It displays real-time status of clusters, including partition availability and node states.
+
+.SH "OPTIONS"
+.LP
+
+.TP
+\fB\-h\fR, \fB\-\-help\fR
+.PD
+Display help information and exit.
+.IP
+
+.TP
+\fB\-C\fR, \fB\-\-config\fR <\fIconfig_file\fR>
+.PD
+Specify the configuration file path (default: "/etc/crane/config.yaml").
+.IP
+
+.TP
+\fB\-d\fR, \fB\-\-dead\fR
+.PD
+Only show unresponsive nodes.
+.IP
+
+.TP
+\fB\-i\fR, \fB\-\-iterate\fR <\fIseconds\fR>
+.PD
+Refresh display every <seconds> seconds (e.g., \-i=3 for 3-second intervals).
+.IP
+
+.TP
+\fB\-\-json\fR
+.PD
+Output results in JSON format.
+.IP
+
+.TP
+\fB\-n\fR, \fB\-\-nodes\fR <\fInode_list\fR>
+.PD
+Show information for specified nodes (comma-separated, e.g., \-n crane01,crane02).
+.IP
+
+.TP
+\fB\-N\fR, \fB\-\-noheader\fR
+.PD
+Hide the output header.
+.IP
+
+.TP
+\fB\-p\fR, \fB\-\-partition\fR <\fIpartition_list\fR>
+.PD
+Show information for specified partitions (comma-separated, e.g., \-p CPU,GPU).
+.IP
+
+.TP
+\fB\-r\fB, \fB\-\-responding\fR
+.PD
+Only show responsive nodes.
+.IP
+
+.TP
+\fB\-t\fR, \fB\-\-states\fR <\fIstate_list\fR>
+.PD
+Only display nodes in specified states (case-insensitive: IDLE, MIX, ALLOC, DOWN).
+.IP
+
+.TP
+\fB\-v\fR, \fB\-\-version\fR
+.PD
+Query version number and exit.
+.IP
+
+.SH "OUTPUT FIELDS"
+.LP
+The main output items when querying cluster status:
+
+.TP
+\fBPARTITION\fR
+Partition name.
+.IP
+
+.TP
+\fBAVAIL\fR
+Partition availability status:
+.RS
+\fBup\fR \- Available for scheduling.
+\fBdown\fR \- Unavailable.
+.RE
+.IP
+
+.TP
+\fBNODES\fR
+Total number of nodes in the partition.
+.IP
+
+.TP
+\fBSTATE\fR
+Node status:
+.RS
+\fBidel\fR \- Idle (all cores available).
+\fBmix\fR \- Partial cores available.
+\fBalloc\fR \- Node occupied by jobs.
+\fBdown\fR \- Node unavailable (offline or failed).
+.RE
+.IP
+
+.TP
+\fBNODELIST\fR
+List of nodes in the partition (e.g., \fBcrane01,crane02\fR).
+.IP
+
+.SH "EXAMPLES"
+.LP
+
+.TP
+View status of all partitions and nodes:
+.IP
+.nf
+$ cinfo
+.fi
+
+.TP
+Show only GPU partition status:
+.IP
+.nf
+$ cinfo \-p GPU
+.fi
+
+.TP
+Query status of specific nodes every 5 seconds:
+.IP
+.nf
+$ cinfo \-n crane01,crane02 \-i 5
+.fi
+
+.SH "SEE ALSO"
+.LP
+\fBsinfo\fR(1), \fBsqueue\fR(1), \fBslurmctld\fR(8)
+
+.SH "COPYRIGHT"
+.LP
+Copyright (C) 2025 Your Organization.
+This manual page is distributed under the GNU General Public License.
