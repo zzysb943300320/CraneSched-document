@@ -1,0 +1,234 @@
+.TH cacct "1" "Cranes Commands" "2025" "cacct Manual"
+
+.SH "NAME"
+.LP
+cacct \- Query detailed job information across clusters and queues.
+
+.SH "SYNOPSIS"
+.LP
+cacct [\fIoptions\fP]
+
+.SH "DESCRIPTION"
+.LP
+cacct queries job information from the scheduler, displaying detailed metrics for jobs in all clusters and queues. 
+It shows jobs in all states (pending, running, completed, etc.) with a default limit of 100 entries. 
+Results include resource allocation, timestamps, and exit codes for comprehensive job accounting.
+
+.SH "OPTIONS"
+.LP
+
+.TP
+\fB\-A\fR, \fB\-\-account\fR <\fIstring\fR>
+.PD
+Filter by job account(s) (comma-separated, e.g., \-A project1,project2).
+.IP
+
+.TP
+\fB\-C\fR, \fB\-\-config\fR <\fIstring\fR>
+.PD
+Configuration file path (default: "/etc/crane/config.yaml").
+.IP
+
+.TP
+\fB\-E\fR, \fB\-\-end\-time\fR <\fIdate\fR>
+.PD
+Query jobs ended before the specified time (format: YYYY-MM-DDTHH:MM:SS, e.g., \-E=2025-06-01T12:00:00).
+.IP
+
+.TP
+\fB\-o\fR, \fB\-\-format\fR <\fIstring\fR>
+.PD
+Define output format (specify columns and widths, e.g., \--format="%j %p %a").
+.IP
+
+.TP
+\fB\-F\fR, \fB\-\-full\fR
+.PD
+Show full content without truncation (default truncates to 30 characters).
+.IP
+
+.TP
+\fB\-h\fR, \fB\-\-help\fR
+.PD
+Display help information and exit.
+.IP
+
+.TP
+\fB\-j\fR, \fB\-\-job\fR <\fIstring\fR>
+.PD
+Query specific job IDs (comma-separated, e.g., \-j 123,456).
+.IP
+
+.TP
+\fB\-\-json\fR
+.PD
+Output results in JSON format (for programmatic use).
+.IP
+
+.TP
+\fB\-m\fR, \fB\-\-max\-lines\fR <\fIuint32\fR>
+.PD
+Limit output to maximum lines (e.g., \-m=500).
+.IP
+
+.TP
+\fB\-n\fR, \fB\-\-name\fR <\fIstring\fR>
+.PD
+Filter by job name(s) (comma-separated).
+.IP
+
+.TP
+\fB\-N\fR, \fB\-\-noheader\fR
+.PD
+Hide the output table header.
+.IP
+
+.TP
+\fB\-p\fR, \fB\-\-partition\fR <\fIstring\fR>
+.PD
+Filter by partition(s) (comma-separated, default: all).
+.IP
+
+.TP
+\fB\-q\fR, \fB\-\-qos\fR <\fIstring\fR>
+.PD
+Filter by QoS level(s) (comma-separated, default: all).
+.IP
+
+.TP
+\fB\-S\fR, \fB\-\-start\-time\fR <\fIdate\fR>
+.PD
+Query jobs started after the specified time (format: YYYY-MM-DDTHH:MM:SS).
+.IP
+
+.TP
+\fB\-t\fR, \fB\-\-state\fR <\fIstring\fR>
+.PD
+Filter by job state(s) (comma-separated, options: p/pending, r/running, c/completed, f/failed, x/canceled, t/timeout; default: "all").
+.IP
+
+.TP
+\fB\-s\fR, \fB\-\-submit\-time\fR <\fIrange\fR>
+.PD
+Filter by submission time range (e.g., \-s="2025-06-01T00:00:00~2025-06-02T00:00:00").
+.IP
+
+.TP
+\fB\-u\fR, \fB\-\-user\fR <\fIstring\fR>
+.PD
+Filter by user(s) (comma-separated, e.g., \-u alice,bob).
+.IP
+
+.TP
+\fB\-v\fR, \fB\-\-version\fR
+.PD
+Display version information and exit.
+.IP
+
+.SH "OUTPUT FIELDS"
+.LP
+Key fields displayed when querying job information:
+
+.TP
+\fBTASKID\fR
+Job identifier (unique number).
+.IP
+
+.TP
+\fBTASKNAME\fR
+Job name (specified via \-J or --job-name).
+.IP
+
+.TP
+\fBPARTITION\fR
+Partition/queue the job belongs to.
+.IP
+
+.TP
+\fBACCOUNT\fR
+Account associated with the job (for resource tracking).
+.IP
+
+.TP
+\fBALLOCCPU\fR
+Number of CPU cores allocated to the job.
+.IP
+
+.TP
+\fBSTATE\fR
+Job status (pending, running, completed, etc.).
+.IP
+
+.TP
+\fBEXITCODE\fR
+Job exit status code (non-zero indicates failure).
+.IP
+
+.TP
+\fBSUBMITTIME\fR
+Job submission timestamp.
+.IP
+
+.TP
+\fBSTARTTIME\fR
+Job start timestamp (for running/completed jobs).
+.IP
+
+.TP
+\fBENDTIME\fR
+Job completion timestamp (for completed jobs).
+.IP
+
+.TP
+\fBNODES\fR
+Number of nodes allocated to the job.
+.IP
+
+.TP
+\fBNODELIST\fR
+List of nodes running the job (e.g., crane01[1-3]).
+.IP
+
+.SH "EXAMPLES"
+.LP
+
+.TP
+Query all jobs with default limit:
+.IP
+.nf
+$ cacct
+.fi
+
+.TP
+Show failed jobs in the GPU partition:
+.IP
+.nf
+$ cacct -p GPU -t f
+.fi
+
+.TP
+Query jobs submitted by user 'john' in May 2025:
+.IP
+.nf
+$ cacct -u john -s="2025-05-01T00:00:00~2025-06-01T00:00:00"
+.fi
+
+.TP
+Get JSON output for job 1024:
+.IP
+.nf
+$ cacct -j 1024 --json
+.fi
+
+.SH "EXIT STATUS"
+.LP
+Returns 0 on success, non-zero on errors (e.g., invalid parameters, query failure).
+
+.SH "SEE ALSO"
+.LP
+\fBcqueue\fR(1), \fBsacct\fR(1), \fBcbatch\fR(1), \fBccancel\fR(1)
+
+.SH "COPYRIGHT"
+.LP
+Copyright (C) 2025 Your Organization.
+This manual page is distributed under the GNU General Public License.
