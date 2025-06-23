@@ -1,0 +1,115 @@
+.TH ceff "1" "Crane Commands" "2025" "ceff Manual"
+
+.SH "NAME"
+.LP
+ceff \- Display real-time status during job execution.
+
+.SH "SYNOPSIS"
+.LP
+ceff [\fIoptions\fP]
+
+.SH "DESCRIPTION"
+.LP
+ceff displays real-time status information during job execution, providing dynamic metrics for jobs running in the cluster. 
+It shows up-to-date information on job status, resource utilization, and efficiency metrics, helping users monitor job performance and resource consumption.
+
+.SH "OPTIONS"
+.LP
+
+.TP
+\fB\-h\fR, \fB\-\-help\fR
+.PD
+Display help information and exit.
+.IP
+
+.TP
+\fB\-C\fR, \fB\-\-config\fR <\fIstring\fR>
+.PD
+Configuration file path (default: "/etc/crane/config.yaml").
+.IP
+
+.TP
+\fB\-\-json\fR
+.PD
+Output task information in JSON format as returned by the backend (for programmatic use).
+.IP
+
+.TP
+\fB\-v\fR, \fB\-\-version\fR
+.PD
+Display the version of ceff and exit.
+.IP
+
+.SH "MAIN OUTPUT ITEMS"
+.LP
+Key fields displayed when querying job status:
+
+.TP
+\fBJobId\fR
+Job unique identifier.
+.IP
+
+.TP
+\fBQos\fR
+Cluster name where the job is running.
+.IP
+
+.TP
+\fBUser/Group\fR
+User and user group who submitted the job.
+.IP
+
+.TP
+\fBAccount\fR
+Account name associated with the job.
+.IP
+
+.TP
+\fBState\fR
+Current job status (e.g., COMPLETED, FAILED, CANCELLED, etc.).
+.IP
+
+.TP
+\fBCores\fR
+Number of CPU cores used by the job.
+.IP
+
+.TP
+\fBNodes\fR
+Number of nodes allocated to the job.
+.IP
+
+.TP
+\fBCores per node\fR
+Number of cores allocated to each node.
+.IP
+
+.TP
+\fBCPU Utilized\fR
+Actual CPU time used by the job.
+.IP
+
+.TP
+\fBCPU Efficiency\fR
+CPU usage efficiency, expressed as the percentage of actual CPU time used relative to the allocated core wall time.
+.IP
+
+.TP
+\fBJob Wall-clock time\fR
+Total elapsed time from job start to end.
+.IP
+
+.TP
+\fBMemory Utilized\fR
+Actual memory amount used by the job.
+.IP
+
+.TP
+\fBMemory Efficiency\fR
+Memory usage efficiency, expressed as the percentage of actual memory used relative to the allocated memory.
+.IP
+
+
+.SH "SEE ALSO"
+.LP
+\fBcacct\fR(1), \fBcqueue\fR(1), \fBcrun\fR(1)
